@@ -50,6 +50,30 @@
     <Compile Include="FormBackDown.Designer.cs">
       <DependentUpon>FormBackDown.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogs.Designer.cs">
+      <DependentUpon>FormLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManageBackups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManageBackups.Designer.cs">
+      <DependentUpon>FormManageBackups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManageCliTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManageCliTools.Designer.cs">
+      <DependentUpon>FormManageCliTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecover.Designer.cs">
+      <DependentUpon>FormRecover.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBackDown.resx">
