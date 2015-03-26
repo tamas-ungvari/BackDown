@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormRecover
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "FormRecover";
+            this.ClientSize = new System.Drawing.Size(366, 261);
+            this.Name = "FormRecover";
+            this.Text = "Helyreállítás";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

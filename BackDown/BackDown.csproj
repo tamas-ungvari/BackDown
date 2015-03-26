@@ -79,6 +79,18 @@
     <EmbeddedResource Include="FormBackDown.resx">
       <DependentUpon>FormBackDown.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLogs.resx">
+      <DependentUpon>FormLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormManageBackups.resx">
+      <DependentUpon>FormManageBackups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormManageCliTools.resx">
+      <DependentUpon>FormManageCliTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecover.resx">
+      <DependentUpon>FormRecover.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
