@@ -16,5 +16,20 @@ namespace BackDown
         {
             InitializeComponent();
         }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
