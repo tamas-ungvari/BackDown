@@ -12,11 +12,19 @@ namespace BackDown
 {
     public partial class CliToolForm : Form
     {
-        private CliTool cliTool = new CliTool();
 
-        public CliTool CliTool { 
-            get { return cliTool; }
-            set { cliTool = value; } 
+        private BindingSource bindingSource;
+
+        public BindingSource BindingSource
+        {
+            get { return bindingSource; }
+            set { 
+                bindingSource = value;
+                textBoxCliToolName.DataBindings.Add("Text", bindingSource, "name");
+                textBoxBackupCommand.DataBindings.Add("Text", bindingSource, "backupCommand");
+                textBoxIncrementalBackupCommand.DataBindings.Add("Text", bindingSource, "incrementalBackupCommand");
+                textBoxRestoreCommand.DataBindings.Add("Text", bindingSource, "restoreCommand");
+            }
         }
 
         public CliToolForm()
@@ -38,12 +46,8 @@ namespace BackDown
             }
             else
             {
-                cliTool.Name = textBoxCliToolName.Text;
-                cliTool.BackupCommand = textBoxBackupCommand.Text;
-                cliTool.IncrementalBackupEnabled = !incrementalBackupCommandEmpty;
-                cliTool.IncrementalBackupCommand = textBoxIncrementalBackupCommand.Text;
-                cliTool.RestoreCommand = textBoxRestoreCommand.Text;
-            } 
+                (bindingSource.Current as CliTool).IncrementalBackupEnabled = !incrementalBackupCommandEmpty;
+            }
         }
     }
 }

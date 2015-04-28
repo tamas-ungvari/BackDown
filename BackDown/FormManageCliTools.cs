@@ -20,36 +20,47 @@ namespace BackDown
         private void buttonNew_Click(object sender, EventArgs e)
         {
             CliToolForm cliToolForm = new CliToolForm();
-            if (DialogResult.OK == cliToolForm.ShowDialog())
+            cliToolForm.BindingSource = bindingSourceCliTools;
+            bindingSourceCliTools.AddNew();
+            if (DialogResult.OK != cliToolForm.ShowDialog())
             {
-                listBoxCliTools.Items.Add(cliToolForm.CliTool);
+                bindingSourceCliTools.CancelEdit();
+            }
+            else
+            {
+                dataGridViewCliTools.Refresh();
             }
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            CliTool selected = (CliTool)listBoxCliTools.SelectedItem;
-
             CliToolForm cliToolForm = new CliToolForm();
-            cliToolForm.CliTool = selected;
+            cliToolForm.BindingSource = bindingSourceCliTools;
 
+            CliTool selected = bindingSourceCliTools.Current as CliTool;
             cliToolForm.Text = string.Format("{0} parancssori eszköz szerkesztése", selected.Name);
             if (DialogResult.OK == cliToolForm.ShowDialog())
             {
-                listBoxCliTools.SelectedItem = cliToolForm.CliTool;
+                dataGridViewCliTools.Refresh();
             }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            listBoxCliTools.Items.RemoveAt(listBoxCliTools.SelectedIndex);
+            bindingSourceCliTools.RemoveCurrent();
         }
 
-        private void listBoxCliTools_SelectedIndexChanged(object sender, EventArgs e)
+        private void dataGridViewCliTools_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            bool enabled = listBoxCliTools.SelectedItem != null;
-            buttonEdit.Enabled = enabled;
-            buttonDelete.Enabled = enabled;
+            buttonEdit.Enabled = true;
+            buttonDelete.Enabled = true;
         }
+
+        private void dataGridViewCliTools_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            buttonEdit.Enabled = false;
+            buttonDelete.Enabled = false;
+        }
+
     }
 }
