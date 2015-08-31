@@ -34,19 +34,59 @@ namespace BackDown
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            bool nameIsEmpty = string.IsNullOrEmpty(textBoxCliToolName.Text);
-            bool backupCommandIsEmpty = string.IsNullOrEmpty(textBoxBackupCommand.Text);
-            bool restoreCommandIsEmpty = string.IsNullOrEmpty(textBoxRestoreCommand.Text);
+
             bool incrementalBackupCommandEmpty = string.IsNullOrEmpty(textBoxIncrementalBackupCommand.Text);
-            if (nameIsEmpty || backupCommandIsEmpty || restoreCommandIsEmpty)
+            
+            if (ValidateChildren())
             {
-                MessageBox.Show("Hiányzó név, mentés vagy helyreállítás parancs", 
-                    "Figyelmeztetés", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                DialogResult = DialogResult.None;
+                (bindingSource.Current as CliTool).IncrementalBackupEnabled = !incrementalBackupCommandEmpty;
             }
             else
             {
-                (bindingSource.Current as CliTool).IncrementalBackupEnabled = !incrementalBackupCommandEmpty;
+                DialogResult = DialogResult.None;
+            }
+
+        }
+
+        private void textBoxBackupCommand_Validating(object sender, CancelEventArgs e)
+        {
+            e.Cancel = string.IsNullOrEmpty(textBoxBackupCommand.Text);
+            if (e.Cancel)
+            {
+                textBoxBackupCommand.Focus();
+                groupBoxBackup.ForeColor = Color.Red;
+            }
+            else
+            {
+                groupBoxBackup.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxCliToolName_Validating(object sender, CancelEventArgs e)
+        {
+            e.Cancel = string.IsNullOrEmpty(textBoxCliToolName.Text);
+            if (e.Cancel)
+            {
+                textBoxCliToolName.Focus();
+                labelCliToolName.ForeColor = Color.Red;
+            }
+            else 
+            {
+                labelCliToolName.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxRestoreCommand_Validating(object sender, CancelEventArgs e)
+        {
+            e.Cancel = string.IsNullOrEmpty(textBoxRestoreCommand.Text);
+            if (e.Cancel)
+            {
+                textBoxRestoreCommand.Focus();
+                groupBoxRestore.ForeColor = Color.Red;
+            }
+            else
+            {
+                groupBoxRestore.ForeColor = Color.Black;
             }
         }
     }

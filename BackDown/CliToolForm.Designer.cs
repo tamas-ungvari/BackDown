@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBoxBackup = new System.Windows.Forms.GroupBox();
             this.textBoxBackupCommand = new System.Windows.Forms.TextBox();
             this.groupBoxRestore = new System.Windows.Forms.GroupBox();
             this.textBoxRestoreCommand = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelCliToolName = new System.Windows.Forms.Label();
             this.textBoxCliToolName = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
@@ -40,10 +41,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxIncrementalBackup = new System.Windows.Forms.GroupBox();
             this.textBoxIncrementalBackupCommand = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxBackup.SuspendLayout();
             this.groupBoxRestore.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxIncrementalBackup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxBackup
@@ -63,6 +66,7 @@
             this.textBoxBackupCommand.Name = "textBoxBackupCommand";
             this.textBoxBackupCommand.Size = new System.Drawing.Size(577, 77);
             this.textBoxBackupCommand.TabIndex = 1;
+            this.textBoxBackupCommand.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxBackupCommand_Validating);
             // 
             // groupBoxRestore
             // 
@@ -81,15 +85,16 @@
             this.textBoxRestoreCommand.Name = "textBoxRestoreCommand";
             this.textBoxRestoreCommand.Size = new System.Drawing.Size(577, 78);
             this.textBoxRestoreCommand.TabIndex = 3;
+            this.textBoxRestoreCommand.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRestoreCommand_Validating);
             // 
-            // label2
+            // labelCliToolName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Név";
+            this.labelCliToolName.AutoSize = true;
+            this.labelCliToolName.Location = new System.Drawing.Point(6, 18);
+            this.labelCliToolName.Name = "labelCliToolName";
+            this.labelCliToolName.Size = new System.Drawing.Size(27, 13);
+            this.labelCliToolName.TabIndex = 2;
+            this.labelCliToolName.Text = "Név";
             // 
             // textBoxCliToolName
             // 
@@ -97,6 +102,7 @@
             this.textBoxCliToolName.Name = "textBoxCliToolName";
             this.textBoxCliToolName.Size = new System.Drawing.Size(180, 20);
             this.textBoxCliToolName.TabIndex = 3;
+            this.textBoxCliToolName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCliToolName_Validating);
             // 
             // buttonSave
             // 
@@ -131,7 +137,7 @@
             // 
             this.groupBox1.Controls.Add(this.textBoxCliToolName);
             this.groupBox1.Controls.Add(this.buttonExport);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.labelCliToolName);
             this.groupBox1.Controls.Add(this.buttonImport);
             this.groupBox1.Controls.Add(this.buttonSave);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -158,6 +164,10 @@
             this.textBoxIncrementalBackupCommand.Size = new System.Drawing.Size(574, 77);
             this.textBoxIncrementalBackupCommand.TabIndex = 1;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // CliToolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,6 +188,7 @@
             this.groupBox1.PerformLayout();
             this.groupBoxIncrementalBackup.ResumeLayout(false);
             this.groupBoxIncrementalBackup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -188,7 +199,7 @@
         private System.Windows.Forms.GroupBox groupBoxRestore;
         private System.Windows.Forms.TextBox textBoxBackupCommand;
         private System.Windows.Forms.TextBox textBoxRestoreCommand;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelCliToolName;
         private System.Windows.Forms.TextBox textBoxCliToolName;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonImport;
@@ -196,5 +207,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBoxIncrementalBackup;
         private System.Windows.Forms.TextBox textBoxIncrementalBackupCommand;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
