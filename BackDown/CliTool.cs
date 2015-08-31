@@ -1,56 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BackDown
 {
+    [DataContract]
     public class CliTool
     {
+        [DataMember]
+        public string Name { get; set; }
 
-        string name;
+        [DataMember]
+        public string BackupCommand { get; set; }
 
-        public string Name {
-            get { return name; }
-            set { name = value; }
-        }
+        [DataMember]
+        public string RestoreCommand { get; set; }
 
-        string backupCommand;
+        [DataMember]
+        public string IncrementalBackupCommand { get; set; }
 
-        public string BackupCommand
-        {
-            get { return backupCommand; }
-            set { backupCommand = value; }
-        }
-
-        string restoreCommand;
-
-        public string RestoreCommand
-        {
-            get { return restoreCommand; }
-            set { restoreCommand = value; }
-        }
-
-        string incrementalBackupCommand;
-
-        public string IncrementalBackupCommand
-        {
-            get { return incrementalBackupCommand; }
-            set { incrementalBackupCommand = value; }
-        }
-
-        bool incrementalBackupEnabled;
-
-        public bool IncrementalBackupEnabled
-        {
-            get { return incrementalBackupEnabled; }
-            set { incrementalBackupEnabled = value; }
-        }
+        [DataMember]
+        public bool IncrementalBackupEnabled { get; set; }
 
         public override string ToString()
         {
-            return String.Format("{0}, inkrementális: {1}", name, incrementalBackupEnabled ? "igen" : "nem");
+            return String.Format("{0}, inkrementális: {1}", Name, IncrementalBackupEnabled ? "igen" : "nem");
         }
 
     }
