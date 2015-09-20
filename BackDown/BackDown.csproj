@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SettingsManager.cs" />
     <Compile Include="CliTool.cs" />
     <Compile Include="FormBackDown.cs">
       <SubType>Form</SubType>
