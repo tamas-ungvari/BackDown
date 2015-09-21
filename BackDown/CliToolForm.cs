@@ -34,7 +34,7 @@ namespace BackDown
             }
         }
 
-        private DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(CliTool));
+        private CliToolsDao cliToolsDao = CliToolsDao.Instance;
 
         public CliToolForm()
         {
@@ -133,11 +133,6 @@ namespace BackDown
 
         }
 
-        private void buttonImport_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonExport_Click(object sender, EventArgs e)
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -147,10 +142,7 @@ namespace BackDown
                     Stream stream;
                     if ((stream = saveFileDialog.OpenFile()) != null)
                     {
-                        using (stream)
-                        {
-                            serializer.WriteObject(stream, bindingSource.Current);
-                        }
+                        cliToolsDao.WriteToStream(stream, bindingSource.Current as CliTool);
                     }
                 }
                 catch (Exception)

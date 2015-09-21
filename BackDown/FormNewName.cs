@@ -23,12 +23,12 @@ namespace BackDown
             if (e.Cancel)
             {
                 nameTextBox.Focus();
-                label1.ForeColor = Color.Red;
+                nameLabel.ForeColor = Color.Red;
                 MessageBox.Show("Az új név nem lehet üres.");
             }
             else
             {
-                label1.ForeColor = Color.Black;
+                nameLabel.ForeColor = Color.Black;
             }
         }
     }

@@ -15,45 +15,16 @@ namespace BackDown
 {
     public partial class FormManageCliTools : Form
     {
-
-        private DataContractJsonSerializer listSerializer = new DataContractJsonSerializer(typeof(List<CliTool>));
-        private DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(CliTool));
+        private CliToolsDao cliToolsDao = CliToolsDao.Instance;
 
         public FormManageCliTools()
         {
             InitializeComponent();
-            List<CliTool> cliTools = new List<CliTool>();
-            bindingSourceCliTools.DataSource = cliTools;
-            LoadCliToolsFromFile();
+            bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
+            dataGridViewCliTools.Refresh();
             string fileFilterText = "JSON files (.json)|*.json";
             openFileDialog.Filter = fileFilterText;
             openFileDialog.RestoreDirectory = true;
-        }
-
-        private void LoadCliToolsFromFile()
-        {
-            string fileName = Settings.Default.CLI_TOOLS_FILE;
-            if (!File.Exists(fileName))
-            {
-                return;
-            }
-            using (Stream stream = new FileStream(fileName, FileMode.Open))
-            {
-                List<CliTool> cliTools = listSerializer.ReadObject(stream) as List<CliTool>;
-                bindingSourceCliTools.DataSource = cliTools;
-                dataGridViewCliTools.Refresh();
-            }
-        }
-
-        private void SaveCliToolsToFile()
-        {
-            CheckNameUnique();
-
-            string fileName = Settings.Default.CLI_TOOLS_FILE;
-            using (Stream stream = new FileStream(fileName, FileMode.Create))
-            {
-                listSerializer.WriteObject(stream, bindingSourceCliTools.DataSource as List<CliTool>);
-            }
         }
 
         private void CheckNameUnique()
@@ -94,8 +65,9 @@ namespace BackDown
             }
             else
             {
+                CheckNameUnique();
+                cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
                 dataGridViewCliTools.Refresh();
-                SaveCliToolsToFile();
             }
         }
 
@@ -108,15 +80,17 @@ namespace BackDown
             cliToolForm.Text = string.Format("{0} parancssori eszköz szerkesztése", selected.Name);
             if (DialogResult.OK == cliToolForm.ShowDialog())
             {
+                CheckNameUnique();
+                cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
                 dataGridViewCliTools.Refresh();
-                SaveCliToolsToFile();
             }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             bindingSourceCliTools.RemoveCurrent();
-            SaveCliToolsToFile();
+            dataGridViewCliTools.Refresh();
+            cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
         }
 
         private void dataGridViewCliTools_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -140,12 +114,12 @@ namespace BackDown
                     Stream stream;
                     if ((stream = openFileDialog.OpenFile()) != null)
                     {
-                        using (stream)
-                        {
-                            bindingSourceCliTools.Add(serializer.ReadObject(stream));
-                            bindingSourceCliTools.Position = bindingSourceCliTools.Count - 1;
-                            SaveCliToolsToFile();
-                        }
+                       
+                        bindingSourceCliTools.Add(cliToolsDao.LoadFromStream(stream));
+                        bindingSourceCliTools.Position = bindingSourceCliTools.Count - 1;
+                        dataGridViewCliTools.Refresh();
+                        CheckNameUnique();
+                        cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
                     }
                 }
                 catch (Exception)
