@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace BackDown
+{
+    public partial class FormNewName : Form
+    {
+        public FormNewName()
+        {
+            InitializeComponent();
+        }
+
+        private void nameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            e.Cancel = string.IsNullOrEmpty(nameTextBox.Text);
+            if (e.Cancel)
+            {
+                nameTextBox.Focus();
+                label1.ForeColor = Color.Red;
+                MessageBox.Show("Az új név nem lehet üres.");
+            }
+            else
+            {
+                label1.ForeColor = Color.Black;
+            }
+        }
+    }
+}

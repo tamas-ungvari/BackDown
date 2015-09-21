@@ -2,16 +2,23 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+using BackDown.Properties;
 
 namespace BackDown
 {
     public partial class CliToolForm : Form
     {
+        string sourcePlaceholder = Settings.Default.SOURCE_PLACEHOLDER;
+        string targetPlaceholder = Settings.Default.TARGET_PLACEHOLDER;
 
         private BindingSource bindingSource;
 
@@ -27,9 +34,16 @@ namespace BackDown
             }
         }
 
+        private DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(CliTool));
+
         public CliToolForm()
         {
             InitializeComponent();
+            sourcePlaceholderLabel.Text += sourcePlaceholder;
+            targetPlaceholderLabel.Text += targetPlaceholder;
+            string fileFilterText = "JSON files (.json)|*.json";
+            saveFileDialog.Filter = fileFilterText;
+            saveFileDialog.RestoreDirectory = true;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -50,16 +64,23 @@ namespace BackDown
 
         private void textBoxBackupCommand_Validating(object sender, CancelEventArgs e)
         {
-            e.Cancel = string.IsNullOrEmpty(textBoxBackupCommand.Text);
+            bool containsSourceAndTarget = ContainsSourceAndTarget(textBoxBackupCommand.Text);
+            e.Cancel = string.IsNullOrEmpty(textBoxBackupCommand.Text) || !containsSourceAndTarget;
             if (e.Cancel)
             {
                 textBoxBackupCommand.Focus();
                 groupBoxBackup.ForeColor = Color.Red;
+                MessageBox.Show("A mentés parancs nem lehet üres és tartalmaznia kell a forrás és cél referenciákat.");
             }
             else
             {
                 groupBoxBackup.ForeColor = Color.Black;
             }
+        }
+
+        private bool ContainsSourceAndTarget(string text)
+        {
+            return text.Contains(sourcePlaceholder) && text.Contains(targetPlaceholder);
         }
 
         private void textBoxCliToolName_Validating(object sender, CancelEventArgs e)
@@ -69,6 +90,7 @@ namespace BackDown
             {
                 textBoxCliToolName.Focus();
                 labelCliToolName.ForeColor = Color.Red;
+                MessageBox.Show("Az eszköz neve nem lehet üres");
             }
             else 
             {
@@ -78,15 +100,63 @@ namespace BackDown
 
         private void textBoxRestoreCommand_Validating(object sender, CancelEventArgs e)
         {
-            e.Cancel = string.IsNullOrEmpty(textBoxRestoreCommand.Text);
+            bool containsSourceAndTarget = ContainsSourceAndTarget(textBoxRestoreCommand.Text);
+            e.Cancel = string.IsNullOrEmpty(textBoxRestoreCommand.Text) || !containsSourceAndTarget;
             if (e.Cancel)
             {
                 textBoxRestoreCommand.Focus();
                 groupBoxRestore.ForeColor = Color.Red;
+                MessageBox.Show("A helyreállítás parancs nem lehet üres és tartalmaznia kell a forrás és cél referenciákat.");
             }
             else
             {
                 groupBoxRestore.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxIncrementalBackupCommand_Validating(object sender, CancelEventArgs e)
+        {
+            if (textBoxIncrementalBackupCommand.Text.Length > 0)
+            {
+                e.Cancel = !ContainsSourceAndTarget(textBoxIncrementalBackupCommand.Text);
+            }
+            if (e.Cancel)
+            {
+                textBoxIncrementalBackupCommand.Focus();
+                groupBoxIncrementalBackup.ForeColor = Color.Red;
+                MessageBox.Show("Az inkrementális mentés parancs ha nem üres, tartalmaznia kell a forrás és cél referenciákat.");
+            }
+            else
+            {
+                groupBoxIncrementalBackup.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Stream stream;
+                    if ((stream = saveFileDialog.OpenFile()) != null)
+                    {
+                        using (stream)
+                        {
+                            serializer.WriteObject(stream, bindingSource.Current);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Az import fájl nem írható.");
+                }
             }
         }
     }

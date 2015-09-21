@@ -5,5 +5,11 @@
     <Setting Name="CLI_TOOLS_FILE" Type="System.String" Scope="User">
       <Value Profile="(Default)">cli-tools.json</Value>
     </Setting>
+    <Setting Name="TARGET_PLACEHOLDER" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$cel</Value>
+    </Setting>
+    <Setting Name="SOURCE_PLACEHOLDER" Type="System.String" Scope="User">
+      <Value Profile="(Default)">$forras</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

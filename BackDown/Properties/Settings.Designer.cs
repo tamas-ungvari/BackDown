@@ -34,5 +34,29 @@ namespace BackDown.Properties {
                 this["CLI_TOOLS_FILE"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("$cel")]
+        public string TARGET_PLACEHOLDER {
+            get {
+                return ((string)(this["TARGET_PLACEHOLDER"]));
+            }
+            set {
+                this["TARGET_PLACEHOLDER"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("$forras")]
+        public string SOURCE_PLACEHOLDER {
+            get {
+                return ((string)(this["SOURCE_PLACEHOLDER"]));
+            }
+            set {
+                this["SOURCE_PLACEHOLDER"] = value;
+            }
+        }
     }
 }
