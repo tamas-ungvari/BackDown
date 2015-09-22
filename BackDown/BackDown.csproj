@@ -60,8 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backup.cs" />
-    <Compile Include="CliToolsDao.cs" />
+    <Compile Include="BackupSettings.cs" />
+    <Compile Include="BackupSettingsDao.cs" />
+    <Compile Include="CliToolDao.cs" />
     <Compile Include="NewNameForm.cs">
       <SubType>Form</SubType>
     </Compile>

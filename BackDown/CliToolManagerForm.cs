@@ -15,7 +15,7 @@ namespace BackDown
 {
     public partial class CliToolManagerForm : Form
     {
-        private CliToolsDao cliToolsDao = CliToolsDao.Instance;
+        private CliToolDao cliToolsDao = CliToolDao.Instance;
 
         public CliToolManagerForm()
         {

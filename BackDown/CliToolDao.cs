@@ -11,16 +11,16 @@ using BackDown.Properties;
 
 namespace BackDown
 {
-    public class CliToolsDao
+    public class CliToolDao
     {
-        private static CliToolsDao _instance;
+        private static CliToolDao _instance;
         
-        public static CliToolsDao Instance {
+        public static CliToolDao Instance {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new CliToolsDao();
+                    _instance = new CliToolDao();
                 }
                 return _instance;
             }
@@ -29,7 +29,7 @@ namespace BackDown
         private DataContractJsonSerializer listSerializer = new DataContractJsonSerializer(typeof(List<CliTool>));
         private DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(CliTool));
 
-        private CliToolsDao() {}
+        private CliToolDao() {}
 
         public List<CliTool> LoadListFromFile()
         {
@@ -40,7 +40,8 @@ namespace BackDown
             }
             using (Stream stream = new FileStream(fileName, FileMode.Open))
             {
-                return listSerializer.ReadObject(stream) as List<CliTool>;
+                List<CliTool> list = listSerializer.ReadObject(stream) as List<CliTool>;
+                return list ?? new List<CliTool>();
             }
         }
 

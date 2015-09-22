@@ -34,7 +34,7 @@ namespace BackDown
             }
         }
 
-        private CliToolsDao cliToolsDao = CliToolsDao.Instance;
+        private CliToolDao cliToolsDao = CliToolDao.Instance;
 
         public CliToolForm()
         {

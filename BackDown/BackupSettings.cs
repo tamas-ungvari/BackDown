@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BackDown
 {
     [DataContract]
-    public class Backup
+    public class BackupSettings
     {
         [DataMember]
         public string Name { get; set; }
@@ -19,10 +19,10 @@ namespace BackDown
         [DataMember]
         public string Target { get; set; }
 
-        public CliTool CliTool { get; set; }
-
         [DataMember]
         public bool Incremental { get; set; }
+
+        public CliTool CliTool { get; set; }
 
         public List<Journal> Journals { get; set; } 
     }

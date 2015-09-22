@@ -58,5 +58,17 @@ namespace BackDown.Properties {
                 this["SOURCE_PLACEHOLDER"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("backup-settings.json")]
+        public string BACKUP_SETTINGS_FILE {
+            get {
+                return ((string)(this["BACKUP_SETTINGS_FILE"]));
+            }
+            set {
+                this["BACKUP_SETTINGS_FILE"] = value;
+            }
+        }
     }
 }

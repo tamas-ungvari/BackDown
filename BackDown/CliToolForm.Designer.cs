@@ -57,7 +57,7 @@
             this.groupBoxBackup.Location = new System.Drawing.Point(12, 99);
             this.groupBoxBackup.Name = "groupBoxBackup";
             this.groupBoxBackup.Size = new System.Drawing.Size(589, 106);
-            this.groupBoxBackup.TabIndex = 0;
+            this.groupBoxBackup.TabIndex = 1;
             this.groupBoxBackup.TabStop = false;
             this.groupBoxBackup.Text = "Mentés parancs";
             // 
@@ -76,7 +76,7 @@
             this.groupBoxRestore.Location = new System.Drawing.Point(12, 323);
             this.groupBoxRestore.Name = "groupBoxRestore";
             this.groupBoxRestore.Size = new System.Drawing.Size(589, 108);
-            this.groupBoxRestore.TabIndex = 1;
+            this.groupBoxRestore.TabIndex = 3;
             this.groupBoxRestore.TabStop = false;
             this.groupBoxRestore.Text = "Helyreállítás parancs";
             // 
@@ -136,7 +136,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(589, 44);
-            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // groupBoxIncrementalBackup

@@ -8,7 +8,7 @@ namespace BackDown
     {
         public string JournalFile { get; set; }
 
-        public Backup Backup { get; set; }
+        public BackupSettings Backup { get; set; }
 
         [DataMember]
         public DateTime BackupDateTime { get; set; }
