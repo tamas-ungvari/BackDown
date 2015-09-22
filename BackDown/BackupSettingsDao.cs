@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using BackDown.Properties;
@@ -25,7 +25,7 @@ namespace BackDown
             }
         }
 
-        private DataContractSerializer listSerializer = new DataContractSerializer(typeof(List<BackupSettings>));
+        private DataContractJsonSerializer listSerializer = new DataContractJsonSerializer(typeof(List<BackupSettings>));
 
         private BackupSettingsDao()
         {
@@ -34,9 +34,16 @@ namespace BackDown
         public List<BackupSettings> LoadBackupSettingsList()
         {
             string backupSettingsFile = Settings.Default.BACKUP_SETTINGS_FILE;
-            using (Stream stream = new FileStream(backupSettingsFile, FileMode.Open))
+            try
             {
-                return listSerializer.ReadObject(stream) as List<BackupSettings> ?? new List<BackupSettings>();
+                using (Stream stream = new FileStream(backupSettingsFile, FileMode.Open))
+                {
+                    return listSerializer.ReadObject(stream) as List<BackupSettings> ?? new List<BackupSettings>();
+                }
+            }
+            catch (Exception)
+            {
+                return new List<BackupSettings>();
             }
         }
 

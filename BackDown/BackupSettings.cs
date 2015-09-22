@@ -24,6 +24,22 @@ namespace BackDown
 
         public CliTool CliTool { get; set; }
 
-        public List<Journal> Journals { get; set; } 
+        [DataMember]
+        public string CliToolName
+        {
+            get { return CliTool.Name; }
+            set
+            {
+                List<CliTool> list = CliToolDao.Instance.LoadListFromFile();
+                foreach (CliTool tool in list)
+                {
+                    if (tool.Name.Equals(value))
+                    {
+                        CliTool = tool;
+                    }
+                }
+            }
+        }
+
     }
 }

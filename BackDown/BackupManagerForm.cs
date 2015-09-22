@@ -14,8 +14,8 @@ namespace BackDown
 {
     public partial class BackupManagerForm : Form
     {
-        CliToolDao cliToolsDao = CliToolDao.Instance;
-        BackupSettingsDao backupSettingsDao = BackupSettingsDao.Instance;
+        readonly CliToolDao cliToolsDao = CliToolDao.Instance;
+        readonly BackupSettingsDao backupSettingsDao = BackupSettingsDao.Instance;
 
         public BackupManagerForm()
         {
@@ -23,13 +23,23 @@ namespace BackDown
             cliToolComboBox.DataSource = cliToolsDao.LoadListFromFile();
             cliToolComboBox.DisplayMember = "Name";
             backupSettingsBindingSource.DataSource = backupSettingsDao.LoadBackupSettingsList();
+            backupSettingsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            backupSettingsDataGridView.AutoResizeColumns();
         }
 
         private void cliToolComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             CliTool cliTool = cliToolComboBox.SelectedItem as CliTool;
-            incrementalCheckBox.Enabled = cliTool.IncrementalBackupEnabled;
-            incrementalCheckBox.Checked &= cliTool.IncrementalBackupEnabled;
+            if (cliTool == null)
+            {
+                incrementalCheckBox.Enabled = false;
+                incrementalCheckBox.Checked = false;
+            }
+            else
+            {
+                incrementalCheckBox.Enabled = cliTool.IncrementalBackupEnabled;
+                incrementalCheckBox.Checked &= cliTool.IncrementalBackupEnabled;
+            }
         }
 
         private void browseSourceButton_Click(object sender, EventArgs e)
@@ -37,6 +47,8 @@ namespace BackDown
             if (DialogResult.OK == sourceFolderBrowserDialog.ShowDialog(this))
             {
                 sourceTextBox.Text = sourceFolderBrowserDialog.SelectedPath;
+                sourceTextBox.Focus();
+                sourceLabel.ForeColor = Color.Green;
             }
         }
 
@@ -45,6 +57,8 @@ namespace BackDown
             if (DialogResult.OK == targetFolderBrowserDialog.ShowDialog(this))
             {
                 targetTextBox.Text = targetFolderBrowserDialog.SelectedPath;
+                targetTextBox.Focus();
+                targetLabel.ForeColor = Color.Green;
             }
         }
 
@@ -151,48 +165,49 @@ namespace BackDown
                 }
             }            
 
-            saveAsNameLabel.ForeColor = Color.Black;
             SaveBackupSettings();
-        }
-
-        private void CheckNameUnique()
-        {
-            BackupSettings current = backupSettingsBindingSource.Current as BackupSettings;
-            foreach (BackupSettings backupSettings in backupSettingsBindingSource.List)
-            {
-                if (backupSettings != current && backupSettings.Name.Equals(current.Name))
-                {
-                    NewNameForm formNewName = new NewNameForm();
-                    formNewName.nameTextBox.Text = current.Name;
-                    DialogResult dialogResult = DialogResult.Cancel;
-                    while (backupSettings.Name.Equals(current.Name))
-                    {
-                        MessageBox.Show("Már létezik a rendszerben mentési beállítás a megadott névvel. Kérem adjon meg egy új nevet.");
-
-                        dialogResult = formNewName.ShowDialog(this);
-                        if (dialogResult == DialogResult.OK)
-                        {
-                            current.Name = formNewName.nameTextBox.Text;
-                        }
-                    }
-                    backupSettingsDataGridView.Refresh();
-                    CheckNameUnique();
-                    break;
-                }
-            }
         }
 
         private void SaveBackupSettings()
         {
             BackupSettings backupSettings = new BackupSettings();
+            backupSettings.CliTool = cliToolComboBox.SelectedItem as CliTool;
             backupSettings.Name = saveAsNameTextBox.Text;
+            backupSettings.Incremental = incrementalCheckBox.Checked;
             backupSettings.Source = sourceTextBox.Text;
             backupSettings.Target = targetTextBox.Text;
-            backupSettings.Incremental = incrementalCheckBox.Checked;
 
-            backupSettingsBindingSource.Add(backupSettings);
-            CheckNameUnique();
-            backupSettingsDao.SaveBackupSettingsList(backupSettingsBindingSource.DataSource as List<BackupSettings>);
+            bool edit = false;
+            List<BackupSettings> list = backupSettingsBindingSource.List as List<BackupSettings>;
+            foreach (BackupSettings settings in list)
+            {
+                if (settings.Name.Equals(backupSettings.Name))
+                {
+                    edit = true;
+                    settings.CliTool = backupSettings.CliTool;
+                    settings.Incremental = backupSettings.Incremental;
+                    settings.Source = backupSettings.Source;
+                    settings.Target = backupSettings.Target;
+                    break;
+                }
+            }
+
+            if (!edit)
+            {
+                backupSettingsBindingSource.Add(backupSettings);
+                backupSettingsDao.SaveBackupSettingsList(backupSettingsBindingSource.DataSource as List<BackupSettings>);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(this, "Biztos benne, hogy felül szeretné írni a korábbi beállítást?", 
+                    "Már létezik beállítás ezen a néven", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    backupSettingsDao.SaveBackupSettingsList(backupSettingsBindingSource.DataSource as List<BackupSettings>);
+                }
+            }
+
+            ResetLabelColors();
             backupSettingsDataGridView.Refresh();
         }
 
@@ -213,6 +228,60 @@ namespace BackDown
         {
             deleteBackupSettingsButton.Enabled = true;
             journalButton.Enabled = true;
+        }
+
+        private void newBackupSettingsButton_Click(object sender, EventArgs e)
+        {
+            cliToolComboBox.SelectedIndex = -1;
+            incrementalCheckBox.Checked = false;
+            sourceTextBox.Text = "";
+            targetTextBox.Text = "";
+            noteTextBox.Text = "";
+            saveAsNameTextBox.Text = "";
+        }
+
+        private void sourceTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            sourceLabel.ForeColor = Color.Green;
+        }
+
+        private void targetTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            targetLabel.ForeColor = Color.Green;
+        }
+
+        private void saveAsNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            saveAsNameLabel.ForeColor = Color.Green;
+        }
+
+        private void incrementalCheckBox_Click(object sender, EventArgs e)
+        {
+            incrementalCheckBox.ForeColor = Color.Green;
+        }
+
+        private void backupSettingsDataGridView_Enter(object sender, EventArgs e)
+        {
+            ResetLabelColors();
+        }
+
+        private void ResetLabelColors()
+        {
+            sourceLabel.ForeColor = SystemColors.ControlText;
+            targetLabel.ForeColor = SystemColors.ControlText;
+            saveAsNameLabel.ForeColor = SystemColors.ControlText;
+            incrementalCheckBox.ForeColor = SystemColors.ControlText;
+            toolLabel.ForeColor = SystemColors.ControlText;
+        }
+
+        private void backupSettingsBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            BackupSettings settings = backupSettingsBindingSource.Current as BackupSettings;
+            cliToolComboBox.SelectedItem = settings.CliTool;
+            incrementalCheckBox.Checked = settings.Incremental;
+            sourceTextBox.Text = settings.Source;
+            targetTextBox.Text = settings.Target;
+            saveAsNameTextBox.Text = settings.Name;
         }
     }
 }

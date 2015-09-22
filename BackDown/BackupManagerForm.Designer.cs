@@ -37,8 +37,8 @@
             this.saveBackupSettingsButton = new System.Windows.Forms.Button();
             this.saveAsNameTextBox = new System.Windows.Forms.TextBox();
             this.saveAsNameLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.targetLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.browseTargetButton = new System.Windows.Forms.Button();
             this.targetTextBox = new System.Windows.Forms.TextBox();
             this.sourceLabel = new System.Windows.Forms.Label();
@@ -49,6 +49,7 @@
             this.sourceFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.targetFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.newBackupSettingsButton = new System.Windows.Forms.Button();
             this.deleteBackupSettingsButton = new System.Windows.Forms.Button();
             this.journalButton = new System.Windows.Forms.Button();
             this.backupSettingsDataGridView = new System.Windows.Forms.DataGridView();
@@ -71,8 +72,8 @@
             this.quickBackupGroupBox.Controls.Add(this.startBackupButton);
             this.quickBackupGroupBox.Controls.Add(this.noteTextBox);
             this.quickBackupGroupBox.Controls.Add(this.groupBox1);
-            this.quickBackupGroupBox.Controls.Add(this.label4);
             this.quickBackupGroupBox.Controls.Add(this.targetLabel);
+            this.quickBackupGroupBox.Controls.Add(this.label4);
             this.quickBackupGroupBox.Controls.Add(this.browseTargetButton);
             this.quickBackupGroupBox.Controls.Add(this.targetTextBox);
             this.quickBackupGroupBox.Controls.Add(this.sourceLabel);
@@ -96,20 +97,22 @@
             this.incrementalCheckBox.TabIndex = 2;
             this.incrementalCheckBox.Text = "Inkrementális mentés";
             this.incrementalCheckBox.UseVisualStyleBackColor = true;
+            this.incrementalCheckBox.Click += new System.EventHandler(this.incrementalCheckBox_Click);
             // 
             // startBackupButton
             // 
-            this.startBackupButton.Location = new System.Drawing.Point(220, 202);
+            this.startBackupButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.startBackupButton.Location = new System.Drawing.Point(451, 189);
             this.startBackupButton.Name = "startBackupButton";
-            this.startBackupButton.Size = new System.Drawing.Size(136, 28);
+            this.startBackupButton.Size = new System.Drawing.Size(130, 30);
             this.startBackupButton.TabIndex = 10;
             this.startBackupButton.Text = "Mentés indítása";
-            this.startBackupButton.UseVisualStyleBackColor = true;
+            this.startBackupButton.UseVisualStyleBackColor = false;
             this.startBackupButton.Click += new System.EventHandler(this.startBackupButton_Click);
             // 
             // noteTextBox
             // 
-            this.noteTextBox.Location = new System.Drawing.Point(137, 121);
+            this.noteTextBox.Location = new System.Drawing.Point(137, 195);
             this.noteTextBox.Name = "noteTextBox";
             this.noteTextBox.Size = new System.Drawing.Size(308, 20);
             this.noteTextBox.TabIndex = 8;
@@ -119,7 +122,7 @@
             this.groupBox1.Controls.Add(this.saveBackupSettingsButton);
             this.groupBox1.Controls.Add(this.saveAsNameTextBox);
             this.groupBox1.Controls.Add(this.saveAsNameLabel);
-            this.groupBox1.Location = new System.Drawing.Point(6, 147);
+            this.groupBox1.Location = new System.Drawing.Point(6, 122);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(575, 49);
             this.groupBox1.TabIndex = 8;
@@ -132,7 +135,7 @@
             this.saveBackupSettingsButton.Name = "saveBackupSettingsButton";
             this.saveBackupSettingsButton.Size = new System.Drawing.Size(124, 23);
             this.saveBackupSettingsButton.TabIndex = 12;
-            this.saveBackupSettingsButton.Text = "Beállítás eltárolása";
+            this.saveBackupSettingsButton.Text = "Beállítás tárolása";
             this.saveBackupSettingsButton.UseVisualStyleBackColor = true;
             this.saveBackupSettingsButton.Click += new System.EventHandler(this.saveBackupSettingsButton_Click);
             // 
@@ -142,6 +145,7 @@
             this.saveAsNameTextBox.Name = "saveAsNameTextBox";
             this.saveAsNameTextBox.Size = new System.Drawing.Size(308, 20);
             this.saveAsNameTextBox.TabIndex = 10;
+            this.saveAsNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.saveAsNameTextBox_KeyPress);
             // 
             // saveAsNameLabel
             // 
@@ -152,15 +156,6 @@
             this.saveAsNameLabel.TabIndex = 11;
             this.saveAsNameLabel.Text = "Név";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Megjegyzés (opcionális)";
-            // 
             // targetLabel
             // 
             this.targetLabel.AutoSize = true;
@@ -169,6 +164,15 @@
             this.targetLabel.Size = new System.Drawing.Size(57, 13);
             this.targetLabel.TabIndex = 7;
             this.targetLabel.Text = "Cél mappa";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 198);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Megjegyzés (opcionális)";
             // 
             // browseTargetButton
             // 
@@ -186,6 +190,7 @@
             this.targetTextBox.Name = "targetTextBox";
             this.targetTextBox.Size = new System.Drawing.Size(308, 20);
             this.targetTextBox.TabIndex = 5;
+            this.targetTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.targetTextBox_KeyPress);
             // 
             // sourceLabel
             // 
@@ -212,6 +217,7 @@
             this.sourceTextBox.Name = "sourceTextBox";
             this.sourceTextBox.Size = new System.Drawing.Size(308, 20);
             this.sourceTextBox.TabIndex = 2;
+            this.sourceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sourceTextBox_KeyPress);
             // 
             // toolLabel
             // 
@@ -238,6 +244,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.newBackupSettingsButton);
             this.groupBox2.Controls.Add(this.deleteBackupSettingsButton);
             this.groupBox2.Controls.Add(this.journalButton);
             this.groupBox2.Controls.Add(this.backupSettingsDataGridView);
@@ -248,10 +255,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tárolt beállítások";
             // 
+            // newBackupSettingsButton
+            // 
+            this.newBackupSettingsButton.Location = new System.Drawing.Point(6, 19);
+            this.newBackupSettingsButton.Name = "newBackupSettingsButton";
+            this.newBackupSettingsButton.Size = new System.Drawing.Size(93, 23);
+            this.newBackupSettingsButton.TabIndex = 3;
+            this.newBackupSettingsButton.Text = "Új beállítás";
+            this.newBackupSettingsButton.UseVisualStyleBackColor = true;
+            this.newBackupSettingsButton.Click += new System.EventHandler(this.newBackupSettingsButton_Click);
+            // 
             // deleteBackupSettingsButton
             // 
             this.deleteBackupSettingsButton.Enabled = false;
-            this.deleteBackupSettingsButton.Location = new System.Drawing.Point(6, 19);
+            this.deleteBackupSettingsButton.Location = new System.Drawing.Point(105, 19);
             this.deleteBackupSettingsButton.Name = "deleteBackupSettingsButton";
             this.deleteBackupSettingsButton.Size = new System.Drawing.Size(93, 23);
             this.deleteBackupSettingsButton.TabIndex = 0;
@@ -262,7 +279,7 @@
             // journalButton
             // 
             this.journalButton.Enabled = false;
-            this.journalButton.Location = new System.Drawing.Point(107, 19);
+            this.journalButton.Location = new System.Drawing.Point(204, 19);
             this.journalButton.Name = "journalButton";
             this.journalButton.Size = new System.Drawing.Size(94, 23);
             this.journalButton.TabIndex = 1;
@@ -284,45 +301,53 @@
             this.backupSettingsDataGridView.DataSource = this.backupSettingsBindingSource;
             this.backupSettingsDataGridView.Location = new System.Drawing.Point(6, 48);
             this.backupSettingsDataGridView.Name = "backupSettingsDataGridView";
+            this.backupSettingsDataGridView.ReadOnly = true;
             this.backupSettingsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.backupSettingsDataGridView.Size = new System.Drawing.Size(735, 230);
             this.backupSettingsDataGridView.TabIndex = 2;
             this.backupSettingsDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.backupSettingsDataGridView_RowEnter);
             this.backupSettingsDataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.backupSettingsDataGridView_RowsRemoved);
+            this.backupSettingsDataGridView.Enter += new System.EventHandler(this.backupSettingsDataGridView_Enter);
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // CliTool
             // 
-            this.CliTool.DataPropertyName = "CliTool.Name";
+            this.CliTool.DataPropertyName = "CliToolName";
             this.CliTool.HeaderText = "Eszköz";
             this.CliTool.Name = "CliTool";
+            this.CliTool.ReadOnly = true;
             // 
             // sourceDataGridViewTextBoxColumn
             // 
             this.sourceDataGridViewTextBoxColumn.DataPropertyName = "Source";
             this.sourceDataGridViewTextBoxColumn.HeaderText = "Forrás mappa";
             this.sourceDataGridViewTextBoxColumn.Name = "sourceDataGridViewTextBoxColumn";
+            this.sourceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // targetDataGridViewTextBoxColumn
             // 
             this.targetDataGridViewTextBoxColumn.DataPropertyName = "Target";
             this.targetDataGridViewTextBoxColumn.HeaderText = "Cél mappa";
             this.targetDataGridViewTextBoxColumn.Name = "targetDataGridViewTextBoxColumn";
+            this.targetDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Incremental
             // 
             this.Incremental.DataPropertyName = "Incremental";
             this.Incremental.HeaderText = "Inkrementális";
             this.Incremental.Name = "Incremental";
+            this.Incremental.ReadOnly = true;
             // 
             // backupSettingsBindingSource
             // 
             this.backupSettingsBindingSource.DataSource = typeof(BackDown.BackupSettings);
+            this.backupSettingsBindingSource.CurrentChanged += new System.EventHandler(this.backupSettingsBindingSource_CurrentChanged);
             // 
             // BackupManagerForm
             // 
@@ -372,6 +397,7 @@
         private System.Windows.Forms.Button deleteBackupSettingsButton;
         private System.Windows.Forms.Button journalButton;
         private System.Windows.Forms.DataGridView backupSettingsDataGridView;
+        private System.Windows.Forms.Button newBackupSettingsButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CliTool;
         private System.Windows.Forms.DataGridViewTextBoxColumn sourceDataGridViewTextBoxColumn;
