@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewCliTools = new System.Windows.Forms.DataGridView();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonNew = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewCliTools = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incrementalBackupEnabledDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bindingSourceCliTools = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonNew = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliTools)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCliTools)).BeginInit();
@@ -58,11 +58,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parancssori eszközök";
             // 
+            // buttonImport
+            // 
+            this.buttonImport.Location = new System.Drawing.Point(128, 19);
+            this.buttonImport.Name = "buttonImport";
+            this.buttonImport.Size = new System.Drawing.Size(106, 23);
+            this.buttonImport.TabIndex = 5;
+            this.buttonImport.Text = "Importálás";
+            this.buttonImport.UseVisualStyleBackColor = true;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
+            // 
             // dataGridViewCliTools
             // 
             this.dataGridViewCliTools.AllowUserToAddRows = false;
             this.dataGridViewCliTools.AllowUserToDeleteRows = false;
             this.dataGridViewCliTools.AutoGenerateColumns = false;
+            this.dataGridViewCliTools.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewCliTools.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCliTools.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
@@ -76,6 +87,26 @@
             this.dataGridViewCliTools.TabIndex = 4;
             this.dataGridViewCliTools.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCliTools_RowEnter);
             this.dataGridViewCliTools.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridViewCliTools_RowsRemoved);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 52;
+            // 
+            // incrementalBackupEnabledDataGridViewCheckBoxColumn
+            // 
+            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.DataPropertyName = "IncrementalBackupEnabled";
+            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.HeaderText = "Inkrementális";
+            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.Name = "incrementalBackupEnabledDataGridViewCheckBoxColumn";
+            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.Width = 75;
+            // 
+            // bindingSourceCliTools
+            // 
+            this.bindingSourceCliTools.DataSource = typeof(BackDown.CliTool);
             // 
             // buttonDelete
             // 
@@ -109,42 +140,14 @@
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
-            // buttonImport
-            // 
-            this.buttonImport.Location = new System.Drawing.Point(128, 19);
-            this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(106, 23);
-            this.buttonImport.TabIndex = 5;
-            this.buttonImport.Text = "Importálás";
-            this.buttonImport.UseVisualStyleBackColor = true;
-            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // incrementalBackupEnabledDataGridViewCheckBoxColumn
-            // 
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.DataPropertyName = "IncrementalBackupEnabled";
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.HeaderText = "Inkrementális";
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.Name = "incrementalBackupEnabledDataGridViewCheckBoxColumn";
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // bindingSourceCliTools
-            // 
-            this.bindingSourceCliTools.DataSource = typeof(BackDown.CliTool);
-            // 
-            // FormManageCliTools
+            // CliToolManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 276);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "FormManageCliTools";
+            this.Name = "CliToolManagerForm";
             this.Text = "Parancssori eszközök kezelése";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliTools)).EndInit();

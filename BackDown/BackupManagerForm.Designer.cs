@@ -53,11 +53,11 @@
             this.deleteBackupSettingsButton = new System.Windows.Forms.Button();
             this.journalButton = new System.Windows.Forms.Button();
             this.backupSettingsDataGridView = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CliTool = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Incremental = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.targetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Incremental = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.backupSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quickBackupGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -309,19 +309,26 @@
             this.backupSettingsDataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.backupSettingsDataGridView_RowsRemoved);
             this.backupSettingsDataGridView.Enter += new System.EventHandler(this.backupSettingsDataGridView_Enter);
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // CliTool
             // 
             this.CliTool.DataPropertyName = "CliToolName";
             this.CliTool.HeaderText = "Eszköz";
             this.CliTool.Name = "CliTool";
             this.CliTool.ReadOnly = true;
+            // 
+            // Incremental
+            // 
+            this.Incremental.DataPropertyName = "Incremental";
+            this.Incremental.HeaderText = "Inkrementális";
+            this.Incremental.Name = "Incremental";
+            this.Incremental.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sourceDataGridViewTextBoxColumn
             // 
@@ -337,13 +344,6 @@
             this.targetDataGridViewTextBoxColumn.Name = "targetDataGridViewTextBoxColumn";
             this.targetDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Incremental
-            // 
-            this.Incremental.DataPropertyName = "Incremental";
-            this.Incremental.HeaderText = "Inkrementális";
-            this.Incremental.Name = "Incremental";
-            this.Incremental.ReadOnly = true;
-            // 
             // backupSettingsBindingSource
             // 
             this.backupSettingsBindingSource.DataSource = typeof(BackDown.BackupSettings);
@@ -358,6 +358,7 @@
             this.Controls.Add(this.quickBackupGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BackupManagerForm";
             this.Text = "Mentések kezelése";
             this.quickBackupGroupBox.ResumeLayout(false);

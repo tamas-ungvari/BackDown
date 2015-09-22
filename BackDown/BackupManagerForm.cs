@@ -44,6 +44,10 @@ namespace BackDown
 
         private void browseSourceButton_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(sourceTextBox.Text))
+            {
+                sourceFolderBrowserDialog.SelectedPath = sourceTextBox.Text;
+            }
             if (DialogResult.OK == sourceFolderBrowserDialog.ShowDialog(this))
             {
                 sourceTextBox.Text = sourceFolderBrowserDialog.SelectedPath;
@@ -54,6 +58,10 @@ namespace BackDown
 
         private void browseTargetButton_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(targetTextBox.Text))
+            {
+                targetFolderBrowserDialog.SelectedPath = targetTextBox.Text;
+            }
             if (DialogResult.OK == targetFolderBrowserDialog.ShowDialog(this))
             {
                 targetTextBox.Text = targetFolderBrowserDialog.SelectedPath;
@@ -72,7 +80,22 @@ namespace BackDown
             }
             else
             {
+                BackupForm backupForm = new BackupForm();
+                backupForm.BackupSettings = CreateBackupSettingsFromControls();
+                backupForm.Note = noteTextBox.Text;
+                backupForm.ShowDialog(this);
             }
+        }
+
+        private BackupSettings CreateBackupSettingsFromControls()
+        {
+            BackupSettings backupSettings = new BackupSettings();
+            backupSettings.CliTool = cliToolComboBox.SelectedItem as CliTool;
+            backupSettings.Name = saveAsNameTextBox.Text;
+            backupSettings.Incremental = incrementalCheckBox.Checked;
+            backupSettings.Source = sourceTextBox.Text;
+            backupSettings.Target = targetTextBox.Text;
+            return backupSettings;
         }
 
         private bool ValidateBackupSettingsForm()
@@ -170,12 +193,7 @@ namespace BackDown
 
         private void SaveBackupSettings()
         {
-            BackupSettings backupSettings = new BackupSettings();
-            backupSettings.CliTool = cliToolComboBox.SelectedItem as CliTool;
-            backupSettings.Name = saveAsNameTextBox.Text;
-            backupSettings.Incremental = incrementalCheckBox.Checked;
-            backupSettings.Source = sourceTextBox.Text;
-            backupSettings.Target = targetTextBox.Text;
+            BackupSettings backupSettings = CreateBackupSettingsFromControls();
 
             bool edit = false;
             List<BackupSettings> list = backupSettingsBindingSource.List as List<BackupSettings>;

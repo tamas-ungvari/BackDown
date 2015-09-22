@@ -27,7 +27,9 @@ namespace BackDown
         [DataMember]
         public string CliToolName
         {
-            get { return CliTool.Name; }
+            get
+            {
+                return CliTool == null ? null : CliTool.Name; }
             set
             {
                 List<CliTool> list = CliToolDao.Instance.LoadListFromFile();
