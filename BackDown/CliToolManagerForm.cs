@@ -13,11 +13,11 @@ using BackDown.Properties;
 
 namespace BackDown
 {
-    public partial class FormManageCliTools : Form
+    public partial class CliToolManagerForm : Form
     {
         private CliToolsDao cliToolsDao = CliToolsDao.Instance;
 
-        public FormManageCliTools()
+        public CliToolManagerForm()
         {
             InitializeComponent();
             bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
@@ -34,7 +34,7 @@ namespace BackDown
             {
                 if (tool != current && tool.Name.Equals(current.Name))
                 {
-                    FormNewName formNewName = new FormNewName();
+                    NewNameForm formNewName = new NewNameForm();
                     formNewName.nameTextBox.Text = current.Name;
                     DialogResult dialogResult = DialogResult.Cancel;
                     while (tool.Name.Equals(current.Name))

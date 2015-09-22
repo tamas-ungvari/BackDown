@@ -1,6 +1,6 @@
 ﻿namespace BackDown
 {
-    partial class FormManageBackups
+    partial class BackupManagerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.quickBackupGroupBox = new System.Windows.Forms.GroupBox();
+            this.incrementalCheckBox = new System.Windows.Forms.CheckBox();
+            this.startQuickBackupButton = new System.Windows.Forms.Button();
             this.noteTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.saveBackupSettingsButton = new System.Windows.Forms.Button();
             this.saveAsNameTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,25 +46,22 @@
             this.sourceTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cliToolComboBox = new System.Windows.Forms.ComboBox();
-            this.startQuickBackupButton = new System.Windows.Forms.Button();
-            this.incrementalCheckBox = new System.Windows.Forms.CheckBox();
             this.sourceFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.targetFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.backupBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.saveBackupSettingsButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.startBackupButton = new System.Windows.Forms.Button();
             this.journalButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Incremental = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.targetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Incremental = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.backupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quickBackupGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.backupBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backupBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // quickBackupGroupBox
@@ -86,6 +86,26 @@
             this.quickBackupGroupBox.TabStop = false;
             this.quickBackupGroupBox.Text = "Mentés";
             // 
+            // incrementalCheckBox
+            // 
+            this.incrementalCheckBox.AutoSize = true;
+            this.incrementalCheckBox.Location = new System.Drawing.Point(137, 46);
+            this.incrementalCheckBox.Name = "incrementalCheckBox";
+            this.incrementalCheckBox.Size = new System.Drawing.Size(125, 17);
+            this.incrementalCheckBox.TabIndex = 2;
+            this.incrementalCheckBox.Text = "Inkrementális mentés";
+            this.incrementalCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // startQuickBackupButton
+            // 
+            this.startQuickBackupButton.Location = new System.Drawing.Point(220, 202);
+            this.startQuickBackupButton.Name = "startQuickBackupButton";
+            this.startQuickBackupButton.Size = new System.Drawing.Size(136, 28);
+            this.startQuickBackupButton.TabIndex = 10;
+            this.startQuickBackupButton.Text = "Gyorsmentés indítása";
+            this.startQuickBackupButton.UseVisualStyleBackColor = true;
+            this.startQuickBackupButton.Click += new System.EventHandler(this.startQuickBackupButton_Click);
+            // 
             // noteTextBox
             // 
             this.noteTextBox.Location = new System.Drawing.Point(137, 121);
@@ -104,6 +124,15 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Beállítások tárolása";
+            // 
+            // saveBackupSettingsButton
+            // 
+            this.saveBackupSettingsButton.Location = new System.Drawing.Point(445, 17);
+            this.saveBackupSettingsButton.Name = "saveBackupSettingsButton";
+            this.saveBackupSettingsButton.Size = new System.Drawing.Size(124, 23);
+            this.saveBackupSettingsButton.TabIndex = 12;
+            this.saveBackupSettingsButton.Text = "Beállítás eltárolása";
+            this.saveBackupSettingsButton.UseVisualStyleBackColor = true;
             // 
             // saveAsNameTextBox
             // 
@@ -201,42 +230,9 @@
             this.cliToolComboBox.TabIndex = 0;
             this.cliToolComboBox.SelectedIndexChanged += new System.EventHandler(this.cliToolComboBox_SelectedIndexChanged);
             // 
-            // startQuickBackupButton
-            // 
-            this.startQuickBackupButton.Location = new System.Drawing.Point(220, 202);
-            this.startQuickBackupButton.Name = "startQuickBackupButton";
-            this.startQuickBackupButton.Size = new System.Drawing.Size(136, 28);
-            this.startQuickBackupButton.TabIndex = 10;
-            this.startQuickBackupButton.Text = "Gyorsmentés indítása";
-            this.startQuickBackupButton.UseVisualStyleBackColor = true;
-            this.startQuickBackupButton.Click += new System.EventHandler(this.startQuickBackupButton_Click);
-            // 
-            // incrementalCheckBox
-            // 
-            this.incrementalCheckBox.AutoSize = true;
-            this.incrementalCheckBox.Location = new System.Drawing.Point(137, 46);
-            this.incrementalCheckBox.Name = "incrementalCheckBox";
-            this.incrementalCheckBox.Size = new System.Drawing.Size(125, 17);
-            this.incrementalCheckBox.TabIndex = 11;
-            this.incrementalCheckBox.Text = "Inkrementális mentés";
-            this.incrementalCheckBox.UseVisualStyleBackColor = true;
-            // 
             // sourceFolderBrowserDialog
             // 
             this.sourceFolderBrowserDialog.ShowNewFolderButton = false;
-            // 
-            // backupBindingSource
-            // 
-            this.backupBindingSource.DataSource = typeof(BackDown.Backup);
-            // 
-            // saveBackupSettingsButton
-            // 
-            this.saveBackupSettingsButton.Location = new System.Drawing.Point(445, 17);
-            this.saveBackupSettingsButton.Name = "saveBackupSettingsButton";
-            this.saveBackupSettingsButton.Size = new System.Drawing.Size(124, 23);
-            this.saveBackupSettingsButton.TabIndex = 12;
-            this.saveBackupSettingsButton.Text = "Beállítás eltárolása";
-            this.saveBackupSettingsButton.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -255,7 +251,7 @@
             this.startBackupButton.Location = new System.Drawing.Point(6, 19);
             this.startBackupButton.Name = "startBackupButton";
             this.startBackupButton.Size = new System.Drawing.Size(131, 23);
-            this.startBackupButton.TabIndex = 7;
+            this.startBackupButton.TabIndex = 0;
             this.startBackupButton.Text = "Mentés készítése";
             this.startBackupButton.UseVisualStyleBackColor = true;
             // 
@@ -264,7 +260,7 @@
             this.journalButton.Location = new System.Drawing.Point(143, 19);
             this.journalButton.Name = "journalButton";
             this.journalButton.Size = new System.Drawing.Size(119, 23);
-            this.journalButton.TabIndex = 6;
+            this.journalButton.TabIndex = 1;
             this.journalButton.Text = "Napló";
             this.journalButton.UseVisualStyleBackColor = true;
             // 
@@ -281,7 +277,13 @@
             this.dataGridView1.Location = new System.Drawing.Point(6, 48);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(575, 230);
-            this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // Incremental
+            // 
+            this.Incremental.DataPropertyName = "Incremental";
+            this.Incremental.HeaderText = "Inkrementális";
+            this.Incremental.Name = "Incremental";
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -301,11 +303,9 @@
             this.targetDataGridViewTextBoxColumn.HeaderText = "Cél mappa";
             this.targetDataGridViewTextBoxColumn.Name = "targetDataGridViewTextBoxColumn";
             // 
-            // Incremental
+            // backupBindingSource
             // 
-            this.Incremental.DataPropertyName = "Incremental";
-            this.Incremental.HeaderText = "Inkrementális";
-            this.Incremental.Name = "Incremental";
+            this.backupBindingSource.DataSource = typeof(BackDown.Backup);
             // 
             // FormManageBackups
             // 
@@ -322,9 +322,9 @@
             this.quickBackupGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.backupBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backupBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

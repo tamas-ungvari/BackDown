@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace BackDown
 {
-    public partial class FormManageBackups : Form
+    public partial class BackupManagerForm : Form
     {
         CliToolsDao cliToolsDao = CliToolsDao.Instance;
 
-        public FormManageBackups()
+        public BackupManagerForm()
         {
             InitializeComponent();
             cliToolComboBox.DataSource = cliToolsDao.LoadListFromFile();

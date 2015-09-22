@@ -1,6 +1,6 @@
 ﻿namespace BackDown
 {
-    partial class FormBackDown
+    partial class MainMenuForm
     {
         /// <summary>
         /// Required designer variable.

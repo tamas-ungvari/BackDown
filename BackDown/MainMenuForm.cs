@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace BackDown
 {
-    public partial class FormBackDown : Form
+    public partial class MainMenuForm : Form
     {
-        public FormBackDown()
+        public MainMenuForm()
         {
             InitializeComponent();
         }
 
         private void buttonManageCliTools_Click(object sender, EventArgs e)
         {
-            FormManageCliTools formManageCliTools = new FormManageCliTools();
+            CliToolManagerForm formManageCliTools = new CliToolManagerForm();
             if (DialogResult.OK == formManageCliTools.ShowDialog())
             {
 
@@ -29,7 +29,7 @@ namespace BackDown
 
         private void buttonManageBackups_Click(object sender, EventArgs e)
         {
-            FormManageBackups formManageBackups = new FormManageBackups();
+            BackupManagerForm formManageBackups = new BackupManagerForm();
             if (DialogResult.OK == formManageBackups.ShowDialog())
             {
 
@@ -38,7 +38,7 @@ namespace BackDown
 
         private void buttonRecover_Click(object sender, EventArgs e)
         {
-            FormRecover formRecover = new FormRecover();
+            RecoverForm formRecover = new RecoverForm();
             if (DialogResult.OK == formRecover.ShowDialog())
             {
 
@@ -47,7 +47,7 @@ namespace BackDown
 
         private void buttonLogs_Click(object sender, EventArgs e)
         {
-            FormLogs formLogs = new FormLogs();
+            LogManagerForm formLogs = new LogManagerForm();
             if (DialogResult.OK == formLogs.ShowDialog())
             {
 

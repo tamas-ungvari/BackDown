@@ -1,6 +1,6 @@
 ﻿namespace BackDown
 {
-    partial class FormManageCliTools
+    partial class CliToolManagerForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace BackDown
 {
-    partial class FormNewName
+    partial class NewNameForm
     {
         /// <summary>
         /// Required designer variable.

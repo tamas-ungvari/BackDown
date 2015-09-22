@@ -1,6 +1,6 @@
 ﻿namespace BackDown
 {
-    partial class FormRecover
+    partial class LogManagerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // FormRecover
+            // FormLogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 261);
-            this.Name = "FormRecover";
-            this.Text = "Helyreállítás";
+            this.ClientSize = new System.Drawing.Size(371, 261);
+            this.Name = "FormLogs";
+            this.Text = "Mentésnapló";
             this.ResumeLayout(false);
 
         }

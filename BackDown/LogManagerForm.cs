@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BackDown
 {
-    public partial class FormRecover : Form
+    public partial class LogManagerForm : Form
     {
-        public FormRecover()
+        public LogManagerForm()
         {
             InitializeComponent();
         }

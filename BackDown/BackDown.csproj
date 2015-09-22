@@ -62,44 +62,43 @@
   <ItemGroup>
     <Compile Include="Backup.cs" />
     <Compile Include="CliToolsDao.cs" />
-    <Compile Include="FormNewName.cs">
+    <Compile Include="NewNameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNewName.Designer.cs">
-      <DependentUpon>FormNewName.cs</DependentUpon>
+    <Compile Include="NewNameForm.Designer.cs">
+      <DependentUpon>NewNameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Journal.cs" />
-    <Compile Include="SettingsManager.cs" />
     <Compile Include="CliTool.cs" />
-    <Compile Include="FormBackDown.cs">
+    <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBackDown.Designer.cs">
-      <DependentUpon>FormBackDown.cs</DependentUpon>
+    <Compile Include="MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogs.cs">
+    <Compile Include="LogManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogs.Designer.cs">
-      <DependentUpon>FormLogs.cs</DependentUpon>
+    <Compile Include="LogManagerForm.Designer.cs">
+      <DependentUpon>LogManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormManageBackups.cs">
+    <Compile Include="BackupManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormManageBackups.Designer.cs">
-      <DependentUpon>FormManageBackups.cs</DependentUpon>
+    <Compile Include="BackupManagerForm.Designer.cs">
+      <DependentUpon>BackupManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormManageCliTools.cs">
+    <Compile Include="CliToolManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormManageCliTools.Designer.cs">
-      <DependentUpon>FormManageCliTools.cs</DependentUpon>
+    <Compile Include="CliToolManagerForm.Designer.cs">
+      <DependentUpon>CliToolManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRecover.cs">
+    <Compile Include="RecoverForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRecover.Designer.cs">
-      <DependentUpon>FormRecover.cs</DependentUpon>
+    <Compile Include="RecoverForm.Designer.cs">
+      <DependentUpon>RecoverForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CliToolForm.cs">
       <SubType>Form</SubType>
@@ -109,23 +108,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormBackDown.resx">
-      <DependentUpon>FormBackDown.cs</DependentUpon>
+    <EmbeddedResource Include="MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogs.resx">
-      <DependentUpon>FormLogs.cs</DependentUpon>
+    <EmbeddedResource Include="LogManagerForm.resx">
+      <DependentUpon>LogManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormManageBackups.resx">
-      <DependentUpon>FormManageBackups.cs</DependentUpon>
+    <EmbeddedResource Include="BackupManagerForm.resx">
+      <DependentUpon>BackupManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormManageCliTools.resx">
-      <DependentUpon>FormManageCliTools.cs</DependentUpon>
+    <EmbeddedResource Include="CliToolManagerForm.resx">
+      <DependentUpon>CliToolManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewName.resx">
-      <DependentUpon>FormNewName.cs</DependentUpon>
+    <EmbeddedResource Include="NewNameForm.resx">
+      <DependentUpon>NewNameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRecover.resx">
-      <DependentUpon>FormRecover.cs</DependentUpon>
+    <EmbeddedResource Include="RecoverForm.resx">
+      <DependentUpon>RecoverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CliToolForm.resx">
       <DependentUpon>CliToolForm.cs</DependentUpon>
