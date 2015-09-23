@@ -30,56 +30,75 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.findByTargetBrowseButton = new System.Windows.Forms.Button();
+            this.findByTargetTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.findByNameButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.findByNameComboBox = new System.Windows.Forms.ComboBox();
+            this.findByTargetButton = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.backupsListBox = new System.Windows.Forms.ListBox();
+            this.restoreFolderTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.incrementalCheckBox = new System.Windows.Forms.CheckBox();
+            this.targetLabel = new System.Windows.Forms.Label();
+            this.targetTextBox = new System.Windows.Forms.TextBox();
+            this.sourceLabel = new System.Windows.Forms.Label();
+            this.sourceTextBox = new System.Windows.Forms.TextBox();
+            this.toolLabel = new System.Windows.Forms.Label();
+            this.restoreButton = new System.Windows.Forms.Button();
+            this.journalButton = new System.Windows.Forms.Button();
+            this.cliToolNameTextBox = new System.Windows.Forms.TextBox();
+            this.targetFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.restoreFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(471, 153);
+            this.groupBox1.Size = new System.Drawing.Size(694, 439);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Biztonsági mentések keresése";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.findByTargetButton);
+            this.groupBox3.Controls.Add(this.findByTargetBrowseButton);
+            this.groupBox3.Controls.Add(this.findByTargetTextBox);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(6, 30);
+            this.groupBox3.Location = new System.Drawing.Point(6, 19);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(459, 57);
+            this.groupBox3.Size = new System.Drawing.Size(540, 57);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Mappa megadásával";
             // 
-            // button1
+            // findByTargetBrowseButton
             // 
-            this.button1.Location = new System.Drawing.Point(371, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Tallóz ...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.findByTargetBrowseButton.Location = new System.Drawing.Point(371, 20);
+            this.findByTargetBrowseButton.Name = "findByTargetBrowseButton";
+            this.findByTargetBrowseButton.Size = new System.Drawing.Size(75, 23);
+            this.findByTargetBrowseButton.TabIndex = 0;
+            this.findByTargetBrowseButton.Text = "Tallóz ...";
+            this.findByTargetBrowseButton.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // findByTargetTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 20);
-            this.textBox1.TabIndex = 1;
+            this.findByTargetTextBox.Location = new System.Drawing.Point(105, 22);
+            this.findByTargetTextBox.Name = "findByTargetTextBox";
+            this.findByTargetTextBox.Size = new System.Drawing.Size(260, 20);
+            this.findByTargetTextBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -92,22 +111,24 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.findByNameComboBox);
+            this.groupBox2.Controls.Add(this.findByNameButton);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(6, 93);
+            this.groupBox2.Location = new System.Drawing.Point(6, 82);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(459, 55);
+            this.groupBox2.Size = new System.Drawing.Size(540, 55);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tárolt mentési beálítás alapján";
             // 
-            // textBox2
+            // findByNameButton
             // 
-            this.textBox2.Location = new System.Drawing.Point(105, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(260, 20);
-            this.textBox2.TabIndex = 3;
+            this.findByNameButton.Location = new System.Drawing.Point(371, 18);
+            this.findByNameButton.Name = "findByNameButton";
+            this.findByNameButton.Size = new System.Drawing.Size(75, 23);
+            this.findByNameButton.TabIndex = 2;
+            this.findByNameButton.Text = "Keres";
+            this.findByNameButton.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -118,20 +139,155 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Név";
             // 
-            // button2
+            // findByNameComboBox
             // 
-            this.button2.Location = new System.Drawing.Point(371, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Keres";
-            this.button2.UseVisualStyleBackColor = true;
+            this.findByNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.findByNameComboBox.FormattingEnabled = true;
+            this.findByNameComboBox.Location = new System.Drawing.Point(105, 19);
+            this.findByNameComboBox.Name = "findByNameComboBox";
+            this.findByNameComboBox.Size = new System.Drawing.Size(260, 21);
+            this.findByNameComboBox.TabIndex = 3;
+            // 
+            // findByTargetButton
+            // 
+            this.findByTargetButton.Location = new System.Drawing.Point(452, 20);
+            this.findByTargetButton.Name = "findByTargetButton";
+            this.findByTargetButton.Size = new System.Drawing.Size(75, 23);
+            this.findByTargetButton.TabIndex = 4;
+            this.findByTargetButton.Text = "Keres";
+            this.findByTargetButton.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.cliToolNameTextBox);
+            this.groupBox4.Controls.Add(this.journalButton);
+            this.groupBox4.Controls.Add(this.restoreButton);
+            this.groupBox4.Controls.Add(this.incrementalCheckBox);
+            this.groupBox4.Controls.Add(this.targetLabel);
+            this.groupBox4.Controls.Add(this.targetTextBox);
+            this.groupBox4.Controls.Add(this.sourceLabel);
+            this.groupBox4.Controls.Add(this.sourceTextBox);
+            this.groupBox4.Controls.Add(this.toolLabel);
+            this.groupBox4.Controls.Add(this.restoreFolderTextBox);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.backupsListBox);
+            this.groupBox4.Location = new System.Drawing.Point(6, 143);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(682, 290);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Találatok";
+            // 
+            // backupsListBox
+            // 
+            this.backupsListBox.FormattingEnabled = true;
+            this.backupsListBox.Location = new System.Drawing.Point(6, 19);
+            this.backupsListBox.Name = "backupsListBox";
+            this.backupsListBox.Size = new System.Drawing.Size(241, 264);
+            this.backupsListBox.TabIndex = 6;
+            // 
+            // restoreFolderTextBox
+            // 
+            this.restoreFolderTextBox.Location = new System.Drawing.Point(359, 191);
+            this.restoreFolderTextBox.Name = "restoreFolderTextBox";
+            this.restoreFolderTextBox.Size = new System.Drawing.Size(308, 20);
+            this.restoreFolderTextBox.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(253, 194);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Helyreállítás mappa";
+            // 
+            // incrementalCheckBox
+            // 
+            this.incrementalCheckBox.AutoSize = true;
+            this.incrementalCheckBox.Enabled = false;
+            this.incrementalCheckBox.Location = new System.Drawing.Point(359, 46);
+            this.incrementalCheckBox.Name = "incrementalCheckBox";
+            this.incrementalCheckBox.Size = new System.Drawing.Size(125, 17);
+            this.incrementalCheckBox.TabIndex = 10;
+            this.incrementalCheckBox.Text = "Inkrementális mentés";
+            this.incrementalCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // targetLabel
+            // 
+            this.targetLabel.AutoSize = true;
+            this.targetLabel.Location = new System.Drawing.Point(296, 98);
+            this.targetLabel.Name = "targetLabel";
+            this.targetLabel.Size = new System.Drawing.Size(57, 13);
+            this.targetLabel.TabIndex = 14;
+            this.targetLabel.Text = "Cél mappa";
+            // 
+            // targetTextBox
+            // 
+            this.targetTextBox.Location = new System.Drawing.Point(359, 95);
+            this.targetTextBox.Name = "targetTextBox";
+            this.targetTextBox.ReadOnly = true;
+            this.targetTextBox.Size = new System.Drawing.Size(308, 20);
+            this.targetTextBox.TabIndex = 13;
+            // 
+            // sourceLabel
+            // 
+            this.sourceLabel.AutoSize = true;
+            this.sourceLabel.Location = new System.Drawing.Point(282, 72);
+            this.sourceLabel.Name = "sourceLabel";
+            this.sourceLabel.Size = new System.Drawing.Size(71, 13);
+            this.sourceLabel.TabIndex = 12;
+            this.sourceLabel.Text = "Forrás mappa";
+            // 
+            // sourceTextBox
+            // 
+            this.sourceTextBox.Location = new System.Drawing.Point(359, 69);
+            this.sourceTextBox.Name = "sourceTextBox";
+            this.sourceTextBox.ReadOnly = true;
+            this.sourceTextBox.Size = new System.Drawing.Size(308, 20);
+            this.sourceTextBox.TabIndex = 11;
+            // 
+            // toolLabel
+            // 
+            this.toolLabel.AutoSize = true;
+            this.toolLabel.Location = new System.Drawing.Point(255, 22);
+            this.toolLabel.Name = "toolLabel";
+            this.toolLabel.Size = new System.Drawing.Size(98, 13);
+            this.toolLabel.TabIndex = 9;
+            this.toolLabel.Text = "Parancssori eszköz";
+            // 
+            // restoreButton
+            // 
+            this.restoreButton.BackColor = System.Drawing.Color.LightCoral;
+            this.restoreButton.Location = new System.Drawing.Point(359, 217);
+            this.restoreButton.Name = "restoreButton";
+            this.restoreButton.Size = new System.Drawing.Size(111, 30);
+            this.restoreButton.TabIndex = 15;
+            this.restoreButton.Text = "Helyreállít";
+            this.restoreButton.UseVisualStyleBackColor = false;
+            // 
+            // journalButton
+            // 
+            this.journalButton.Location = new System.Drawing.Point(359, 121);
+            this.journalButton.Name = "journalButton";
+            this.journalButton.Size = new System.Drawing.Size(111, 30);
+            this.journalButton.TabIndex = 16;
+            this.journalButton.Text = "Napló";
+            this.journalButton.UseVisualStyleBackColor = true;
+            // 
+            // cliToolNameTextBox
+            // 
+            this.cliToolNameTextBox.Location = new System.Drawing.Point(359, 19);
+            this.cliToolNameTextBox.Name = "cliToolNameTextBox";
+            this.cliToolNameTextBox.ReadOnly = true;
+            this.cliToolNameTextBox.Size = new System.Drawing.Size(308, 20);
+            this.cliToolNameTextBox.TabIndex = 17;
             // 
             // JournalAndRecoverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 463);
+            this.ClientSize = new System.Drawing.Size(718, 463);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -143,6 +299,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -151,12 +309,28 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button findByTargetBrowseButton;
+        private System.Windows.Forms.TextBox findByTargetTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button findByNameButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox findByNameComboBox;
+        private System.Windows.Forms.Button findByTargetButton;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ListBox backupsListBox;
+        private System.Windows.Forms.TextBox restoreFolderTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox incrementalCheckBox;
+        private System.Windows.Forms.Label targetLabel;
+        private System.Windows.Forms.TextBox targetTextBox;
+        private System.Windows.Forms.Label sourceLabel;
+        private System.Windows.Forms.TextBox sourceTextBox;
+        private System.Windows.Forms.Label toolLabel;
+        private System.Windows.Forms.Button journalButton;
+        private System.Windows.Forms.Button restoreButton;
+        private System.Windows.Forms.TextBox cliToolNameTextBox;
+        private System.Windows.Forms.FolderBrowserDialog targetFolderBrowserDialog;
+        private System.Windows.Forms.FolderBrowserDialog restoreFolderBrowserDialog;
     }
 }

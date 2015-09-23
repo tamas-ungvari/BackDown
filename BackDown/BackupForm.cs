@@ -21,7 +21,7 @@ namespace BackDown
         public string Note { get; set; }
 
         private DateTime startedAt = DateTime.Now;
-        private BackupSettingsDao backupSettingsDao = BackupSettingsDao.Instance;
+        private readonly BackupSettingsDao backupSettingsDao = BackupSettingsDao.Instance;
 
         public BackupForm()
         {
