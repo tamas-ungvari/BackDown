@@ -8,6 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BackDown.Properties;
@@ -41,7 +42,7 @@ namespace BackDown
             
             if (!string.IsNullOrEmpty(Note))
             {
-                outputRichTextBox.AppendText(string.Format("\n## {0}\n", Note));
+                outputRichTextBox.AppendText(string.Format("\n### {0}\n", Note));
             }            
             outputRichTextBox.AppendText(string.Format("\n### Mentési beállítások\n", Note));
             outputRichTextBox.AppendText(string.Format("- Forrás mappa: {0}\n", BackupSettings.Source));
@@ -99,6 +100,8 @@ namespace BackDown
         {
             Process process = sender as Process;
 
+            Thread.Sleep(500);
+
             if (process.ExitCode == 0)
             {
                 InvokeAppendOutputToTextBox("### A mentés sikeresen befejeződött.");
@@ -109,6 +112,17 @@ namespace BackDown
             }
             InvokeAppendOutputToTextBox(String.Format("### Eltelet idő: {0}", elapsedTimeTextBox.Text));
             timer.Stop();
+            BeginInvoke(new Action(() => SaveReport()));
+        }
+
+        private void SaveReport()
+        {
+            string targetFolder = GetBackupFolder(BackupSettings);
+
+            using (StreamWriter writer = new StreamWriter(File.Create(String.Format("{0}.md", targetFolder))))
+            {
+                writer.WriteLine(outputRichTextBox.Text);
+            }
         }
 
         private void InvokeAppendOutputToTextBox(string line)
