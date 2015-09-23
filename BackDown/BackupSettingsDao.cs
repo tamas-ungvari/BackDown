@@ -25,7 +25,8 @@ namespace BackDown
             }
         }
 
-        private DataContractJsonSerializer listSerializer = new DataContractJsonSerializer(typeof(List<BackupSettings>));
+        private readonly DataContractJsonSerializer listSerializer = new DataContractJsonSerializer(typeof(List<BackupSettings>));
+        private readonly DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(BackupSettings));
 
         private BackupSettingsDao()
         {
@@ -33,10 +34,10 @@ namespace BackDown
 
         public List<BackupSettings> LoadBackupSettingsList()
         {
-            string backupSettingsFile = Settings.Default.BACKUP_SETTINGS_FILE;
+            string backupSettingsFile = Settings.Default.BACKUP_SETTINGS_LIST_FILE;
             try
             {
-                using (Stream stream = new FileStream(backupSettingsFile, FileMode.Open))
+                using (Stream stream = File.OpenRead(backupSettingsFile))
                 {
                     return listSerializer.ReadObject(stream) as List<BackupSettings> ?? new List<BackupSettings>();
                 }
@@ -49,10 +50,28 @@ namespace BackDown
 
         public void SaveBackupSettingsList(List<BackupSettings> list)
         {
-            string backupSettingsFile = Settings.Default.BACKUP_SETTINGS_FILE;
-            using (Stream stream = new FileStream(backupSettingsFile, FileMode.Create))
+            string backupSettingsFile = Settings.Default.BACKUP_SETTINGS_LIST_FILE;
+            using (Stream stream = File.Create(backupSettingsFile))
             {
                 listSerializer.WriteObject(stream, list);
+            }
+        }
+
+        public void SaveBackupSettings(string targetFolder, BackupSettings backupSettings)
+        {
+            string path = string.Format("{0}\\{1}", targetFolder, Settings.Default.BACKUP_SETTINGS_FILE);
+            using (Stream stream = File.Create(path))
+            {
+                serializer.WriteObject(stream, backupSettings);
+            }
+        }
+
+        public BackupSettings LoadBackupSettings(string targetFolder)
+        {
+            string path = string.Format("{0}\\{1}", targetFolder, Settings.Default.BACKUP_SETTINGS_FILE);
+            using (Stream stream = File.OpenRead(path))
+            {
+                return serializer.ReadObject(stream) as BackupSettings;
             }
         }
     }

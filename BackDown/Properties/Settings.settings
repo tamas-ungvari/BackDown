@@ -11,8 +11,14 @@
     <Setting Name="SOURCE_PLACEHOLDER" Type="System.String" Scope="User">
       <Value Profile="(Default)">$forras</Value>
     </Setting>
+    <Setting Name="BACKUP_SETTINGS_LIST_FILE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">backup-settings-list.json</Value>
+    </Setting>
     <Setting Name="BACKUP_SETTINGS_FILE" Type="System.String" Scope="User">
       <Value Profile="(Default)">backup-settings.json</Value>
+    </Setting>
+    <Setting Name="JOURNAL_FILE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">backup-journal.md</Value>
     </Setting>
   </Settings>
 </SettingsFile>

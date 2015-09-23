@@ -21,6 +21,7 @@ namespace BackDown
         public string Note { get; set; }
 
         private DateTime startedAt = DateTime.Now;
+        private BackupSettingsDao backupSettingsDao = BackupSettingsDao.Instance;
 
         public BackupForm()
         {
@@ -36,9 +37,15 @@ namespace BackDown
             targetTextBox.Text = BackupSettings.Target;
             noteTextBox.Text = Note;
             startAtTextBox.Text = startedAt.ToString();
-
+            
+            string targetFolder = GetBackupFolder(BackupSettings);
+            if (!Directory.Exists(targetFolder))
+            {
+                Directory.CreateDirectory(targetFolder);
+            }
+            backupSettingsDao.SaveBackupSettings(targetFolder, BackupSettings);
             AppendJournalHeader();
-            StartProcess(CreateCommand());
+            StartProcess(CreateCommand(BackupSettings, targetFolder));
         }
 
         private void AppendJournalHeader()
@@ -61,18 +68,13 @@ namespace BackDown
             outputRichTextBox.AppendText(string.Format("\n### Indítva: {0}\n", startedAt.ToString(CultureInfo.CurrentCulture)));
         }
 
-        private string CreateCommand()
+        private string CreateCommand(BackupSettings settings, string targetFolder)
         {
-            string command = BackupSettings.Incremental
-                ? BackupSettings.CliTool.IncrementalBackupCommand
-                : BackupSettings.CliTool.BackupCommand;
+            string command = settings.Incremental
+                ? settings.CliTool.IncrementalBackupCommand
+                : settings.CliTool.BackupCommand;
 
-            command = command.Replace(Settings.Default.SOURCE_PLACEHOLDER, String.Format("\"{0}\"", BackupSettings.Source));
-            var targetFolder = GetBackupFolder(BackupSettings);
-            if (!Directory.Exists(targetFolder))
-            {
-                Directory.CreateDirectory(targetFolder);
-            }
+            command = command.Replace(Settings.Default.SOURCE_PLACEHOLDER, String.Format("\"{0}\"", settings.Source));
             command = command.Replace(Settings.Default.TARGET_PLACEHOLDER, String.Format("\"{0}\"", targetFolder));
             return command;
         }
@@ -117,14 +119,13 @@ namespace BackDown
             }
             InvokeAppendOutputToTextBox(String.Format("### Eltelet idő: {0}", elapsedTimeTextBox.Text));
             timer.Stop();
-            BeginInvoke(new Action(() => SaveReport()));
+            BeginInvoke(new Action(() => SaveReport(GetBackupFolder(BackupSettings))));
         }
 
-        private void SaveReport()
+        private void SaveReport(string targetFolder)
         {
-            string targetFolder = GetBackupFolder(BackupSettings);
-
-            using (StreamWriter writer = new StreamWriter(File.Create(String.Format("{0}.md", targetFolder))))
+            string path = String.Format("{0}\\{1}", targetFolder, Settings.Default.JOURNAL_FILE);
+            using (StreamWriter writer = new StreamWriter(File.Create(path)))
             {
                 writer.WriteLine(outputRichTextBox.Text);
             }
@@ -149,7 +150,7 @@ namespace BackDown
         {
             string targetFolder = settings.Incremental
                 ? String.Format("{0}\\{1}", settings.Target, settings.Name) :
-                String.Format("{0}\\{1} {2}", settings.Target, settings.Name, startedAt.ToString(CultureInfo.CurrentCulture).Replace(":", "-"));
+                String.Format("{0}\\{1}_{2}", settings.Target, settings.Name, startedAt.ToString("yyyy-MM-dd_HHmmss"));
             return targetFolder;
         }
 

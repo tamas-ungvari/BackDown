@@ -61,6 +61,18 @@ namespace BackDown.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("backup-settings-list.json")]
+        public string BACKUP_SETTINGS_LIST_FILE {
+            get {
+                return ((string)(this["BACKUP_SETTINGS_LIST_FILE"]));
+            }
+            set {
+                this["BACKUP_SETTINGS_LIST_FILE"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("backup-settings.json")]
         public string BACKUP_SETTINGS_FILE {
             get {
@@ -68,6 +80,18 @@ namespace BackDown.Properties {
             }
             set {
                 this["BACKUP_SETTINGS_FILE"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("backup-journal.md")]
+        public string JOURNAL_FILE {
+            get {
+                return ((string)(this["JOURNAL_FILE"]));
+            }
+            set {
+                this["JOURNAL_FILE"] = value;
             }
         }
     }
