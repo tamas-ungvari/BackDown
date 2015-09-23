@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,30 @@ namespace BackDown
             noteTextBox.Text = Note;
             startAtTextBox.Text = startedAt.ToString();
 
+            outputRichTextBox.AppendText("# BackDown biztonsági mentés\n");
+            outputRichTextBox.AppendText(string.Format("\n## {0}\n", BackupSettings.Name));
+            
+            if (!string.IsNullOrEmpty(Note))
+            {
+                outputRichTextBox.AppendText(string.Format("\n## {0}\n", Note));
+            }            
+            outputRichTextBox.AppendText(string.Format("\n### Mentési beállítások\n", Note));
+            outputRichTextBox.AppendText(string.Format("- Forrás mappa: {0}\n", BackupSettings.Source));
+            outputRichTextBox.AppendText(string.Format("- Cél mappa: {0}\n", BackupSettings.Target));
+            outputRichTextBox.AppendText(string.Format("- Inkrementális: {0}\n", BackupSettings.Incremental ? "Igen" : "Nem"));
+            outputRichTextBox.AppendText(string.Format("\n### Indítva: {0}\n", startedAt.ToString(CultureInfo.CurrentCulture)));
+
+            string command = CreateCommand();
+
+            outputRichTextBox.AppendText(string.Format("\n### Parancs \n\t{0}\n", command));
+
+            outputRichTextBox.AppendText("\n### Kimenet\n");
+
+            StartProcess(command);
+        }
+
+        private string CreateCommand()
+        {
             string command = BackupSettings.Incremental
                 ? BackupSettings.CliTool.IncrementalBackupCommand
                 : BackupSettings.CliTool.BackupCommand;
@@ -46,7 +71,11 @@ namespace BackDown
                 Directory.CreateDirectory(targetFolder);
             }
             command = command.Replace(Settings.Default.TARGET_PLACEHOLDER, String.Format("\"{0}\"", targetFolder));
+            return command;
+        }
 
+        private void StartProcess(string command)
+        {
             Process process = new Process();
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
@@ -69,38 +98,39 @@ namespace BackDown
         private void ProcessOnExited(object sender, EventArgs eventArgs)
         {
             Process process = sender as Process;
+
             if (process.ExitCode == 0)
             {
-                InvokeAppendToTextBox("A mentés sikeresen befejeződött.");
+                InvokeAppendOutputToTextBox("### A mentés sikeresen befejeződött.");
             }
             else
             {
-                InvokeAppendToTextBox("A mentés során hiba történt.");
+                InvokeAppendOutputToTextBox("### A mentés során hiba történt.");
             }
-            InvokeAppendToTextBox(String.Format("Eltelet idő: {0}", elapsedTimeTextBox.Text));
+            InvokeAppendOutputToTextBox(String.Format("### Eltelet idő: {0}", elapsedTimeTextBox.Text));
             timer.Stop();
         }
 
-        private void InvokeAppendToTextBox(string line)
+        private void InvokeAppendOutputToTextBox(string line)
         {
-            BeginInvoke(new Action(() => outputRichTextBox.AppendText((line + "\n"))));
+            Invoke(new Action(() => outputRichTextBox.AppendText(string.Format("{0}\n", line))));
         }
 
         private void ProcessOnErrorDataReceived(object sender, DataReceivedEventArgs dataReceivedEventArgs)
         {
-            InvokeAppendToTextBox(dataReceivedEventArgs.Data);
+            InvokeAppendOutputToTextBox(string.Format("\t{0}", dataReceivedEventArgs.Data));
         }
 
         private void ProcessOnOutputDataReceived(object sender, DataReceivedEventArgs dataReceivedEventArgs)
         {
-            InvokeAppendToTextBox(dataReceivedEventArgs.Data);
+            InvokeAppendOutputToTextBox(string.Format("\t{0}", dataReceivedEventArgs.Data));
         }
 
         public string GetBackupFolder(BackupSettings settings)
         {
             string targetFolder = settings.Incremental
                 ? String.Format("{0}\\{1}", settings.Target, settings.Name) :
-                String.Format("{0}\\{1} {2}", settings.Target, settings.Name, DateTime.Now.ToShortDateString());
+                String.Format("{0}\\{1} {2}", settings.Target, settings.Name, startedAt.ToString(CultureInfo.CurrentCulture).Replace(":", "-"));
             return targetFolder;
         }
 
