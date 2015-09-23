@@ -144,6 +144,7 @@
             this.elapsedTimeTextBox.ReadOnly = true;
             this.elapsedTimeTextBox.Size = new System.Drawing.Size(111, 20);
             this.elapsedTimeTextBox.TabIndex = 19;
+            this.elapsedTimeTextBox.Text = "0 mp";
             // 
             // elapsedTimeLabel
             // 

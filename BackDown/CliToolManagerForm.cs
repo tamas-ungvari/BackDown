@@ -62,6 +62,8 @@ namespace BackDown
             if (DialogResult.OK != cliToolForm.ShowDialog())
             {
                 bindingSourceCliTools.CancelEdit();
+                bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
+                dataGridViewCliTools.Refresh();
             }
             else
             {
@@ -82,6 +84,11 @@ namespace BackDown
             {
                 CheckNameUnique();
                 cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
+                dataGridViewCliTools.Refresh();
+            }
+            else
+            {
+                bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
                 dataGridViewCliTools.Refresh();
             }
         }
