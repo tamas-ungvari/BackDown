@@ -38,7 +38,7 @@ namespace BackDown
 
         private void buttonRecover_Click(object sender, EventArgs e)
         {
-            RecoverForm formRecover = new RecoverForm();
+            JournalAndRecoverForm formRecover = new JournalAndRecoverForm();
             if (DialogResult.OK == formRecover.ShowDialog())
             {
 
@@ -47,7 +47,7 @@ namespace BackDown
 
         private void buttonLogs_Click(object sender, EventArgs e)
         {
-            LogManagerForm formLogs = new LogManagerForm();
+            JournalViewerForm formLogs = new JournalViewerForm();
             if (DialogResult.OK == formLogs.ShowDialog())
             {
 

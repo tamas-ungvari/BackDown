@@ -15,16 +15,14 @@ namespace BackDown
     public partial class BackupManagerForm : Form
     {
         readonly CliToolDao cliToolsDao = CliToolDao.Instance;
-        readonly BackupSettingsDao backupSettingsDao = BackupSettingsDao.Instance;
+        readonly  BackupSettingsDao backupSettingsDao = BackupSettingsDao.Instance;
 
         public BackupManagerForm()
         {
             InitializeComponent();
+            backupSettingsPicker.BindingSource.CurrentChanged += backupSettingsBindingSource_CurrentChanged;
             cliToolComboBox.DataSource = cliToolsDao.LoadListFromFile();
             cliToolComboBox.DisplayMember = "Name";
-            backupSettingsBindingSource.DataSource = backupSettingsDao.LoadBackupSettingsList();
-            backupSettingsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            backupSettingsDataGridView.AutoResizeColumns();
         }
 
         private void cliToolComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,10 +183,9 @@ namespace BackDown
                 else
                 {
                     saveAsNameLabel.ForeColor = Color.Black;
+                    SaveBackupSettings();
                 }
-            }            
-
-            SaveBackupSettings();
+            }             
         }
 
         private void SaveBackupSettings()
@@ -196,7 +193,8 @@ namespace BackDown
             BackupSettings backupSettings = CreateBackupSettingsFromControls();
 
             bool edit = false;
-            List<BackupSettings> list = backupSettingsBindingSource.List as List<BackupSettings>;
+            BindingSource bindingSource = backupSettingsPicker.BindingSource;
+            List<BackupSettings> list =  bindingSource.List as List<BackupSettings>;
             foreach (BackupSettings settings in list)
             {
                 if (settings.Name.Equals(backupSettings.Name))
@@ -212,8 +210,9 @@ namespace BackDown
 
             if (!edit)
             {
-                backupSettingsBindingSource.Add(backupSettings);
-                backupSettingsDao.SaveBackupSettingsList(backupSettingsBindingSource.DataSource as List<BackupSettings>);
+                bindingSource.Add(backupSettings);
+                backupSettingsDao.SaveBackupSettingsList(bindingSource.DataSource as List<BackupSettings>);
+                backupSettingsPicker.BindingSource.MoveLast();
             }
             else
             {
@@ -221,31 +220,19 @@ namespace BackDown
                     "Már létezik beállítás ezen a néven", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    backupSettingsDao.SaveBackupSettingsList(backupSettingsBindingSource.DataSource as List<BackupSettings>);
+                    backupSettingsDao.SaveBackupSettingsList(bindingSource.DataSource as List<BackupSettings>);
                 }
             }
 
             ResetLabelColors();
-            backupSettingsDataGridView.Refresh();
         }
 
         private void deleteBackupSettingsButton_Click(object sender, EventArgs e)
         {
-            backupSettingsBindingSource.RemoveCurrent();
-            backupSettingsDataGridView.Refresh();
-            backupSettingsDao.SaveBackupSettingsList(backupSettingsBindingSource.DataSource as List<BackupSettings>);
-        }
-
-        private void backupSettingsDataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            deleteBackupSettingsButton.Enabled = false;
-            journalButton.Enabled = false;
-        }
-
-        private void backupSettingsDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            deleteBackupSettingsButton.Enabled = true;
-            journalButton.Enabled = true;
+            BindingSource bindingSource = backupSettingsPicker.BindingSource;
+            bindingSource.RemoveCurrent();
+            bindingSource.Position = -1;
+            backupSettingsDao.SaveBackupSettingsList(bindingSource.DataSource as List<BackupSettings>);
         }
 
         private void newBackupSettingsButton_Click(object sender, EventArgs e)
@@ -278,11 +265,6 @@ namespace BackDown
             incrementalCheckBox.ForeColor = Color.Green;
         }
 
-        private void backupSettingsDataGridView_Enter(object sender, EventArgs e)
-        {
-            ResetLabelColors();
-        }
-
         private void ResetLabelColors()
         {
             sourceLabel.ForeColor = SystemColors.ControlText;
@@ -294,12 +276,20 @@ namespace BackDown
 
         private void backupSettingsBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            BackupSettings settings = backupSettingsBindingSource.Current as BackupSettings;
+            ResetLabelColors();
+            BackupSettings settings = backupSettingsPicker.BindingSource.Current as BackupSettings;
+            if (settings == null || string.IsNullOrEmpty(settings.Name))
+            {
+                deleteBackupSettingsButton.Enabled = false;
+                return;
+            }
+            deleteBackupSettingsButton.Enabled = true;
             cliToolComboBox.SelectedItem = settings.CliTool;
             incrementalCheckBox.Checked = settings.Incremental;
             sourceTextBox.Text = settings.Source;
             targetTextBox.Text = settings.Target;
             saveAsNameTextBox.Text = settings.Name;
         }
+
     }
 }

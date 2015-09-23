@@ -68,6 +68,12 @@
     </Compile>
     <Compile Include="BackupSettings.cs" />
     <Compile Include="BackupSettingsDao.cs" />
+    <Compile Include="BackupSettingsPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BackupSettingsPicker.Designer.cs">
+      <DependentUpon>BackupSettingsPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="CliToolDao.cs" />
     <Compile Include="NewNameForm.cs">
       <SubType>Form</SubType>
@@ -83,11 +89,11 @@
     <Compile Include="MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogManagerForm.cs">
+    <Compile Include="JournalViewerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogManagerForm.Designer.cs">
-      <DependentUpon>LogManagerForm.cs</DependentUpon>
+    <Compile Include="JournalViewerForm.Designer.cs">
+      <DependentUpon>JournalViewerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BackupManagerForm.cs">
       <SubType>Form</SubType>
@@ -101,11 +107,11 @@
     <Compile Include="CliToolManagerForm.Designer.cs">
       <DependentUpon>CliToolManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecoverForm.cs">
+    <Compile Include="JournalAndRecoverForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecoverForm.Designer.cs">
-      <DependentUpon>RecoverForm.cs</DependentUpon>
+    <Compile Include="JournalAndRecoverForm.Designer.cs">
+      <DependentUpon>JournalAndRecoverForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CliToolForm.cs">
       <SubType>Form</SubType>
@@ -118,11 +124,14 @@
     <EmbeddedResource Include="BackupForm.resx">
       <DependentUpon>BackupForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BackupSettingsPicker.resx">
+      <DependentUpon>BackupSettingsPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogManagerForm.resx">
-      <DependentUpon>LogManagerForm.cs</DependentUpon>
+    <EmbeddedResource Include="JournalViewerForm.resx">
+      <DependentUpon>JournalViewerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BackupManagerForm.resx">
       <DependentUpon>BackupManagerForm.cs</DependentUpon>
@@ -133,8 +142,8 @@
     <EmbeddedResource Include="NewNameForm.resx">
       <DependentUpon>NewNameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecoverForm.resx">
-      <DependentUpon>RecoverForm.cs</DependentUpon>
+    <EmbeddedResource Include="JournalAndRecoverForm.resx">
+      <DependentUpon>JournalAndRecoverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CliToolForm.resx">
       <DependentUpon>CliToolForm.cs</DependentUpon>

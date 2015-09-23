@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.quickBackupGroupBox = new System.Windows.Forms.GroupBox();
             this.incrementalCheckBox = new System.Windows.Forms.CheckBox();
             this.startBackupButton = new System.Windows.Forms.Button();
@@ -51,19 +50,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.newBackupSettingsButton = new System.Windows.Forms.Button();
             this.deleteBackupSettingsButton = new System.Windows.Forms.Button();
-            this.journalButton = new System.Windows.Forms.Button();
-            this.backupSettingsDataGridView = new System.Windows.Forms.DataGridView();
-            this.CliTool = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Incremental = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.targetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backupSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.backupSettingsPicker = new BackDown.BackupSettingsPicker();
             this.quickBackupGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.backupSettingsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backupSettingsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // quickBackupGroupBox
@@ -222,11 +212,11 @@
             // toolLabel
             // 
             this.toolLabel.AutoSize = true;
-            this.toolLabel.Location = new System.Drawing.Point(24, 22);
+            this.toolLabel.Location = new System.Drawing.Point(33, 22);
             this.toolLabel.Name = "toolLabel";
-            this.toolLabel.Size = new System.Drawing.Size(107, 13);
+            this.toolLabel.Size = new System.Drawing.Size(98, 13);
             this.toolLabel.TabIndex = 1;
-            this.toolLabel.Text = "Parancssoros eszköz";
+            this.toolLabel.Text = "Parancssori eszköz";
             // 
             // cliToolComboBox
             // 
@@ -244,10 +234,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.backupSettingsPicker);
             this.groupBox2.Controls.Add(this.newBackupSettingsButton);
             this.groupBox2.Controls.Add(this.deleteBackupSettingsButton);
-            this.groupBox2.Controls.Add(this.journalButton);
-            this.groupBox2.Controls.Add(this.backupSettingsDataGridView);
             this.groupBox2.Location = new System.Drawing.Point(12, 257);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(747, 284);
@@ -276,78 +265,12 @@
             this.deleteBackupSettingsButton.UseVisualStyleBackColor = true;
             this.deleteBackupSettingsButton.Click += new System.EventHandler(this.deleteBackupSettingsButton_Click);
             // 
-            // journalButton
+            // backupSettingsPicker
             // 
-            this.journalButton.Enabled = false;
-            this.journalButton.Location = new System.Drawing.Point(204, 19);
-            this.journalButton.Name = "journalButton";
-            this.journalButton.Size = new System.Drawing.Size(94, 23);
-            this.journalButton.TabIndex = 1;
-            this.journalButton.Text = "Napló";
-            this.journalButton.UseVisualStyleBackColor = true;
-            // 
-            // backupSettingsDataGridView
-            // 
-            this.backupSettingsDataGridView.AllowUserToAddRows = false;
-            this.backupSettingsDataGridView.AllowUserToDeleteRows = false;
-            this.backupSettingsDataGridView.AutoGenerateColumns = false;
-            this.backupSettingsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.backupSettingsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.CliTool,
-            this.sourceDataGridViewTextBoxColumn,
-            this.targetDataGridViewTextBoxColumn,
-            this.Incremental});
-            this.backupSettingsDataGridView.DataSource = this.backupSettingsBindingSource;
-            this.backupSettingsDataGridView.Location = new System.Drawing.Point(6, 48);
-            this.backupSettingsDataGridView.Name = "backupSettingsDataGridView";
-            this.backupSettingsDataGridView.ReadOnly = true;
-            this.backupSettingsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.backupSettingsDataGridView.Size = new System.Drawing.Size(735, 230);
-            this.backupSettingsDataGridView.TabIndex = 2;
-            this.backupSettingsDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.backupSettingsDataGridView_RowEnter);
-            this.backupSettingsDataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.backupSettingsDataGridView_RowsRemoved);
-            this.backupSettingsDataGridView.Enter += new System.EventHandler(this.backupSettingsDataGridView_Enter);
-            // 
-            // CliTool
-            // 
-            this.CliTool.DataPropertyName = "CliToolName";
-            this.CliTool.HeaderText = "Eszköz";
-            this.CliTool.Name = "CliTool";
-            this.CliTool.ReadOnly = true;
-            // 
-            // Incremental
-            // 
-            this.Incremental.DataPropertyName = "Incremental";
-            this.Incremental.HeaderText = "Inkrementális";
-            this.Incremental.Name = "Incremental";
-            this.Incremental.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sourceDataGridViewTextBoxColumn
-            // 
-            this.sourceDataGridViewTextBoxColumn.DataPropertyName = "Source";
-            this.sourceDataGridViewTextBoxColumn.HeaderText = "Forrás mappa";
-            this.sourceDataGridViewTextBoxColumn.Name = "sourceDataGridViewTextBoxColumn";
-            this.sourceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // targetDataGridViewTextBoxColumn
-            // 
-            this.targetDataGridViewTextBoxColumn.DataPropertyName = "Target";
-            this.targetDataGridViewTextBoxColumn.HeaderText = "Cél mappa";
-            this.targetDataGridViewTextBoxColumn.Name = "targetDataGridViewTextBoxColumn";
-            this.targetDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // backupSettingsBindingSource
-            // 
-            this.backupSettingsBindingSource.DataSource = typeof(BackDown.BackupSettings);
-            this.backupSettingsBindingSource.CurrentChanged += new System.EventHandler(this.backupSettingsBindingSource_CurrentChanged);
+            this.backupSettingsPicker.Location = new System.Drawing.Point(6, 48);
+            this.backupSettingsPicker.Name = "backupSettingsPicker";
+            this.backupSettingsPicker.Size = new System.Drawing.Size(735, 230);
+            this.backupSettingsPicker.TabIndex = 4;
             // 
             // BackupManagerForm
             // 
@@ -366,8 +289,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.backupSettingsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backupSettingsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,17 +313,10 @@
         private System.Windows.Forms.CheckBox incrementalCheckBox;
         private System.Windows.Forms.FolderBrowserDialog sourceFolderBrowserDialog;
         private System.Windows.Forms.FolderBrowserDialog targetFolderBrowserDialog;
-        private System.Windows.Forms.BindingSource backupSettingsBindingSource;
         private System.Windows.Forms.Button saveBackupSettingsButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button deleteBackupSettingsButton;
-        private System.Windows.Forms.Button journalButton;
-        private System.Windows.Forms.DataGridView backupSettingsDataGridView;
         private System.Windows.Forms.Button newBackupSettingsButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CliTool;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sourceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn targetDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Incremental;
+        private BackupSettingsPicker backupSettingsPicker;
     }
 }

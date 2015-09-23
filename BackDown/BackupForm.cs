@@ -37,26 +37,28 @@ namespace BackDown
             noteTextBox.Text = Note;
             startAtTextBox.Text = startedAt.ToString();
 
+            AppendJournalHeader();
+            StartProcess(CreateCommand());
+        }
+
+        private void AppendJournalHeader()
+        {
             outputRichTextBox.AppendText("# BackDown biztonsági mentés\n");
-            outputRichTextBox.AppendText(string.Format("\n## {0}\n", BackupSettings.Name));
-            
+
+            if (!string.IsNullOrEmpty(BackupSettings.Name))
+            {
+                outputRichTextBox.AppendText(string.Format("\n## {0}\n", BackupSettings.Name));
+            }
+
             if (!string.IsNullOrEmpty(Note))
             {
                 outputRichTextBox.AppendText(string.Format("\n### {0}\n", Note));
-            }            
+            }
             outputRichTextBox.AppendText(string.Format("\n### Mentési beállítások\n", Note));
             outputRichTextBox.AppendText(string.Format("- Forrás mappa: {0}\n", BackupSettings.Source));
             outputRichTextBox.AppendText(string.Format("- Cél mappa: {0}\n", BackupSettings.Target));
             outputRichTextBox.AppendText(string.Format("- Inkrementális: {0}\n", BackupSettings.Incremental ? "Igen" : "Nem"));
             outputRichTextBox.AppendText(string.Format("\n### Indítva: {0}\n", startedAt.ToString(CultureInfo.CurrentCulture)));
-
-            string command = CreateCommand();
-
-            outputRichTextBox.AppendText(string.Format("\n### Parancs \n\t{0}\n", command));
-
-            outputRichTextBox.AppendText("\n### Kimenet\n");
-
-            StartProcess(command);
         }
 
         private string CreateCommand()
@@ -77,6 +79,9 @@ namespace BackDown
 
         private void StartProcess(string command)
         {
+            outputRichTextBox.AppendText(string.Format("\n### Parancs \n\t{0}\n", command));
+            outputRichTextBox.AppendText("\n### Kimenet\n");
+
             Process process = new Process();
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
