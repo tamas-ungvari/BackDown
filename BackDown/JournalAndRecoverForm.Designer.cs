@@ -182,6 +182,7 @@
             this.restoreFolderTextBox.Name = "restoreFolderTextBox";
             this.restoreFolderTextBox.Size = new System.Drawing.Size(308, 20);
             this.restoreFolderTextBox.TabIndex = 6;
+            this.restoreFolderTextBox.Enter += new System.EventHandler(this.restoreFolderTextBox_Enter);
             // 
             // label4
             // 
