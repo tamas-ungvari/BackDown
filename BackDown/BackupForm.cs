@@ -22,6 +22,7 @@ namespace BackDown
 
         private DateTime startedAt = DateTime.Now;
         private readonly BackupSettingsDao backupSettingsDao = BackupSettingsDao.Instance;
+        private string reportFile;
 
         public BackupForm()
         {
@@ -128,11 +129,14 @@ namespace BackDown
                 writer.WriteLine(outputRichTextBox.Text);
             }
 
-            ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", string.Format("/C multimarkdown.exe \"{0}.md\" > \"{0}.html\"", path));
+            reportFile = path + ".html";
+            ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", string.Format("/C multimarkdown.exe \"{0}.md\" > \"{1}\"", path, reportFile));
             psi.CreateNoWindow = true;
             psi.WindowStyle = ProcessWindowStyle.Hidden;
             Process.Start(psi).WaitForExit();
             File.Delete(markdownFile);
+
+            showReportButton.Enabled = true;
         }
 
         private void InvokeAppendOutputToTextBox(string line)
@@ -175,6 +179,11 @@ namespace BackDown
 
             string elapsedTime = sb.ToString();
             elapsedTimeTextBox.Text = elapsedTime;
+        }
+
+        private void showReportButton_Click(object sender, EventArgs e)
+        {
+            Process.Start(reportFile);
         }
     }
 }

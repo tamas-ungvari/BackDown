@@ -89,12 +89,6 @@
     <Compile Include="MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="JournalViewerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="JournalViewerForm.Designer.cs">
-      <DependentUpon>JournalViewerForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="BackupManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,9 +123,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JournalViewerForm.resx">
-      <DependentUpon>JournalViewerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BackupManagerForm.resx">
       <DependentUpon>BackupManagerForm.cs</DependentUpon>

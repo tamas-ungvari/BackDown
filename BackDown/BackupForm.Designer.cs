@@ -44,6 +44,7 @@
             this.noteTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.showReportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // outputRichTextBox
@@ -178,11 +179,23 @@
             this.timer.Interval = 200;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // showReportButton
+            // 
+            this.showReportButton.Enabled = false;
+            this.showReportButton.Location = new System.Drawing.Point(679, 71);
+            this.showReportButton.Name = "showReportButton";
+            this.showReportButton.Size = new System.Drawing.Size(169, 23);
+            this.showReportButton.TabIndex = 22;
+            this.showReportButton.Text = "HTML napló megtekintése";
+            this.showReportButton.UseVisualStyleBackColor = true;
+            this.showReportButton.Click += new System.EventHandler(this.showReportButton_Click);
+            // 
             // BackupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 648);
+            this.Controls.Add(this.showReportButton);
             this.Controls.Add(this.noteTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.elapsedTimeTextBox);
@@ -225,5 +238,6 @@
         private System.Windows.Forms.TextBox noteTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button showReportButton;
     }
 }

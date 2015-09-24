@@ -20,38 +20,20 @@ namespace BackDown
         private void buttonManageCliTools_Click(object sender, EventArgs e)
         {
             CliToolManagerForm formManageCliTools = new CliToolManagerForm();
-            if (DialogResult.OK == formManageCliTools.ShowDialog())
-            {
-
-            }
-
+            formManageCliTools.ShowDialog(this);
         }
 
         private void buttonManageBackups_Click(object sender, EventArgs e)
         {
             BackupManagerForm formManageBackups = new BackupManagerForm();
-            if (DialogResult.OK == formManageBackups.ShowDialog())
-            {
-
-            }
+            formManageBackups.ShowDialog(this);
         }
 
         private void buttonRecover_Click(object sender, EventArgs e)
         {
             JournalAndRecoverForm formRecover = new JournalAndRecoverForm();
-            if (DialogResult.OK == formRecover.ShowDialog())
-            {
-
-            }
+            formRecover.ShowDialog(this);
         }
 
-        private void buttonLogs_Click(object sender, EventArgs e)
-        {
-            JournalViewerForm formLogs = new JournalViewerForm();
-            if (DialogResult.OK == formLogs.ShowDialog())
-            {
-
-            }
-        }
     }
 }
