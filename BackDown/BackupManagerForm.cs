@@ -98,6 +98,16 @@ namespace BackDown
 
         private bool ValidateBackupSettingsForm()
         {
+            bool nameIsValid = !string.IsNullOrEmpty(saveAsNameTextBox.Text);
+            if (!nameIsValid)
+            {
+                saveAsNameLabel.ForeColor = Color.Red;
+                saveAsNameTextBox.Focus();
+                MessageBox.Show(this, "Csak név megadásával lehet a mentési konfigurációt eltárolni.");
+                return false;
+            }
+            saveAsNameLabel.ForeColor = SystemColors.ControlText;
+
             bool toolIsValid = cliToolComboBox.SelectedIndex > -1;
             if (!toolIsValid)
             {
@@ -108,7 +118,7 @@ namespace BackDown
             }
             else
             {
-                toolLabel.ForeColor = Color.Black;
+                toolLabel.ForeColor = SystemColors.ControlText;
             }
             bool sourceIsValid = !string.IsNullOrEmpty(sourceTextBox.Text);
             if (!sourceIsValid)
@@ -128,7 +138,7 @@ namespace BackDown
             }
             else
             {
-                sourceLabel.ForeColor = Color.Black;
+                sourceLabel.ForeColor = SystemColors.ControlText;
             }
 
             bool targetIsValid = !string.IsNullOrEmpty(targetTextBox.Text);
@@ -157,7 +167,7 @@ namespace BackDown
             }
             else
             {
-                targetLabel.ForeColor = Color.Black;
+                targetLabel.ForeColor = SystemColors.ControlText;
             }
 
             return true;
@@ -165,27 +175,12 @@ namespace BackDown
 
         private void saveBackupSettingsButton_Click(object sender, EventArgs e)
         {
-            bool valid = ValidateBackupSettingsForm();
-
-            if (!valid)
+            if (!ValidateBackupSettingsForm())
             {
                 return;
             }
-            else
-            {
-                if (string.IsNullOrEmpty(saveAsNameTextBox.Text))
-                {
-                    saveAsNameLabel.ForeColor = Color.Red;
-                    saveAsNameTextBox.Focus();
-                    MessageBox.Show(this, "Csak név megadásával lehet a mentési konfigurációt eltárolni.");
-                    return;
-                }
-                else
-                {
-                    saveAsNameLabel.ForeColor = Color.Black;
-                    SaveBackupSettings();
-                }
-            }             
+
+            SaveBackupSettings();
         }
 
         private void SaveBackupSettings()
