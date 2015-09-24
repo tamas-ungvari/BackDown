@@ -69,9 +69,16 @@ namespace BackDown
         public BackupSettings LoadBackupSettings(string targetFolder)
         {
             string path = string.Format("{0}\\{1}", targetFolder, Settings.Default.BACKUP_SETTINGS_FILE);
-            using (Stream stream = File.OpenRead(path))
+            try
             {
-                return serializer.ReadObject(stream) as BackupSettings;
+                using (Stream stream = File.OpenRead(path))
+                {
+                    return serializer.ReadObject(stream) as BackupSettings;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
     }

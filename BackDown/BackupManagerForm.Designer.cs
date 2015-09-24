@@ -91,8 +91,8 @@
             // 
             // startBackupButton
             // 
-            this.startBackupButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.startBackupButton.Location = new System.Drawing.Point(451, 189);
+            this.startBackupButton.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.startBackupButton.Location = new System.Drawing.Point(222, 203);
             this.startBackupButton.Name = "startBackupButton";
             this.startBackupButton.Size = new System.Drawing.Size(130, 30);
             this.startBackupButton.TabIndex = 10;
@@ -102,7 +102,7 @@
             // 
             // noteTextBox
             // 
-            this.noteTextBox.Location = new System.Drawing.Point(137, 195);
+            this.noteTextBox.Location = new System.Drawing.Point(137, 177);
             this.noteTextBox.Name = "noteTextBox";
             this.noteTextBox.Size = new System.Drawing.Size(308, 20);
             this.noteTextBox.TabIndex = 8;
@@ -158,7 +158,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 198);
+            this.label4.Location = new System.Drawing.Point(12, 180);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 13);
             this.label4.TabIndex = 9;

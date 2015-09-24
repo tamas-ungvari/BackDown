@@ -92,6 +92,7 @@
             this.findByTargetBrowseButton.TabIndex = 0;
             this.findByTargetBrowseButton.Text = "Tallóz ...";
             this.findByTargetBrowseButton.UseVisualStyleBackColor = true;
+            this.findByTargetBrowseButton.Click += new System.EventHandler(this.findByTargetBrowseButton_Click);
             // 
             // findByTargetTextBox
             // 
@@ -129,6 +130,7 @@
             this.findByNameButton.TabIndex = 2;
             this.findByNameButton.Text = "Keres";
             this.findByNameButton.UseVisualStyleBackColor = true;
+            this.findByNameButton.Click += new System.EventHandler(this.findByNameButton_Click);
             // 
             // label2
             // 
@@ -156,6 +158,7 @@
             this.findByTargetButton.TabIndex = 4;
             this.findByTargetButton.Text = "Keres";
             this.findByTargetButton.UseVisualStyleBackColor = true;
+            this.findByTargetButton.Click += new System.EventHandler(this.findByTargetButton_Click);
             // 
             // groupBox4
             // 
@@ -183,8 +186,9 @@
             this.backupsListBox.FormattingEnabled = true;
             this.backupsListBox.Location = new System.Drawing.Point(6, 19);
             this.backupsListBox.Name = "backupsListBox";
-            this.backupsListBox.Size = new System.Drawing.Size(241, 264);
+            this.backupsListBox.Size = new System.Drawing.Size(239, 264);
             this.backupsListBox.TabIndex = 6;
+            this.backupsListBox.SelectedIndexChanged += new System.EventHandler(this.backupsListBox_SelectedIndexChanged);
             // 
             // restoreFolderTextBox
             // 
@@ -196,11 +200,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(253, 194);
+            this.label4.Location = new System.Drawing.Point(251, 194);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 13);
+            this.label4.Size = new System.Drawing.Size(102, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Helyreállítás mappa";
+            this.label4.Text = "Helyreállítási mappa";
             // 
             // incrementalCheckBox
             // 
@@ -268,12 +272,13 @@
             // 
             // journalButton
             // 
+            this.journalButton.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.journalButton.Location = new System.Drawing.Point(359, 121);
             this.journalButton.Name = "journalButton";
             this.journalButton.Size = new System.Drawing.Size(111, 30);
             this.journalButton.TabIndex = 16;
             this.journalButton.Text = "Napló";
-            this.journalButton.UseVisualStyleBackColor = true;
+            this.journalButton.UseVisualStyleBackColor = false;
             // 
             // cliToolNameTextBox
             // 
