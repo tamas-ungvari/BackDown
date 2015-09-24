@@ -147,6 +147,8 @@
             this.ClientSize = new System.Drawing.Size(496, 276);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CliToolManagerForm";
             this.Text = "Parancssori eszközök kezelése";
             this.groupBox1.ResumeLayout(false);

@@ -192,6 +192,8 @@
             this.Controls.Add(this.groupBoxRestore);
             this.Controls.Add(this.groupBoxBackup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CliToolForm";
             this.Text = "Új Parancssori Eszköz";
             this.groupBoxBackup.ResumeLayout(false);
