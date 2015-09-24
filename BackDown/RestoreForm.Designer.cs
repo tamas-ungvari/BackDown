@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.outputRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.incrementalCheckBox = new System.Windows.Forms.CheckBox();
             this.targetLabel = new System.Windows.Forms.Label();
             this.targetTextBox = new System.Windows.Forms.TextBox();
             this.sourceLabel = new System.Windows.Forms.Label();
@@ -41,8 +40,6 @@
             this.startAtTextBox = new System.Windows.Forms.TextBox();
             this.elapsedTimeTextBox = new System.Windows.Forms.TextBox();
             this.elapsedTimeLabel = new System.Windows.Forms.Label();
-            this.noteTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.showReportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,49 +56,38 @@
             this.outputRichTextBox.TabIndex = 0;
             this.outputRichTextBox.Text = "";
             // 
-            // incrementalCheckBox
-            // 
-            this.incrementalCheckBox.AutoSize = true;
-            this.incrementalCheckBox.Enabled = false;
-            this.incrementalCheckBox.Location = new System.Drawing.Point(513, 64);
-            this.incrementalCheckBox.Name = "incrementalCheckBox";
-            this.incrementalCheckBox.Size = new System.Drawing.Size(125, 17);
-            this.incrementalCheckBox.TabIndex = 10;
-            this.incrementalCheckBox.Text = "Inkrementális mentés";
-            this.incrementalCheckBox.UseVisualStyleBackColor = true;
-            // 
             // targetLabel
             // 
             this.targetLabel.AutoSize = true;
-            this.targetLabel.Location = new System.Drawing.Point(450, 41);
+            this.targetLabel.Location = new System.Drawing.Point(426, 41);
             this.targetLabel.Name = "targetLabel";
-            this.targetLabel.Size = new System.Drawing.Size(57, 13);
+            this.targetLabel.Size = new System.Drawing.Size(102, 13);
             this.targetLabel.TabIndex = 14;
-            this.targetLabel.Text = "Cél mappa";
+            this.targetLabel.Text = "Helyreállítási mappa";
             // 
             // targetTextBox
             // 
-            this.targetTextBox.Location = new System.Drawing.Point(513, 38);
+            this.targetTextBox.Location = new System.Drawing.Point(534, 38);
             this.targetTextBox.Name = "targetTextBox";
             this.targetTextBox.ReadOnly = true;
-            this.targetTextBox.Size = new System.Drawing.Size(335, 20);
+            this.targetTextBox.Size = new System.Drawing.Size(314, 20);
             this.targetTextBox.TabIndex = 13;
             // 
             // sourceLabel
             // 
             this.sourceLabel.AutoSize = true;
-            this.sourceLabel.Location = new System.Drawing.Point(436, 15);
+            this.sourceLabel.Location = new System.Drawing.Point(451, 15);
             this.sourceLabel.Name = "sourceLabel";
-            this.sourceLabel.Size = new System.Drawing.Size(71, 13);
+            this.sourceLabel.Size = new System.Drawing.Size(77, 13);
             this.sourceLabel.TabIndex = 12;
-            this.sourceLabel.Text = "Forrás mappa";
+            this.sourceLabel.Text = "Mentés mappa";
             // 
             // sourceTextBox
             // 
-            this.sourceTextBox.Location = new System.Drawing.Point(513, 12);
+            this.sourceTextBox.Location = new System.Drawing.Point(534, 12);
             this.sourceTextBox.Name = "sourceTextBox";
             this.sourceTextBox.ReadOnly = true;
-            this.sourceTextBox.Size = new System.Drawing.Size(335, 20);
+            this.sourceTextBox.Size = new System.Drawing.Size(314, 20);
             this.sourceTextBox.TabIndex = 11;
             // 
             // toolLabel
@@ -124,7 +110,7 @@
             // startedAtLabel
             // 
             this.startedAtLabel.AutoSize = true;
-            this.startedAtLabel.Location = new System.Drawing.Point(78, 67);
+            this.startedAtLabel.Location = new System.Drawing.Point(78, 41);
             this.startedAtLabel.Name = "startedAtLabel";
             this.startedAtLabel.Size = new System.Drawing.Size(41, 13);
             this.startedAtLabel.TabIndex = 16;
@@ -132,7 +118,7 @@
             // 
             // startAtTextBox
             // 
-            this.startAtTextBox.Location = new System.Drawing.Point(125, 64);
+            this.startAtTextBox.Location = new System.Drawing.Point(125, 38);
             this.startAtTextBox.Name = "startAtTextBox";
             this.startAtTextBox.ReadOnly = true;
             this.startAtTextBox.Size = new System.Drawing.Size(122, 20);
@@ -140,7 +126,7 @@
             // 
             // elapsedTimeTextBox
             // 
-            this.elapsedTimeTextBox.Location = new System.Drawing.Point(306, 64);
+            this.elapsedTimeTextBox.Location = new System.Drawing.Point(306, 38);
             this.elapsedTimeTextBox.Name = "elapsedTimeTextBox";
             this.elapsedTimeTextBox.ReadOnly = true;
             this.elapsedTimeTextBox.Size = new System.Drawing.Size(111, 20);
@@ -150,28 +136,11 @@
             // elapsedTimeLabel
             // 
             this.elapsedTimeLabel.AutoSize = true;
-            this.elapsedTimeLabel.Location = new System.Drawing.Point(253, 67);
+            this.elapsedTimeLabel.Location = new System.Drawing.Point(253, 41);
             this.elapsedTimeLabel.Name = "elapsedTimeLabel";
             this.elapsedTimeLabel.Size = new System.Drawing.Size(47, 13);
             this.elapsedTimeLabel.TabIndex = 18;
             this.elapsedTimeLabel.Text = "Eltelt idő";
-            // 
-            // noteTextBox
-            // 
-            this.noteTextBox.Location = new System.Drawing.Point(125, 38);
-            this.noteTextBox.Name = "noteTextBox";
-            this.noteTextBox.ReadOnly = true;
-            this.noteTextBox.Size = new System.Drawing.Size(292, 20);
-            this.noteTextBox.TabIndex = 20;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 41);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Megjegyzés";
             // 
             // timer
             // 
@@ -190,20 +159,17 @@
             this.showReportButton.UseVisualStyleBackColor = true;
             this.showReportButton.Click += new System.EventHandler(this.showReportButton_Click);
             // 
-            // BackupForm
+            // RestoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 648);
             this.Controls.Add(this.showReportButton);
-            this.Controls.Add(this.noteTextBox);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.elapsedTimeTextBox);
             this.Controls.Add(this.elapsedTimeLabel);
             this.Controls.Add(this.startAtTextBox);
             this.Controls.Add(this.startedAtLabel);
             this.Controls.Add(this.cliToolTextBox);
-            this.Controls.Add(this.incrementalCheckBox);
             this.Controls.Add(this.targetLabel);
             this.Controls.Add(this.targetTextBox);
             this.Controls.Add(this.sourceLabel);
@@ -214,7 +180,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RestoreForm";
-            this.Text = "Mentési folyamat";
+            this.Text = "Helyreállítás";
             this.Load += new System.EventHandler(this.BackupForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -224,7 +190,6 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox outputRichTextBox;
-        private System.Windows.Forms.CheckBox incrementalCheckBox;
         private System.Windows.Forms.Label targetLabel;
         private System.Windows.Forms.TextBox targetTextBox;
         private System.Windows.Forms.Label sourceLabel;
@@ -235,8 +200,6 @@
         private System.Windows.Forms.TextBox startAtTextBox;
         private System.Windows.Forms.TextBox elapsedTimeTextBox;
         private System.Windows.Forms.Label elapsedTimeLabel;
-        private System.Windows.Forms.TextBox noteTextBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button showReportButton;
     }
