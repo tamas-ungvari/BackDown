@@ -30,6 +30,8 @@ namespace BackDown
             findByNameComboBox.DisplayMember = "Name";
             findByNameComboBox.SelectedIndex = -1;
             backupsListBox.DisplayMember = "BackupFolderName";
+            journalButton.Enabled = false;
+            restoreButton.Enabled = false;
         }
 
         private void findByTargetButton_Click(object sender, EventArgs e)
@@ -96,7 +98,12 @@ namespace BackDown
 
         private void backupsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (backupsListBox.SelectedIndex < 0)
+            bool isSelected = backupsListBox.SelectedIndex >= 0;
+            
+            journalButton.Enabled = isSelected;
+            restoreButton.Enabled = isSelected;
+
+            if (!isSelected)
             {
                 ClearResultControls();
                 return;
@@ -115,12 +122,40 @@ namespace BackDown
             {
                 Backup backup = (Backup) backupsListBox.SelectedItem;
                 Process.Start(string.Format("{0}\\{1}\\{2}.html", backup.BackupSettings.Target, backup.BackupFolderName,
-                    Settings.Default.JOURNAL_FILE));
+                    Settings.Default.BACKUP_JOURNAL_FILE));
             }
             catch (Exception)
             {
                 MessageBox.Show(this, "A kiválasztott mentéshez nem található napló.");
             }
+        }
+
+        private void restoreButton_Click(object sender, EventArgs e)
+        {
+            Backup backup = (Backup)backupsListBox.SelectedItem;
+            RestoreSettings restoreSettings = new RestoreSettings();
+            restoreSettings.CliTool = backup.BackupSettings.CliTool;
+            restoreSettings.BackupFolder = backup.BackupSettings.Target + "\\" + backup.BackupFolderName;
+            restoreSettings.RestoreFolder = restoreFolderTextBox.Text;
+            restoreSettings.Name = backup.BackupSettings.Name;
+
+            if (Directory.Exists(restoreSettings.RestoreFolder) &&
+                Directory.GetFileSystemEntries(restoreSettings.RestoreFolder).Length > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show(this,
+                    "A kiválasztott helyreállítási mappa nem üres.\n" +
+                    "A helyreállítás során a mappában található fájlok felülíródnak, így adatvesztés következhet be.\n\n" +
+                    "Megerősít?",
+                    "Biztos benne?", MessageBoxButtons.YesNo);
+                if (DialogResult.Yes != dialogResult)
+                {
+                    return;
+                }
+            }
+
+            RestoreForm restoreForm = new RestoreForm();
+            restoreForm.RestoreSettings = restoreSettings;
+            restoreForm.ShowDialog(this);
         }
     }
 }

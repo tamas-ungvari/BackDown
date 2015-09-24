@@ -120,6 +120,7 @@
             this.restoreButton.TabIndex = 15;
             this.restoreButton.Text = "Helyreállít";
             this.restoreButton.UseVisualStyleBackColor = false;
+            this.restoreButton.Click += new System.EventHandler(this.restoreButton_Click);
             // 
             // incrementalCheckBox
             // 

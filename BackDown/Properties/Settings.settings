@@ -17,8 +17,11 @@
     <Setting Name="BACKUP_SETTINGS_FILE" Type="System.String" Scope="User">
       <Value Profile="(Default)">backup-settings.json</Value>
     </Setting>
-    <Setting Name="JOURNAL_FILE" Type="System.String" Scope="User">
+    <Setting Name="BACKUP_JOURNAL_FILE" Type="System.String" Scope="User">
       <Value Profile="(Default)">backup-journal</Value>
+    </Setting>
+    <Setting Name="RESTORE_JOURNAL_FILE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">restore-journal</Value>
     </Setting>
   </Settings>
 </SettingsFile>

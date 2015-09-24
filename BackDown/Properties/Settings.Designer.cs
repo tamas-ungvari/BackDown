@@ -86,12 +86,24 @@ namespace BackDown.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("backup-journal")]
-        public string JOURNAL_FILE {
+        public string BACKUP_JOURNAL_FILE {
             get {
-                return ((string)(this["JOURNAL_FILE"]));
+                return ((string)(this["BACKUP_JOURNAL_FILE"]));
             }
             set {
-                this["JOURNAL_FILE"] = value;
+                this["BACKUP_JOURNAL_FILE"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("restore-journal")]
+        public string RESTORE_JOURNAL_FILE {
+            get {
+                return ((string)(this["RESTORE_JOURNAL_FILE"]));
+            }
+            set {
+                this["RESTORE_JOURNAL_FILE"] = value;
             }
         }
     }

@@ -15,16 +15,14 @@ using BackDown.Properties;
 
 namespace BackDown
 {
-    public partial class BackupForm : Form
+    public partial class RestoreForm : Form
     { 
-        public BackupSettings BackupSettings { get; set; }
-        public string Note { get; set; }
+        public RestoreSettings RestoreSettings { get; set; }
 
         private DateTime startedAt = DateTime.Now;
-        private readonly BackupSettingsDao backupSettingsDao = BackupSettingsDao.Instance;
         private string reportFile;
 
-        public BackupForm()
+        public RestoreForm()
         {
             InitializeComponent();
         }
@@ -32,48 +30,37 @@ namespace BackDown
         private void BackupForm_Load(object sender, EventArgs e)
         {
             timer.Start();
-            cliToolTextBox.Text = BackupSettings.CliToolName;
-            incrementalCheckBox.Checked = BackupSettings.Incremental;
-            sourceTextBox.Text = BackupSettings.Source;
-            targetTextBox.Text = BackupSettings.Target;
-            noteTextBox.Text = Note;
+            cliToolTextBox.Text = RestoreSettings.CliTool.Name;
+            sourceTextBox.Text = RestoreSettings.BackupFolder;
+            targetTextBox.Text = RestoreSettings.RestoreFolder;
             startAtTextBox.Text = startedAt.ToString();
             
-            string targetFolder = GetBackupFolder(BackupSettings);
-            if (!Directory.Exists(targetFolder))
+            if (!Directory.Exists(targetTextBox.Text))
             {
-                Directory.CreateDirectory(targetFolder);
+                Directory.CreateDirectory(targetTextBox.Text);
             }
-            backupSettingsDao.SaveBackupSettings(targetFolder, BackupSettings);
             AppendJournalHeader();
-            StartProcess(CreateCommand(BackupSettings, targetFolder));
+            StartProcess(CreateCommand(RestoreSettings));
         }
 
         private void AppendJournalHeader()
         {
-            outputRichTextBox.AppendText("# BackDown mentésnapló\n");
+            outputRichTextBox.AppendText("# BackDown helyreállítási napló\n");
 
-            outputRichTextBox.AppendText(string.Format("\n## {0}\n", BackupSettings.Name));
+            outputRichTextBox.AppendText(string.Format("\n## {0}\n", RestoreSettings.Name));
 
-            if (!string.IsNullOrEmpty(Note))
-            {
-                outputRichTextBox.AppendText(string.Format("\n### {0}\n", Note));
-            }
-            outputRichTextBox.AppendText("\n### Mentési beállítások\n");
-            outputRichTextBox.AppendText(string.Format("- Forrás mappa: `{0}`\n", BackupSettings.Source));
-            outputRichTextBox.AppendText(string.Format("- Cél mappa: `{0}`\n", BackupSettings.Target));
-            outputRichTextBox.AppendText(string.Format("- Inkrementális: {0}\n", BackupSettings.Incremental ? "Igen" : "Nem"));
+            outputRichTextBox.AppendText("\n### Helyreállítási beállítások\n");
+            outputRichTextBox.AppendText(string.Format("- Mentés mappája: `{0}`\n", RestoreSettings.BackupFolder));
+            outputRichTextBox.AppendText(string.Format("- Helyreállítási mappa: `{0}`\n", RestoreSettings.RestoreFolder));
             outputRichTextBox.AppendText(string.Format("\n### Indítva: {0}\n", startedAt.ToString(CultureInfo.CurrentCulture)));
         }
 
-        private string CreateCommand(BackupSettings settings, string targetFolder)
+        private string CreateCommand(RestoreSettings settings)
         {
-            string command = settings.Incremental
-                ? settings.CliTool.IncrementalBackupCommand
-                : settings.CliTool.BackupCommand;
+            string command = settings.CliTool.RestoreCommand;
 
-            command = command.Replace(Settings.Default.SOURCE_PLACEHOLDER, String.Format("\"{0}\"", settings.Source));
-            command = command.Replace(Settings.Default.TARGET_PLACEHOLDER, String.Format("\"{0}\"", targetFolder));
+            command = command.Replace(Settings.Default.SOURCE_PLACEHOLDER, String.Format("\"{0}\"", settings.BackupFolder));
+            command = command.Replace(Settings.Default.TARGET_PLACEHOLDER, String.Format("\"{0}\"", settings.RestoreFolder));
             return command;
         }
 
@@ -109,20 +96,20 @@ namespace BackDown
 
             if (process.ExitCode == 0)
             {
-                InvokeAppendOutputToTextBox("### A mentés sikeresen befejeződött.");
+                InvokeAppendOutputToTextBox("### A helyreállítás sikeresen befejeződött.");
             }
             else
             {
-                InvokeAppendOutputToTextBox("### A mentés során hiba történt.");
+                InvokeAppendOutputToTextBox("### A helyreállítás során hiba történt.");
             }
             InvokeAppendOutputToTextBox(String.Format("### Eltelet idő: {0}", elapsedTimeTextBox.Text));
             timer.Stop();
-            BeginInvoke(new Action(() => SaveReport(GetBackupFolder(BackupSettings))));
+            BeginInvoke(new Action(() => SaveReport(RestoreSettings.RestoreFolder)));
         }
 
         private void SaveReport(string targetFolder)
         {
-            string path = String.Format("{0}\\{1}", targetFolder, Settings.Default.BACKUP_JOURNAL_FILE);
+            string path = String.Format("{0}\\{1}", targetFolder, Settings.Default.RESTORE_JOURNAL_FILE);
             string markdownFile = path + ".md";
             using (StreamWriter writer = new StreamWriter(File.Create(markdownFile), Encoding.Default))
             {
