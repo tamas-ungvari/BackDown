@@ -50,20 +50,17 @@ namespace BackDown
 
         private void AppendJournalHeader()
         {
-            outputRichTextBox.AppendText("# BackDown biztonsági mentés\n");
+            outputRichTextBox.AppendText("# BackDown mentésnapló\n");
 
-            if (!string.IsNullOrEmpty(BackupSettings.Name))
-            {
-                outputRichTextBox.AppendText(string.Format("\n## {0}\n", BackupSettings.Name));
-            }
+            outputRichTextBox.AppendText(string.Format("\n## {0}\n", BackupSettings.Name));
 
             if (!string.IsNullOrEmpty(Note))
             {
                 outputRichTextBox.AppendText(string.Format("\n### {0}\n", Note));
             }
             outputRichTextBox.AppendText(string.Format("\n### Mentési beállítások\n", Note));
-            outputRichTextBox.AppendText(string.Format("- Forrás mappa: {0}\n", BackupSettings.Source));
-            outputRichTextBox.AppendText(string.Format("- Cél mappa: {0}\n", BackupSettings.Target));
+            outputRichTextBox.AppendText(string.Format("- Forrás mappa: `{0}`\n", BackupSettings.Source));
+            outputRichTextBox.AppendText(string.Format("- Cél mappa: `{0}`\n", BackupSettings.Target));
             outputRichTextBox.AppendText(string.Format("- Inkrementális: {0}\n", BackupSettings.Incremental ? "Igen" : "Nem"));
             outputRichTextBox.AppendText(string.Format("\n### Indítva: {0}\n", startedAt.ToString(CultureInfo.CurrentCulture)));
         }
@@ -125,10 +122,17 @@ namespace BackDown
         private void SaveReport(string targetFolder)
         {
             string path = String.Format("{0}\\{1}", targetFolder, Settings.Default.JOURNAL_FILE);
-            using (StreamWriter writer = new StreamWriter(File.Create(path)))
+            string markdownFile = path + ".md";
+            using (StreamWriter writer = new StreamWriter(File.Create(markdownFile), Encoding.Default))
             {
                 writer.WriteLine(outputRichTextBox.Text);
             }
+
+            ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", string.Format("/C multimarkdown.exe \"{0}.md\" > \"{0}.html\"", path));
+            psi.CreateNoWindow = true;
+            psi.WindowStyle = ProcessWindowStyle.Hidden;
+            Process.Start(psi).WaitForExit();
+            File.Delete(markdownFile);
         }
 
         private void InvokeAppendOutputToTextBox(string line)

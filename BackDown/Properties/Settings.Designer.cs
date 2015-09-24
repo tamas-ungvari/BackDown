@@ -85,7 +85,7 @@ namespace BackDown.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("backup-journal.md")]
+        [global::System.Configuration.DefaultSettingValueAttribute("backup-journal")]
         public string JOURNAL_FILE {
             get {
                 return ((string)(this["JOURNAL_FILE"]));

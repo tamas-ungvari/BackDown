@@ -18,7 +18,7 @@
       <Value Profile="(Default)">backup-settings.json</Value>
     </Setting>
     <Setting Name="JOURNAL_FILE" Type="System.String" Scope="User">
-      <Value Profile="(Default)">backup-journal.md</Value>
+      <Value Profile="(Default)">backup-journal</Value>
     </Setting>
   </Settings>
 </SettingsFile>
