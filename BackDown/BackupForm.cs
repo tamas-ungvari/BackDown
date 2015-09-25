@@ -154,7 +154,7 @@ namespace BackDown
             InvokeAppendOutputToTextBox(string.Format("\t{0}", dataReceivedEventArgs.Data));
         }
 
-        public string GetBackupFolder(BackupSettings settings)
+        private string GetBackupFolder(BackupSettings settings)
         {
             string targetFolder = settings.Incremental
                 ? String.Format("{0}\\{1}", settings.Target, settings.Name) :

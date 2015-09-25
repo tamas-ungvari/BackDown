@@ -30,7 +30,7 @@
         {
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameTextBox
@@ -50,26 +50,26 @@
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "Új név";
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(261, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Mentés";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.saveButton.Location = new System.Drawing.Point(261, 12);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(89, 23);
+            this.saveButton.TabIndex = 2;
+            this.saveButton.Text = "Mentés";
+            this.saveButton.UseVisualStyleBackColor = true;
             // 
-            // FormNewName
+            // NewNameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 50);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.nameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormNewName";
+            this.Name = "NewNameForm";
             this.Text = "Új eszköznév";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -79,7 +79,7 @@
         #endregion
 
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button saveButton;
         internal System.Windows.Forms.TextBox nameTextBox;
     }
 }

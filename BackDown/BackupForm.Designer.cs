@@ -42,7 +42,7 @@
             this.elapsedTimeTextBox = new System.Windows.Forms.TextBox();
             this.elapsedTimeLabel = new System.Windows.Forms.Label();
             this.noteTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.noteLabel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.showReportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -164,14 +164,14 @@
             this.noteTextBox.Size = new System.Drawing.Size(292, 20);
             this.noteTextBox.TabIndex = 20;
             // 
-            // label4
+            // noteLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 41);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Megjegyzés";
+            this.noteLabel.AutoSize = true;
+            this.noteLabel.Location = new System.Drawing.Point(56, 41);
+            this.noteLabel.Name = "noteLabel";
+            this.noteLabel.Size = new System.Drawing.Size(63, 13);
+            this.noteLabel.TabIndex = 21;
+            this.noteLabel.Text = "Megjegyzés";
             // 
             // timer
             // 
@@ -197,7 +197,7 @@
             this.ClientSize = new System.Drawing.Size(860, 648);
             this.Controls.Add(this.showReportButton);
             this.Controls.Add(this.noteTextBox);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.noteLabel);
             this.Controls.Add(this.elapsedTimeTextBox);
             this.Controls.Add(this.elapsedTimeLabel);
             this.Controls.Add(this.startAtTextBox);
@@ -236,7 +236,7 @@
         private System.Windows.Forms.TextBox elapsedTimeTextBox;
         private System.Windows.Forms.Label elapsedTimeLabel;
         private System.Windows.Forms.TextBox noteTextBox;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label noteLabel;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button showReportButton;
     }
