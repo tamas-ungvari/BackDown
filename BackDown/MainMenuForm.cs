@@ -17,22 +17,22 @@ namespace BackDown
             InitializeComponent();
         }
 
-        private void buttonManageCliTools_Click(object sender, EventArgs e)
+        private void manageCliToolsButton_Click(object sender, EventArgs e)
         {
-            CliToolManagerForm formManageCliTools = new CliToolManagerForm();
-            formManageCliTools.ShowDialog(this);
+            CliToolManagerForm cliToolManagerForm = new CliToolManagerForm();
+            cliToolManagerForm.ShowDialog(this);
         }
 
-        private void buttonManageBackups_Click(object sender, EventArgs e)
+        private void manageBackupsButton_Click(object sender, EventArgs e)
         {
-            BackupManagerForm formManageBackups = new BackupManagerForm();
-            formManageBackups.ShowDialog(this);
+            BackupManagerForm backupManagerForm = new BackupManagerForm();
+            backupManagerForm.ShowDialog(this);
         }
 
-        private void buttonRecover_Click(object sender, EventArgs e)
+        private void recoverButton_Click(object sender, EventArgs e)
         {
-            JournalAndRecoverForm formRecover = new JournalAndRecoverForm();
-            formRecover.ShowDialog(this);
+            JournalAndRecoverForm journalAndRecoverForm = new JournalAndRecoverForm();
+            journalAndRecoverForm.ShowDialog(this);
         }
 
     }
