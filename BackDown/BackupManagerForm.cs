@@ -275,7 +275,6 @@ namespace BackDown
             BackupSettings settings = backupSettingsPicker.BindingSource.Current as BackupSettings;
             if (settings == null || string.IsNullOrEmpty(settings.Name))
             {
-                deleteBackupSettingsButton.Enabled = false;
                 return;
             }
             deleteBackupSettingsButton.Enabled = true;

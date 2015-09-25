@@ -21,7 +21,7 @@ namespace BackDown
         {
             InitializeComponent();
             bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
-            dataGridViewCliTools.Refresh();
+            cliToolsDataGridView.Refresh();
             string fileFilterText = "JSON files (.json)|*.json";
             openFileDialog.Filter = fileFilterText;
             openFileDialog.RestoreDirectory = true;
@@ -47,14 +47,14 @@ namespace BackDown
                             current.Name = formNewName.nameTextBox.Text;
                         }
                     }
-                    dataGridViewCliTools.Refresh();
+                    cliToolsDataGridView.Refresh();
                     CheckNameUnique();
                     break;
                 }
             }
         }
 
-        private void buttonNew_Click(object sender, EventArgs e)
+        private void newButton_Click(object sender, EventArgs e)
         {
             CliToolForm cliToolForm = new CliToolForm();
             cliToolForm.BindingSource = bindingSourceCliTools;
@@ -63,17 +63,17 @@ namespace BackDown
             {
                 bindingSourceCliTools.CancelEdit();
                 bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
-                dataGridViewCliTools.Refresh();
+                cliToolsDataGridView.Refresh();
             }
             else
             {
                 CheckNameUnique();
                 cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
-                dataGridViewCliTools.Refresh();
+                cliToolsDataGridView.Refresh();
             }
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void editButton_Click(object sender, EventArgs e)
         {
             CliToolForm cliToolForm = new CliToolForm();
             cliToolForm.BindingSource = bindingSourceCliTools;
@@ -84,35 +84,35 @@ namespace BackDown
             {
                 CheckNameUnique();
                 cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
-                dataGridViewCliTools.Refresh();
+                cliToolsDataGridView.Refresh();
             }
             else
             {
                 bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
-                dataGridViewCliTools.Refresh();
+                cliToolsDataGridView.Refresh();
             }
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private void deleteButton_Click(object sender, EventArgs e)
         {
             bindingSourceCliTools.RemoveCurrent();
-            dataGridViewCliTools.Refresh();
+            cliToolsDataGridView.Refresh();
             cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
         }
 
-        private void dataGridViewCliTools_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void cliToolsDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            buttonEdit.Enabled = true;
-            buttonDelete.Enabled = true;
+            editButton.Enabled = true;
+            deleteButton.Enabled = true;
         }
 
-        private void dataGridViewCliTools_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void cliToolsDataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            buttonEdit.Enabled = false;
-            buttonDelete.Enabled = false;
+            editButton.Enabled = false;
+            deleteButton.Enabled = false;
         }
 
-        private void buttonImport_Click(object sender, EventArgs e)
+        private void importButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -124,7 +124,7 @@ namespace BackDown
                        
                         bindingSourceCliTools.Add(cliToolsDao.LoadFromStream(stream));
                         bindingSourceCliTools.Position = bindingSourceCliTools.Count - 1;
-                        dataGridViewCliTools.Refresh();
+                        cliToolsDataGridView.Refresh();
                         CheckNameUnique();
                         cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
                     }

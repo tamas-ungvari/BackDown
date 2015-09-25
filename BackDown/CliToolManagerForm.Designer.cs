@@ -29,64 +29,64 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonImport = new System.Windows.Forms.Button();
-            this.dataGridViewCliTools = new System.Windows.Forms.DataGridView();
+            this.cliToolsGroupBox = new System.Windows.Forms.GroupBox();
+            this.importButton = new System.Windows.Forms.Button();
+            this.cliToolsDataGridView = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incrementalBackupEnabledDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bindingSourceCliTools = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonNew = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.newButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliTools)).BeginInit();
+            this.cliToolsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cliToolsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCliTools)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // cliToolsGroupBox
             // 
-            this.groupBox1.Controls.Add(this.buttonImport);
-            this.groupBox1.Controls.Add(this.dataGridViewCliTools);
-            this.groupBox1.Controls.Add(this.buttonDelete);
-            this.groupBox1.Controls.Add(this.buttonEdit);
-            this.groupBox1.Controls.Add(this.buttonNew);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(471, 252);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Parancssori eszközök";
+            this.cliToolsGroupBox.Controls.Add(this.importButton);
+            this.cliToolsGroupBox.Controls.Add(this.cliToolsDataGridView);
+            this.cliToolsGroupBox.Controls.Add(this.deleteButton);
+            this.cliToolsGroupBox.Controls.Add(this.editButton);
+            this.cliToolsGroupBox.Controls.Add(this.newButton);
+            this.cliToolsGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.cliToolsGroupBox.Name = "cliToolsGroupBox";
+            this.cliToolsGroupBox.Size = new System.Drawing.Size(471, 252);
+            this.cliToolsGroupBox.TabIndex = 1;
+            this.cliToolsGroupBox.TabStop = false;
+            this.cliToolsGroupBox.Text = "Parancssori eszközök";
             // 
-            // buttonImport
+            // importButton
             // 
-            this.buttonImport.Location = new System.Drawing.Point(128, 19);
-            this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(106, 23);
-            this.buttonImport.TabIndex = 5;
-            this.buttonImport.Text = "Importálás";
-            this.buttonImport.UseVisualStyleBackColor = true;
-            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
+            this.importButton.Location = new System.Drawing.Point(128, 19);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(106, 23);
+            this.importButton.TabIndex = 5;
+            this.importButton.Text = "Importálás";
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
             // 
-            // dataGridViewCliTools
+            // cliToolsDataGridView
             // 
-            this.dataGridViewCliTools.AllowUserToAddRows = false;
-            this.dataGridViewCliTools.AllowUserToDeleteRows = false;
-            this.dataGridViewCliTools.AutoGenerateColumns = false;
-            this.dataGridViewCliTools.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewCliTools.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCliTools.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cliToolsDataGridView.AllowUserToAddRows = false;
+            this.cliToolsDataGridView.AllowUserToDeleteRows = false;
+            this.cliToolsDataGridView.AutoGenerateColumns = false;
+            this.cliToolsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.cliToolsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cliToolsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.incrementalBackupEnabledDataGridViewCheckBoxColumn});
-            this.dataGridViewCliTools.DataSource = this.bindingSourceCliTools;
-            this.dataGridViewCliTools.Location = new System.Drawing.Point(6, 49);
-            this.dataGridViewCliTools.Name = "dataGridViewCliTools";
-            this.dataGridViewCliTools.ReadOnly = true;
-            this.dataGridViewCliTools.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCliTools.Size = new System.Drawing.Size(458, 197);
-            this.dataGridViewCliTools.TabIndex = 4;
-            this.dataGridViewCliTools.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCliTools_RowEnter);
-            this.dataGridViewCliTools.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridViewCliTools_RowsRemoved);
+            this.cliToolsDataGridView.DataSource = this.bindingSourceCliTools;
+            this.cliToolsDataGridView.Location = new System.Drawing.Point(6, 49);
+            this.cliToolsDataGridView.Name = "cliToolsDataGridView";
+            this.cliToolsDataGridView.ReadOnly = true;
+            this.cliToolsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.cliToolsDataGridView.Size = new System.Drawing.Size(458, 197);
+            this.cliToolsDataGridView.TabIndex = 4;
+            this.cliToolsDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cliToolsDataGridView_RowEnter);
+            this.cliToolsDataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.cliToolsDataGridView_RowsRemoved);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -108,51 +108,51 @@
             // 
             this.bindingSourceCliTools.DataSource = typeof(BackDown.CliTool);
             // 
-            // buttonDelete
+            // deleteButton
             // 
-            this.buttonDelete.Enabled = false;
-            this.buttonDelete.Location = new System.Drawing.Point(358, 19);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(106, 23);
-            this.buttonDelete.TabIndex = 3;
-            this.buttonDelete.Text = "Töröl";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.deleteButton.Enabled = false;
+            this.deleteButton.Location = new System.Drawing.Point(358, 19);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(106, 23);
+            this.deleteButton.TabIndex = 3;
+            this.deleteButton.Text = "Töröl";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // buttonEdit
+            // editButton
             // 
-            this.buttonEdit.Enabled = false;
-            this.buttonEdit.Location = new System.Drawing.Point(240, 19);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(112, 23);
-            this.buttonEdit.TabIndex = 2;
-            this.buttonEdit.Text = "Szerkeszt";
-            this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.editButton.Enabled = false;
+            this.editButton.Location = new System.Drawing.Point(240, 19);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(112, 23);
+            this.editButton.TabIndex = 2;
+            this.editButton.Text = "Szerkeszt";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // buttonNew
+            // newButton
             // 
-            this.buttonNew.Location = new System.Drawing.Point(6, 19);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(116, 23);
-            this.buttonNew.TabIndex = 1;
-            this.buttonNew.Text = "Új";
-            this.buttonNew.UseVisualStyleBackColor = true;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            this.newButton.Location = new System.Drawing.Point(6, 19);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(116, 23);
+            this.newButton.TabIndex = 1;
+            this.newButton.Text = "Új";
+            this.newButton.UseVisualStyleBackColor = true;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
             // CliToolManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 276);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.cliToolsGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CliToolManagerForm";
             this.Text = "Parancssori eszközök kezelése";
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliTools)).EndInit();
+            this.cliToolsGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cliToolsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCliTools)).EndInit();
             this.ResumeLayout(false);
 
@@ -160,15 +160,15 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonNew;
-        private System.Windows.Forms.DataGridView dataGridViewCliTools;
+        private System.Windows.Forms.GroupBox cliToolsGroupBox;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button newButton;
+        private System.Windows.Forms.DataGridView cliToolsDataGridView;
         private System.Windows.Forms.BindingSource bindingSourceCliTools;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn incrementalBackupEnabledDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.Button buttonImport;
+        private System.Windows.Forms.Button importButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

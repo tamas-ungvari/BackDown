@@ -87,7 +87,6 @@
     <Compile Include="NewNameForm.Designer.cs">
       <DependentUpon>NewNameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Journal.cs" />
     <Compile Include="CliTool.cs" />
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>

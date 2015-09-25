@@ -29,134 +29,134 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBoxBackup = new System.Windows.Forms.GroupBox();
-            this.textBoxBackupCommand = new System.Windows.Forms.TextBox();
-            this.groupBoxRestore = new System.Windows.Forms.GroupBox();
-            this.textBoxRestoreCommand = new System.Windows.Forms.TextBox();
-            this.labelCliToolName = new System.Windows.Forms.Label();
-            this.textBoxCliToolName = new System.Windows.Forms.TextBox();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonExport = new System.Windows.Forms.Button();
+            this.backupGroupBox = new System.Windows.Forms.GroupBox();
+            this.backupCommandTextBox = new System.Windows.Forms.TextBox();
+            this.restoreGroupBox = new System.Windows.Forms.GroupBox();
+            this.restoreCommandTextBox = new System.Windows.Forms.TextBox();
+            this.cliToolNameLabel = new System.Windows.Forms.Label();
+            this.cliToolNameTextBox = new System.Windows.Forms.TextBox();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBoxIncrementalBackup = new System.Windows.Forms.GroupBox();
-            this.textBoxIncrementalBackupCommand = new System.Windows.Forms.TextBox();
+            this.incrementalBackupGroupBox = new System.Windows.Forms.GroupBox();
+            this.incrementalBackupCommandTextBox = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.sourcePlaceholderLabel = new System.Windows.Forms.Label();
             this.targetPlaceholderLabel = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.groupBoxBackup.SuspendLayout();
-            this.groupBoxRestore.SuspendLayout();
+            this.backupGroupBox.SuspendLayout();
+            this.restoreGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBoxIncrementalBackup.SuspendLayout();
+            this.incrementalBackupGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBoxBackup
+            // backupGroupBox
             // 
-            this.groupBoxBackup.Controls.Add(this.textBoxBackupCommand);
-            this.groupBoxBackup.Location = new System.Drawing.Point(12, 99);
-            this.groupBoxBackup.Name = "groupBoxBackup";
-            this.groupBoxBackup.Size = new System.Drawing.Size(589, 106);
-            this.groupBoxBackup.TabIndex = 1;
-            this.groupBoxBackup.TabStop = false;
-            this.groupBoxBackup.Text = "Mentés parancs";
+            this.backupGroupBox.Controls.Add(this.backupCommandTextBox);
+            this.backupGroupBox.Location = new System.Drawing.Point(12, 99);
+            this.backupGroupBox.Name = "backupGroupBox";
+            this.backupGroupBox.Size = new System.Drawing.Size(589, 106);
+            this.backupGroupBox.TabIndex = 1;
+            this.backupGroupBox.TabStop = false;
+            this.backupGroupBox.Text = "Mentés parancs";
             // 
-            // textBoxBackupCommand
+            // backupCommandTextBox
             // 
-            this.textBoxBackupCommand.Location = new System.Drawing.Point(6, 19);
-            this.textBoxBackupCommand.Multiline = true;
-            this.textBoxBackupCommand.Name = "textBoxBackupCommand";
-            this.textBoxBackupCommand.Size = new System.Drawing.Size(577, 77);
-            this.textBoxBackupCommand.TabIndex = 1;
-            this.textBoxBackupCommand.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxBackupCommand_Validating);
+            this.backupCommandTextBox.Location = new System.Drawing.Point(6, 19);
+            this.backupCommandTextBox.Multiline = true;
+            this.backupCommandTextBox.Name = "backupCommandTextBox";
+            this.backupCommandTextBox.Size = new System.Drawing.Size(577, 77);
+            this.backupCommandTextBox.TabIndex = 1;
+            this.backupCommandTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxBackupCommand_Validating);
             // 
-            // groupBoxRestore
+            // restoreGroupBox
             // 
-            this.groupBoxRestore.Controls.Add(this.textBoxRestoreCommand);
-            this.groupBoxRestore.Location = new System.Drawing.Point(12, 323);
-            this.groupBoxRestore.Name = "groupBoxRestore";
-            this.groupBoxRestore.Size = new System.Drawing.Size(589, 108);
-            this.groupBoxRestore.TabIndex = 3;
-            this.groupBoxRestore.TabStop = false;
-            this.groupBoxRestore.Text = "Helyreállítás parancs";
+            this.restoreGroupBox.Controls.Add(this.restoreCommandTextBox);
+            this.restoreGroupBox.Location = new System.Drawing.Point(12, 323);
+            this.restoreGroupBox.Name = "restoreGroupBox";
+            this.restoreGroupBox.Size = new System.Drawing.Size(589, 108);
+            this.restoreGroupBox.TabIndex = 3;
+            this.restoreGroupBox.TabStop = false;
+            this.restoreGroupBox.Text = "Helyreállítás parancs";
             // 
-            // textBoxRestoreCommand
+            // restoreCommandTextBox
             // 
-            this.textBoxRestoreCommand.Location = new System.Drawing.Point(6, 19);
-            this.textBoxRestoreCommand.Multiline = true;
-            this.textBoxRestoreCommand.Name = "textBoxRestoreCommand";
-            this.textBoxRestoreCommand.Size = new System.Drawing.Size(577, 78);
-            this.textBoxRestoreCommand.TabIndex = 3;
-            this.textBoxRestoreCommand.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRestoreCommand_Validating);
+            this.restoreCommandTextBox.Location = new System.Drawing.Point(6, 19);
+            this.restoreCommandTextBox.Multiline = true;
+            this.restoreCommandTextBox.Name = "restoreCommandTextBox";
+            this.restoreCommandTextBox.Size = new System.Drawing.Size(577, 78);
+            this.restoreCommandTextBox.TabIndex = 3;
+            this.restoreCommandTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRestoreCommand_Validating);
             // 
-            // labelCliToolName
+            // cliToolNameLabel
             // 
-            this.labelCliToolName.AutoSize = true;
-            this.labelCliToolName.Location = new System.Drawing.Point(6, 18);
-            this.labelCliToolName.Name = "labelCliToolName";
-            this.labelCliToolName.Size = new System.Drawing.Size(27, 13);
-            this.labelCliToolName.TabIndex = 2;
-            this.labelCliToolName.Text = "Név";
+            this.cliToolNameLabel.AutoSize = true;
+            this.cliToolNameLabel.Location = new System.Drawing.Point(6, 18);
+            this.cliToolNameLabel.Name = "cliToolNameLabel";
+            this.cliToolNameLabel.Size = new System.Drawing.Size(27, 13);
+            this.cliToolNameLabel.TabIndex = 2;
+            this.cliToolNameLabel.Text = "Név";
             // 
-            // textBoxCliToolName
+            // cliToolNameTextBox
             // 
-            this.textBoxCliToolName.Location = new System.Drawing.Point(39, 15);
-            this.textBoxCliToolName.Name = "textBoxCliToolName";
-            this.textBoxCliToolName.Size = new System.Drawing.Size(180, 20);
-            this.textBoxCliToolName.TabIndex = 3;
-            this.textBoxCliToolName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCliToolName_Validating);
+            this.cliToolNameTextBox.Location = new System.Drawing.Point(39, 15);
+            this.cliToolNameTextBox.Name = "cliToolNameTextBox";
+            this.cliToolNameTextBox.Size = new System.Drawing.Size(180, 20);
+            this.cliToolNameTextBox.TabIndex = 3;
+            this.cliToolNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCliToolName_Validating);
             // 
-            // buttonSave
+            // saveButton
             // 
-            this.buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonSave.Location = new System.Drawing.Point(225, 13);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(182, 23);
-            this.buttonSave.TabIndex = 4;
-            this.buttonSave.Text = "Parancssori eszköz mentése";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.saveButton.Location = new System.Drawing.Point(225, 13);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(182, 23);
+            this.saveButton.TabIndex = 4;
+            this.saveButton.Text = "Parancssori eszköz mentése";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // buttonExport
+            // exportButton
             // 
-            this.buttonExport.Location = new System.Drawing.Point(502, 13);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(81, 23);
-            this.buttonExport.TabIndex = 6;
-            this.buttonExport.Text = "Exportálás";
-            this.buttonExport.UseVisualStyleBackColor = true;
-            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
+            this.exportButton.Location = new System.Drawing.Point(502, 13);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(81, 23);
+            this.exportButton.TabIndex = 6;
+            this.exportButton.Text = "Exportálás";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.buttonExport_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBoxCliToolName);
-            this.groupBox1.Controls.Add(this.buttonExport);
-            this.groupBox1.Controls.Add(this.labelCliToolName);
-            this.groupBox1.Controls.Add(this.buttonSave);
+            this.groupBox1.Controls.Add(this.cliToolNameTextBox);
+            this.groupBox1.Controls.Add(this.exportButton);
+            this.groupBox1.Controls.Add(this.cliToolNameLabel);
+            this.groupBox1.Controls.Add(this.saveButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(589, 44);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // groupBoxIncrementalBackup
+            // incrementalBackupGroupBox
             // 
-            this.groupBoxIncrementalBackup.Controls.Add(this.textBoxIncrementalBackupCommand);
-            this.groupBoxIncrementalBackup.Location = new System.Drawing.Point(12, 211);
-            this.groupBoxIncrementalBackup.Name = "groupBoxIncrementalBackup";
-            this.groupBoxIncrementalBackup.Size = new System.Drawing.Size(589, 106);
-            this.groupBoxIncrementalBackup.TabIndex = 2;
-            this.groupBoxIncrementalBackup.TabStop = false;
-            this.groupBoxIncrementalBackup.Text = "Inkrementális mentés parancs";
+            this.incrementalBackupGroupBox.Controls.Add(this.incrementalBackupCommandTextBox);
+            this.incrementalBackupGroupBox.Location = new System.Drawing.Point(12, 211);
+            this.incrementalBackupGroupBox.Name = "incrementalBackupGroupBox";
+            this.incrementalBackupGroupBox.Size = new System.Drawing.Size(589, 106);
+            this.incrementalBackupGroupBox.TabIndex = 2;
+            this.incrementalBackupGroupBox.TabStop = false;
+            this.incrementalBackupGroupBox.Text = "Inkrementális mentés parancs";
             // 
-            // textBoxIncrementalBackupCommand
+            // incrementalBackupCommandTextBox
             // 
-            this.textBoxIncrementalBackupCommand.Location = new System.Drawing.Point(9, 19);
-            this.textBoxIncrementalBackupCommand.Multiline = true;
-            this.textBoxIncrementalBackupCommand.Name = "textBoxIncrementalBackupCommand";
-            this.textBoxIncrementalBackupCommand.Size = new System.Drawing.Size(574, 77);
-            this.textBoxIncrementalBackupCommand.TabIndex = 1;
-            this.textBoxIncrementalBackupCommand.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxIncrementalBackupCommand_Validating);
+            this.incrementalBackupCommandTextBox.Location = new System.Drawing.Point(9, 19);
+            this.incrementalBackupCommandTextBox.Multiline = true;
+            this.incrementalBackupCommandTextBox.Name = "incrementalBackupCommandTextBox";
+            this.incrementalBackupCommandTextBox.Size = new System.Drawing.Size(574, 77);
+            this.incrementalBackupCommandTextBox.TabIndex = 1;
+            this.incrementalBackupCommandTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxIncrementalBackupCommand_Validating);
             // 
             // errorProvider
             // 
@@ -187,23 +187,23 @@
             this.ClientSize = new System.Drawing.Size(613, 443);
             this.Controls.Add(this.targetPlaceholderLabel);
             this.Controls.Add(this.sourcePlaceholderLabel);
-            this.Controls.Add(this.groupBoxIncrementalBackup);
+            this.Controls.Add(this.incrementalBackupGroupBox);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBoxRestore);
-            this.Controls.Add(this.groupBoxBackup);
+            this.Controls.Add(this.restoreGroupBox);
+            this.Controls.Add(this.backupGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CliToolForm";
             this.Text = "Új Parancssori Eszköz";
-            this.groupBoxBackup.ResumeLayout(false);
-            this.groupBoxBackup.PerformLayout();
-            this.groupBoxRestore.ResumeLayout(false);
-            this.groupBoxRestore.PerformLayout();
+            this.backupGroupBox.ResumeLayout(false);
+            this.backupGroupBox.PerformLayout();
+            this.restoreGroupBox.ResumeLayout(false);
+            this.restoreGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBoxIncrementalBackup.ResumeLayout(false);
-            this.groupBoxIncrementalBackup.PerformLayout();
+            this.incrementalBackupGroupBox.ResumeLayout(false);
+            this.incrementalBackupGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -212,17 +212,17 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBoxBackup;
-        private System.Windows.Forms.GroupBox groupBoxRestore;
-        private System.Windows.Forms.TextBox textBoxBackupCommand;
-        private System.Windows.Forms.TextBox textBoxRestoreCommand;
-        private System.Windows.Forms.Label labelCliToolName;
-        private System.Windows.Forms.TextBox textBoxCliToolName;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonExport;
+        private System.Windows.Forms.GroupBox backupGroupBox;
+        private System.Windows.Forms.GroupBox restoreGroupBox;
+        private System.Windows.Forms.TextBox backupCommandTextBox;
+        private System.Windows.Forms.TextBox restoreCommandTextBox;
+        private System.Windows.Forms.Label cliToolNameLabel;
+        private System.Windows.Forms.TextBox cliToolNameTextBox;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBoxIncrementalBackup;
-        private System.Windows.Forms.TextBox textBoxIncrementalBackupCommand;
+        private System.Windows.Forms.GroupBox incrementalBackupGroupBox;
+        private System.Windows.Forms.TextBox incrementalBackupCommandTextBox;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label sourcePlaceholderLabel;
         private System.Windows.Forms.Label targetPlaceholderLabel;

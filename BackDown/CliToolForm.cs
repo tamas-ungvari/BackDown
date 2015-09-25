@@ -17,9 +17,6 @@ namespace BackDown
 {
     public partial class CliToolForm : Form
     {
-        string sourcePlaceholder = Settings.Default.SOURCE_PLACEHOLDER;
-        string targetPlaceholder = Settings.Default.TARGET_PLACEHOLDER;
-
         private BindingSource bindingSource;
 
         public BindingSource BindingSource
@@ -27,10 +24,10 @@ namespace BackDown
             get { return bindingSource; }
             set { 
                 bindingSource = value;
-                textBoxCliToolName.DataBindings.Add("Text", bindingSource, "name");
-                textBoxBackupCommand.DataBindings.Add("Text", bindingSource, "backupCommand");
-                textBoxIncrementalBackupCommand.DataBindings.Add("Text", bindingSource, "incrementalBackupCommand");
-                textBoxRestoreCommand.DataBindings.Add("Text", bindingSource, "restoreCommand");
+                cliToolNameTextBox.DataBindings.Add("Text", bindingSource, "name");
+                backupCommandTextBox.DataBindings.Add("Text", bindingSource, "backupCommand");
+                incrementalBackupCommandTextBox.DataBindings.Add("Text", bindingSource, "incrementalBackupCommand");
+                restoreCommandTextBox.DataBindings.Add("Text", bindingSource, "restoreCommand");
             }
         }
 
@@ -39,8 +36,8 @@ namespace BackDown
         public CliToolForm()
         {
             InitializeComponent();
-            sourcePlaceholderLabel.Text += sourcePlaceholder;
-            targetPlaceholderLabel.Text += targetPlaceholder;
+            sourcePlaceholderLabel.Text += Settings.Default.SOURCE_PLACEHOLDER;
+            targetPlaceholderLabel.Text += Settings.Default.TARGET_PLACEHOLDER;
             string fileFilterText = "JSON files (.json)|*.json";
             saveFileDialog.Filter = fileFilterText;
             saveFileDialog.RestoreDirectory = true;
@@ -49,7 +46,7 @@ namespace BackDown
         private void buttonSave_Click(object sender, EventArgs e)
         {
 
-            bool incrementalBackupCommandEmpty = string.IsNullOrEmpty(textBoxIncrementalBackupCommand.Text);
+            bool incrementalBackupCommandEmpty = string.IsNullOrEmpty(incrementalBackupCommandTextBox.Text);
             
             if (ValidateChildren())
             {
@@ -64,71 +61,71 @@ namespace BackDown
 
         private void textBoxBackupCommand_Validating(object sender, CancelEventArgs e)
         {
-            bool containsSourceAndTarget = ContainsSourceAndTarget(textBoxBackupCommand.Text);
-            e.Cancel = string.IsNullOrEmpty(textBoxBackupCommand.Text) || !containsSourceAndTarget;
+            bool containsSourceAndTarget = ContainsSourceAndTarget(backupCommandTextBox.Text);
+            e.Cancel = string.IsNullOrEmpty(backupCommandTextBox.Text) || !containsSourceAndTarget;
             if (e.Cancel)
             {
-                textBoxBackupCommand.Focus();
-                groupBoxBackup.ForeColor = Color.Red;
+                backupCommandTextBox.Focus();
+                backupGroupBox.ForeColor = Color.Red;
                 MessageBox.Show("A mentés parancs nem lehet üres és tartalmaznia kell a forrás és cél referenciákat.");
             }
             else
             {
-                groupBoxBackup.ForeColor = Color.Black;
+                backupGroupBox.ForeColor = Color.Black;
             }
         }
 
         private bool ContainsSourceAndTarget(string text)
         {
-            return text.Contains(sourcePlaceholder) && text.Contains(targetPlaceholder);
+            return text.Contains(Settings.Default.SOURCE_PLACEHOLDER) && text.Contains(Settings.Default.TARGET_PLACEHOLDER);
         }
 
         private void textBoxCliToolName_Validating(object sender, CancelEventArgs e)
         {
-            e.Cancel = string.IsNullOrEmpty(textBoxCliToolName.Text);
+            e.Cancel = string.IsNullOrEmpty(cliToolNameTextBox.Text);
             if (e.Cancel)
             {
-                textBoxCliToolName.Focus();
-                labelCliToolName.ForeColor = Color.Red;
+                cliToolNameTextBox.Focus();
+                cliToolNameLabel.ForeColor = Color.Red;
                 MessageBox.Show("Az eszköz neve nem lehet üres");
             }
             else 
             {
-                labelCliToolName.ForeColor = Color.Black;
+                cliToolNameLabel.ForeColor = Color.Black;
             }
         }
 
         private void textBoxRestoreCommand_Validating(object sender, CancelEventArgs e)
         {
-            bool containsSourceAndTarget = ContainsSourceAndTarget(textBoxRestoreCommand.Text);
-            e.Cancel = string.IsNullOrEmpty(textBoxRestoreCommand.Text) || !containsSourceAndTarget;
+            bool containsSourceAndTarget = ContainsSourceAndTarget(restoreCommandTextBox.Text);
+            e.Cancel = string.IsNullOrEmpty(restoreCommandTextBox.Text) || !containsSourceAndTarget;
             if (e.Cancel)
             {
-                textBoxRestoreCommand.Focus();
-                groupBoxRestore.ForeColor = Color.Red;
+                restoreCommandTextBox.Focus();
+                restoreGroupBox.ForeColor = Color.Red;
                 MessageBox.Show("A helyreállítás parancs nem lehet üres és tartalmaznia kell a forrás és cél referenciákat.");
             }
             else
             {
-                groupBoxRestore.ForeColor = Color.Black;
+                restoreGroupBox.ForeColor = Color.Black;
             }
         }
 
         private void textBoxIncrementalBackupCommand_Validating(object sender, CancelEventArgs e)
         {
-            if (textBoxIncrementalBackupCommand.Text.Length > 0)
+            if (incrementalBackupCommandTextBox.Text.Length > 0)
             {
-                e.Cancel = !ContainsSourceAndTarget(textBoxIncrementalBackupCommand.Text);
+                e.Cancel = !ContainsSourceAndTarget(incrementalBackupCommandTextBox.Text);
             }
             if (e.Cancel)
             {
-                textBoxIncrementalBackupCommand.Focus();
-                groupBoxIncrementalBackup.ForeColor = Color.Red;
+                incrementalBackupCommandTextBox.Focus();
+                incrementalBackupGroupBox.ForeColor = Color.Red;
                 MessageBox.Show("Az inkrementális mentés parancs ha nem üres, tartalmaznia kell a forrás és cél referenciákat.");
             }
             else
             {
-                groupBoxIncrementalBackup.ForeColor = Color.Black;
+                incrementalBackupGroupBox.ForeColor = Color.Black;
             }
 
         }
