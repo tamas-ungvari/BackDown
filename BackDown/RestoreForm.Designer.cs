@@ -181,7 +181,7 @@
             this.MinimizeBox = false;
             this.Name = "RestoreForm";
             this.Text = "Helyreállítás";
-            this.Load += new System.EventHandler(this.BackupForm_Load);
+            this.Load += new System.EventHandler(this.RestoreForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

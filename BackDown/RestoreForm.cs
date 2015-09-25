@@ -27,7 +27,7 @@ namespace BackDown
             InitializeComponent();
         }
 
-        private void BackupForm_Load(object sender, EventArgs e)
+        private void RestoreForm_Load(object sender, EventArgs e)
         {
             timer.Start();
             cliToolTextBox.Text = RestoreSettings.CliTool.Name;
