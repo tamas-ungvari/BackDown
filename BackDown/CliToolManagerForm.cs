@@ -20,7 +20,7 @@ namespace BackDown
         public CliToolManagerForm()
         {
             InitializeComponent();
-            bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
+            cliToolsBindingSource.DataSource = cliToolsDao.LoadListFromFile();
             cliToolsDataGridView.Refresh();
             string fileFilterText = "JSON files (.json)|*.json";
             openFileDialog.Filter = fileFilterText;
@@ -29,8 +29,8 @@ namespace BackDown
 
         private void CheckNameUnique()
         {
-            CliTool current = bindingSourceCliTools.Current as CliTool;
-            foreach (CliTool tool in bindingSourceCliTools.List)
+            CliTool current = cliToolsBindingSource.Current as CliTool;
+            foreach (CliTool tool in cliToolsBindingSource.List)
             {
                 if (tool != current && tool.Name.Equals(current.Name))
                 {
@@ -57,18 +57,18 @@ namespace BackDown
         private void newButton_Click(object sender, EventArgs e)
         {
             CliToolForm cliToolForm = new CliToolForm();
-            cliToolForm.BindingSource = bindingSourceCliTools;
-            bindingSourceCliTools.AddNew();
+            cliToolForm.BindingSource = cliToolsBindingSource;
+            cliToolsBindingSource.AddNew();
             if (DialogResult.OK != cliToolForm.ShowDialog())
             {
-                bindingSourceCliTools.CancelEdit();
-                bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
+                cliToolsBindingSource.CancelEdit();
+                cliToolsBindingSource.DataSource = cliToolsDao.LoadListFromFile();
                 cliToolsDataGridView.Refresh();
             }
             else
             {
                 CheckNameUnique();
-                cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
+                cliToolsDao.SaveListToFile(cliToolsBindingSource.DataSource as List<CliTool>);
                 cliToolsDataGridView.Refresh();
             }
         }
@@ -76,28 +76,28 @@ namespace BackDown
         private void editButton_Click(object sender, EventArgs e)
         {
             CliToolForm cliToolForm = new CliToolForm();
-            cliToolForm.BindingSource = bindingSourceCliTools;
+            cliToolForm.BindingSource = cliToolsBindingSource;
 
-            CliTool selected = bindingSourceCliTools.Current as CliTool;
+            CliTool selected = cliToolsBindingSource.Current as CliTool;
             cliToolForm.Text = string.Format("{0} parancssori eszköz szerkesztése", selected.Name);
             if (DialogResult.OK == cliToolForm.ShowDialog())
             {
                 CheckNameUnique();
-                cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
+                cliToolsDao.SaveListToFile(cliToolsBindingSource.DataSource as List<CliTool>);
                 cliToolsDataGridView.Refresh();
             }
             else
             {
-                bindingSourceCliTools.DataSource = cliToolsDao.LoadListFromFile();
+                cliToolsBindingSource.DataSource = cliToolsDao.LoadListFromFile();
                 cliToolsDataGridView.Refresh();
             }
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            bindingSourceCliTools.RemoveCurrent();
+            cliToolsBindingSource.RemoveCurrent();
             cliToolsDataGridView.Refresh();
-            cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
+            cliToolsDao.SaveListToFile(cliToolsBindingSource.DataSource as List<CliTool>);
         }
 
         private void cliToolsDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -122,11 +122,11 @@ namespace BackDown
                     if ((stream = openFileDialog.OpenFile()) != null)
                     {
                        
-                        bindingSourceCliTools.Add(cliToolsDao.LoadFromStream(stream));
-                        bindingSourceCliTools.Position = bindingSourceCliTools.Count - 1;
+                        cliToolsBindingSource.Add(cliToolsDao.LoadFromStream(stream));
+                        cliToolsBindingSource.Position = cliToolsBindingSource.Count - 1;
                         cliToolsDataGridView.Refresh();
                         CheckNameUnique();
-                        cliToolsDao.SaveListToFile(bindingSourceCliTools.DataSource as List<CliTool>);
+                        cliToolsDao.SaveListToFile(cliToolsBindingSource.DataSource as List<CliTool>);
                     }
                 }
                 catch (Exception)

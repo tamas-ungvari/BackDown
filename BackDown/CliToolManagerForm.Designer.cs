@@ -34,14 +34,14 @@
             this.cliToolsDataGridView = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incrementalBackupEnabledDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bindingSourceCliTools = new System.Windows.Forms.BindingSource(this.components);
+            this.cliToolsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.cliToolsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cliToolsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCliTools)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cliToolsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cliToolsGroupBox
@@ -78,7 +78,7 @@
             this.cliToolsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.incrementalBackupEnabledDataGridViewCheckBoxColumn});
-            this.cliToolsDataGridView.DataSource = this.bindingSourceCliTools;
+            this.cliToolsDataGridView.DataSource = this.cliToolsBindingSource;
             this.cliToolsDataGridView.Location = new System.Drawing.Point(6, 49);
             this.cliToolsDataGridView.Name = "cliToolsDataGridView";
             this.cliToolsDataGridView.ReadOnly = true;
@@ -104,9 +104,9 @@
             this.incrementalBackupEnabledDataGridViewCheckBoxColumn.ReadOnly = true;
             this.incrementalBackupEnabledDataGridViewCheckBoxColumn.Width = 75;
             // 
-            // bindingSourceCliTools
+            // cliToolsBindingSource
             // 
-            this.bindingSourceCliTools.DataSource = typeof(BackDown.CliTool);
+            this.cliToolsBindingSource.DataSource = typeof(BackDown.CliTool);
             // 
             // deleteButton
             // 
@@ -153,7 +153,7 @@
             this.Text = "Parancssori eszközök kezelése";
             this.cliToolsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cliToolsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCliTools)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cliToolsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -165,7 +165,7 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.DataGridView cliToolsDataGridView;
-        private System.Windows.Forms.BindingSource bindingSourceCliTools;
+        private System.Windows.Forms.BindingSource cliToolsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn incrementalBackupEnabledDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button importButton;
