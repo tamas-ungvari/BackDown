@@ -67,7 +67,7 @@
             this.findBackupsGroupBox.Location = new System.Drawing.Point(12, 12);
             this.findBackupsGroupBox.Name = "findBackupsGroupBox";
             this.findBackupsGroupBox.Size = new System.Drawing.Size(840, 439);
-            this.findBackupsGroupBox.TabIndex = 1;
+            this.findBackupsGroupBox.TabIndex = 0;
             this.findBackupsGroupBox.TabStop = false;
             this.findBackupsGroupBox.Text = "Biztonsági mentések keresése";
             // 
@@ -98,7 +98,7 @@
             this.cliToolNameTextBox.Name = "cliToolNameTextBox";
             this.cliToolNameTextBox.ReadOnly = true;
             this.cliToolNameTextBox.Size = new System.Drawing.Size(308, 20);
-            this.cliToolNameTextBox.TabIndex = 17;
+            this.cliToolNameTextBox.TabIndex = 1;
             // 
             // journalButton
             // 
@@ -106,7 +106,7 @@
             this.journalButton.Location = new System.Drawing.Point(496, 121);
             this.journalButton.Name = "journalButton";
             this.journalButton.Size = new System.Drawing.Size(111, 30);
-            this.journalButton.TabIndex = 16;
+            this.journalButton.TabIndex = 5;
             this.journalButton.Text = "Napló";
             this.journalButton.UseVisualStyleBackColor = false;
             this.journalButton.Click += new System.EventHandler(this.journalButton_Click);
@@ -117,7 +117,7 @@
             this.restoreButton.Location = new System.Drawing.Point(496, 217);
             this.restoreButton.Name = "restoreButton";
             this.restoreButton.Size = new System.Drawing.Size(111, 30);
-            this.restoreButton.TabIndex = 15;
+            this.restoreButton.TabIndex = 7;
             this.restoreButton.Text = "Helyreállít";
             this.restoreButton.UseVisualStyleBackColor = false;
             this.restoreButton.Click += new System.EventHandler(this.restoreButton_Click);
@@ -129,7 +129,7 @@
             this.incrementalCheckBox.Location = new System.Drawing.Point(496, 46);
             this.incrementalCheckBox.Name = "incrementalCheckBox";
             this.incrementalCheckBox.Size = new System.Drawing.Size(125, 17);
-            this.incrementalCheckBox.TabIndex = 10;
+            this.incrementalCheckBox.TabIndex = 2;
             this.incrementalCheckBox.Text = "Inkrementális mentés";
             this.incrementalCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -148,7 +148,7 @@
             this.targetTextBox.Name = "targetTextBox";
             this.targetTextBox.ReadOnly = true;
             this.targetTextBox.Size = new System.Drawing.Size(308, 20);
-            this.targetTextBox.TabIndex = 13;
+            this.targetTextBox.TabIndex = 4;
             // 
             // sourceLabel
             // 
@@ -165,7 +165,7 @@
             this.sourceTextBox.Name = "sourceTextBox";
             this.sourceTextBox.ReadOnly = true;
             this.sourceTextBox.Size = new System.Drawing.Size(308, 20);
-            this.sourceTextBox.TabIndex = 11;
+            this.sourceTextBox.TabIndex = 3;
             // 
             // toolLabel
             // 
@@ -199,7 +199,7 @@
             this.backupsListBox.Location = new System.Drawing.Point(6, 19);
             this.backupsListBox.Name = "backupsListBox";
             this.backupsListBox.Size = new System.Drawing.Size(359, 264);
-            this.backupsListBox.TabIndex = 6;
+            this.backupsListBox.TabIndex = 0;
             this.backupsListBox.SelectedIndexChanged += new System.EventHandler(this.backupsListBox_SelectedIndexChanged);
             // 
             // findByFolderGroupBox
@@ -211,7 +211,7 @@
             this.findByFolderGroupBox.Location = new System.Drawing.Point(6, 19);
             this.findByFolderGroupBox.Name = "findByFolderGroupBox";
             this.findByFolderGroupBox.Size = new System.Drawing.Size(540, 57);
-            this.findByFolderGroupBox.TabIndex = 1;
+            this.findByFolderGroupBox.TabIndex = 0;
             this.findByFolderGroupBox.TabStop = false;
             this.findByFolderGroupBox.Text = "Mappa megadásával";
             // 
@@ -220,7 +220,7 @@
             this.findByTargetButton.Location = new System.Drawing.Point(452, 20);
             this.findByTargetButton.Name = "findByTargetButton";
             this.findByTargetButton.Size = new System.Drawing.Size(75, 23);
-            this.findByTargetButton.TabIndex = 4;
+            this.findByTargetButton.TabIndex = 2;
             this.findByTargetButton.Text = "Keres";
             this.findByTargetButton.UseVisualStyleBackColor = true;
             this.findByTargetButton.Click += new System.EventHandler(this.findByTargetButton_Click);
@@ -230,7 +230,7 @@
             this.findByTargetBrowseButton.Location = new System.Drawing.Point(371, 20);
             this.findByTargetBrowseButton.Name = "findByTargetBrowseButton";
             this.findByTargetBrowseButton.Size = new System.Drawing.Size(75, 23);
-            this.findByTargetBrowseButton.TabIndex = 0;
+            this.findByTargetBrowseButton.TabIndex = 1;
             this.findByTargetBrowseButton.Text = "Tallóz ...";
             this.findByTargetBrowseButton.UseVisualStyleBackColor = true;
             this.findByTargetBrowseButton.Click += new System.EventHandler(this.findByTargetBrowseButton_Click);
@@ -240,7 +240,7 @@
             this.findByTargetTextBox.Location = new System.Drawing.Point(105, 22);
             this.findByTargetTextBox.Name = "findByTargetTextBox";
             this.findByTargetTextBox.Size = new System.Drawing.Size(260, 20);
-            this.findByTargetTextBox.TabIndex = 1;
+            this.findByTargetTextBox.TabIndex = 0;
             // 
             // findByTargetLabel
             // 
@@ -259,7 +259,7 @@
             this.findBySettingsGroupBox.Location = new System.Drawing.Point(6, 82);
             this.findBySettingsGroupBox.Name = "findBySettingsGroupBox";
             this.findBySettingsGroupBox.Size = new System.Drawing.Size(540, 55);
-            this.findBySettingsGroupBox.TabIndex = 0;
+            this.findBySettingsGroupBox.TabIndex = 1;
             this.findBySettingsGroupBox.TabStop = false;
             this.findBySettingsGroupBox.Text = "Tárolt mentési beálítás alapján";
             // 
@@ -270,14 +270,14 @@
             this.findByNameComboBox.Location = new System.Drawing.Point(105, 19);
             this.findByNameComboBox.Name = "findByNameComboBox";
             this.findByNameComboBox.Size = new System.Drawing.Size(260, 21);
-            this.findByNameComboBox.TabIndex = 3;
+            this.findByNameComboBox.TabIndex = 0;
             // 
             // findByNameButton
             // 
             this.findByNameButton.Location = new System.Drawing.Point(371, 18);
             this.findByNameButton.Name = "findByNameButton";
             this.findByNameButton.Size = new System.Drawing.Size(75, 23);
-            this.findByNameButton.TabIndex = 2;
+            this.findByNameButton.TabIndex = 1;
             this.findByNameButton.Text = "Keres";
             this.findByNameButton.UseVisualStyleBackColor = true;
             this.findByNameButton.Click += new System.EventHandler(this.findByNameButton_Click);
