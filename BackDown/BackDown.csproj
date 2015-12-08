@@ -157,6 +157,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="cli-tools.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="MultiMarkdown-Windows-Portable-4.7.1.zip" />
     <None Include="Properties\DataSources\BackupSettings.datasource" />
     <None Include="Properties\DataSources\CliTool.datasource" />

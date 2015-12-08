@@ -60,6 +60,10 @@ namespace BackDown
         public void SaveBackupSettings(string targetFolder, BackupSettings backupSettings)
         {
             string path = string.Format("{0}\\{1}", targetFolder, Settings.Default.BACKUP_SETTINGS_FILE);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
             using (Stream stream = File.Create(path))
             {
                 serializer.WriteObject(stream, backupSettings);

@@ -36,9 +36,9 @@ namespace BackDown
 
         private void findByTargetButton_Click(object sender, EventArgs e)
         {
+            ClearResultControls();
             if (string.IsNullOrEmpty(findByTargetTextBox.Text))
             {
-                ClearResultControls();
                 return;
             }
             FindBackupsByTarget(findByTargetTextBox.Text);
@@ -79,9 +79,9 @@ namespace BackDown
         private void findByNameButton_Click(object sender, EventArgs e)
         {
             BackupSettings backupSettings = findByNameComboBox.SelectedItem as BackupSettings;
+            ClearResultControls();
             if (backupSettings == null)
             {
-                ClearResultControls();
                 return;
             }
             FindBackupsByTarget(backupSettings.Target);

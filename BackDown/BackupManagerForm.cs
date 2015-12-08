@@ -216,6 +216,7 @@ namespace BackDown
                 if (result == DialogResult.Yes)
                 {
                     backupSettingsDao.SaveBackupSettingsList(bindingSource.DataSource as List<BackupSettings>);
+                    cliToolComboBox.DataSource = cliToolsDao.LoadListFromFile();
                 }
             }
 

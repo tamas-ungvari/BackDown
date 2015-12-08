@@ -1,0 +1,1 @@
+[{"BackupCommand":"xcopy $forras $cel \/E \/H \/K \/Y","IncrementalBackupCommand":null,"IncrementalBackupEnabled":false,"Name":"Egyszerű másolás almappákkal","RestoreCommand":"xcopy $forras $cel \/E \/H \/K \/Y"}]
