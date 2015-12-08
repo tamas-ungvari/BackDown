@@ -71,7 +71,7 @@ namespace BackDown
             backupsListBox.Items.Clear();
             sourceTextBox.Text = "";
             targetTextBox.Text = "";
-            incrementalCheckBox.Text = "";
+            incrementalCheckBox.Checked = false;
             cliToolNameTextBox.Text = "";
             restoreFolderTextBox.Text = "";
         }
