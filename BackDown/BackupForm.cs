@@ -33,7 +33,6 @@ namespace BackDown
         {
             timer.Start();
             cliToolTextBox.Text = BackupSettings.CliToolName;
-            incrementalCheckBox.Checked = BackupSettings.Incremental;
             sourceTextBox.Text = BackupSettings.Source;
             targetTextBox.Text = BackupSettings.Target;
             noteTextBox.Text = Note;
@@ -62,15 +61,12 @@ namespace BackDown
             outputRichTextBox.AppendText("\n### Mentési beállítások\n");
             outputRichTextBox.AppendText(string.Format("- Forrás mappa: `{0}`\n", BackupSettings.Source));
             outputRichTextBox.AppendText(string.Format("- Cél mappa: `{0}`\n", BackupSettings.Target));
-            outputRichTextBox.AppendText(string.Format("- Inkrementális: {0}\n", BackupSettings.Incremental ? "Igen" : "Nem"));
             outputRichTextBox.AppendText(string.Format("\n### Indítva: {0}\n", startedAt.ToString(CultureInfo.CurrentCulture)));
         }
 
         private string CreateCommand(BackupSettings settings, string targetFolder)
         {
-            string command = settings.Incremental
-                ? settings.CliTool.IncrementalBackupCommand
-                : settings.CliTool.BackupCommand;
+            string command = settings.CliTool.BackupCommand;
 
             command = command.Replace(Settings.Default.SOURCE_PLACEHOLDER, String.Format("\"{0}\"", settings.Source));
             command = command.Replace(Settings.Default.TARGET_PLACEHOLDER, String.Format("\"{0}\"", targetFolder));
@@ -156,9 +152,7 @@ namespace BackDown
 
         private string GetBackupFolder(BackupSettings settings)
         {
-            string targetFolder = settings.Incremental
-                ? String.Format("{0}\\{1}", settings.Target, settings.Name) :
-                String.Format("{0}\\{1}_{2}", settings.Target, settings.Name, startedAt.ToString("yyyy-MM-dd_HHmmss"));
+            string targetFolder = String.Format("{0}\\{1}_{2}", settings.Target, settings.Name, startedAt.ToString("yyyy-MM-dd_HHmmss"));
             return targetFolder;
         }
 

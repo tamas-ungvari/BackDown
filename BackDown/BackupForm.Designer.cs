@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.outputRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.incrementalCheckBox = new System.Windows.Forms.CheckBox();
             this.targetLabel = new System.Windows.Forms.Label();
             this.targetTextBox = new System.Windows.Forms.TextBox();
             this.sourceLabel = new System.Windows.Forms.Label();
@@ -58,17 +57,6 @@
             this.outputRichTextBox.Size = new System.Drawing.Size(836, 536);
             this.outputRichTextBox.TabIndex = 0;
             this.outputRichTextBox.Text = "";
-            // 
-            // incrementalCheckBox
-            // 
-            this.incrementalCheckBox.AutoSize = true;
-            this.incrementalCheckBox.Enabled = false;
-            this.incrementalCheckBox.Location = new System.Drawing.Point(513, 64);
-            this.incrementalCheckBox.Name = "incrementalCheckBox";
-            this.incrementalCheckBox.Size = new System.Drawing.Size(125, 17);
-            this.incrementalCheckBox.TabIndex = 10;
-            this.incrementalCheckBox.Text = "Inkrementális mentés";
-            this.incrementalCheckBox.UseVisualStyleBackColor = true;
             // 
             // targetLabel
             // 
@@ -203,7 +191,6 @@
             this.Controls.Add(this.startAtTextBox);
             this.Controls.Add(this.startedAtLabel);
             this.Controls.Add(this.cliToolTextBox);
-            this.Controls.Add(this.incrementalCheckBox);
             this.Controls.Add(this.targetLabel);
             this.Controls.Add(this.targetTextBox);
             this.Controls.Add(this.sourceLabel);
@@ -224,7 +211,6 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox outputRichTextBox;
-        private System.Windows.Forms.CheckBox incrementalCheckBox;
         private System.Windows.Forms.Label targetLabel;
         private System.Windows.Forms.TextBox targetTextBox;
         private System.Windows.Forms.Label sourceLabel;

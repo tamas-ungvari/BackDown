@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using BackDown.Properties;
 
 namespace BackDown
@@ -26,7 +18,6 @@ namespace BackDown
                 bindingSource = value;
                 cliToolNameTextBox.DataBindings.Add("Text", bindingSource, "name");
                 backupCommandTextBox.DataBindings.Add("Text", bindingSource, "backupCommand");
-                incrementalBackupCommandTextBox.DataBindings.Add("Text", bindingSource, "incrementalBackupCommand");
                 restoreCommandTextBox.DataBindings.Add("Text", bindingSource, "restoreCommand");
             }
         }
@@ -45,18 +36,10 @@ namespace BackDown
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
-            bool incrementalBackupCommandEmpty = string.IsNullOrEmpty(incrementalBackupCommandTextBox.Text);
-            
-            if (ValidateChildren())
-            {
-                (bindingSource.Current as CliTool).IncrementalBackupEnabled = !incrementalBackupCommandEmpty;
-            }
-            else
+            if (!ValidateChildren())
             {
                 DialogResult = DialogResult.None;
             }
-
         }
 
         private void textBoxBackupCommand_Validating(object sender, CancelEventArgs e)
@@ -110,26 +93,7 @@ namespace BackDown
                 restoreGroupBox.ForeColor = Color.Black;
             }
         }
-
-        private void textBoxIncrementalBackupCommand_Validating(object sender, CancelEventArgs e)
-        {
-            if (incrementalBackupCommandTextBox.Text.Length > 0)
-            {
-                e.Cancel = !ContainsSourceAndTarget(incrementalBackupCommandTextBox.Text);
-            }
-            if (e.Cancel)
-            {
-                incrementalBackupCommandTextBox.Focus();
-                incrementalBackupGroupBox.ForeColor = Color.Red;
-                MessageBox.Show("Az inkrementális mentés parancs ha nem üres, tartalmaznia kell a forrás és cél referenciákat.");
-            }
-            else
-            {
-                incrementalBackupGroupBox.ForeColor = Color.Black;
-            }
-
-        }
-
+        
         private void buttonExport_Click(object sender, EventArgs e)
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)

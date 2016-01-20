@@ -33,7 +33,6 @@
             this.cliToolNameTextBox = new System.Windows.Forms.TextBox();
             this.journalButton = new System.Windows.Forms.Button();
             this.restoreButton = new System.Windows.Forms.Button();
-            this.incrementalCheckBox = new System.Windows.Forms.CheckBox();
             this.targetLabel = new System.Windows.Forms.Label();
             this.targetTextBox = new System.Windows.Forms.TextBox();
             this.sourceLabel = new System.Windows.Forms.Label();
@@ -76,7 +75,6 @@
             this.backupsGroupBox.Controls.Add(this.cliToolNameTextBox);
             this.backupsGroupBox.Controls.Add(this.journalButton);
             this.backupsGroupBox.Controls.Add(this.restoreButton);
-            this.backupsGroupBox.Controls.Add(this.incrementalCheckBox);
             this.backupsGroupBox.Controls.Add(this.targetLabel);
             this.backupsGroupBox.Controls.Add(this.targetTextBox);
             this.backupsGroupBox.Controls.Add(this.sourceLabel);
@@ -121,17 +119,6 @@
             this.restoreButton.Text = "Helyreállít";
             this.restoreButton.UseVisualStyleBackColor = false;
             this.restoreButton.Click += new System.EventHandler(this.restoreButton_Click);
-            // 
-            // incrementalCheckBox
-            // 
-            this.incrementalCheckBox.AutoSize = true;
-            this.incrementalCheckBox.Enabled = false;
-            this.incrementalCheckBox.Location = new System.Drawing.Point(496, 46);
-            this.incrementalCheckBox.Name = "incrementalCheckBox";
-            this.incrementalCheckBox.Size = new System.Drawing.Size(125, 17);
-            this.incrementalCheckBox.TabIndex = 2;
-            this.incrementalCheckBox.Text = "Inkrementális mentés";
-            this.incrementalCheckBox.UseVisualStyleBackColor = true;
             // 
             // targetLabel
             // 
@@ -329,7 +316,6 @@
         private System.Windows.Forms.ListBox backupsListBox;
         private System.Windows.Forms.TextBox restoreFolderTextBox;
         private System.Windows.Forms.Label restoreFolderLabel;
-        private System.Windows.Forms.CheckBox incrementalCheckBox;
         private System.Windows.Forms.Label targetLabel;
         private System.Windows.Forms.TextBox targetTextBox;
         private System.Windows.Forms.Label sourceLabel;

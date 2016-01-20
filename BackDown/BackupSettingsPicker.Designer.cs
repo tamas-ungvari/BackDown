@@ -30,12 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.backupSettingsDataGridView = new System.Windows.Forms.DataGridView();
+            this.backupSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CliTool = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.targetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Incremental = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.backupSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.backupSettingsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backupSettingsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -50,8 +49,7 @@
             this.nameDataGridViewTextBoxColumn,
             this.CliTool,
             this.sourceDataGridViewTextBoxColumn,
-            this.targetDataGridViewTextBoxColumn,
-            this.Incremental});
+            this.targetDataGridViewTextBoxColumn});
             this.backupSettingsDataGridView.DataSource = this.backupSettingsBindingSource;
             this.backupSettingsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.backupSettingsDataGridView.Location = new System.Drawing.Point(0, 0);
@@ -60,6 +58,10 @@
             this.backupSettingsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.backupSettingsDataGridView.Size = new System.Drawing.Size(735, 230);
             this.backupSettingsDataGridView.TabIndex = 3;
+            // 
+            // backupSettingsBindingSource
+            // 
+            this.backupSettingsBindingSource.DataSource = typeof(BackDown.BackupSettings);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -89,17 +91,6 @@
             this.targetDataGridViewTextBoxColumn.Name = "targetDataGridViewTextBoxColumn";
             this.targetDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Incremental
-            // 
-            this.Incremental.DataPropertyName = "Incremental";
-            this.Incremental.HeaderText = "Inkrementális";
-            this.Incremental.Name = "Incremental";
-            this.Incremental.ReadOnly = true;
-            // 
-            // backupSettingsBindingSource
-            // 
-            this.backupSettingsBindingSource.DataSource = typeof(BackDown.BackupSettings);
-            // 
             // BackupSettingsPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,7 +113,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CliTool;
         private System.Windows.Forms.DataGridViewTextBoxColumn sourceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn targetDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Incremental;
 
     }
 }

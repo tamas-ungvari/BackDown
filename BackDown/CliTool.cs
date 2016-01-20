@@ -19,15 +19,9 @@ namespace BackDown
         [DataMember]
         public string RestoreCommand { get; set; }
 
-        [DataMember]
-        public string IncrementalBackupCommand { get; set; }
-
-        [DataMember]
-        public bool IncrementalBackupEnabled { get; set; }
-
         public override string ToString()
         {
-            return String.Format("{0}, inkrementális: {1}", Name, IncrementalBackupEnabled ? "igen" : "nem");
+            return Name;
         }
 
     }

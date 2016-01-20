@@ -38,8 +38,6 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.exportButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.incrementalBackupGroupBox = new System.Windows.Forms.GroupBox();
-            this.incrementalBackupCommandTextBox = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.sourcePlaceholderLabel = new System.Windows.Forms.Label();
             this.targetPlaceholderLabel = new System.Windows.Forms.Label();
@@ -47,7 +45,6 @@
             this.backupGroupBox.SuspendLayout();
             this.restoreGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.incrementalBackupGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +70,7 @@
             // restoreGroupBox
             // 
             this.restoreGroupBox.Controls.Add(this.restoreCommandTextBox);
-            this.restoreGroupBox.Location = new System.Drawing.Point(12, 323);
+            this.restoreGroupBox.Location = new System.Drawing.Point(12, 211);
             this.restoreGroupBox.Name = "restoreGroupBox";
             this.restoreGroupBox.Size = new System.Drawing.Size(589, 108);
             this.restoreGroupBox.TabIndex = 3;
@@ -82,7 +79,7 @@
             // 
             // restoreCommandTextBox
             // 
-            this.restoreCommandTextBox.Location = new System.Drawing.Point(6, 19);
+            this.restoreCommandTextBox.Location = new System.Drawing.Point(9, 19);
             this.restoreCommandTextBox.Multiline = true;
             this.restoreCommandTextBox.Name = "restoreCommandTextBox";
             this.restoreCommandTextBox.Size = new System.Drawing.Size(577, 78);
@@ -139,25 +136,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // incrementalBackupGroupBox
-            // 
-            this.incrementalBackupGroupBox.Controls.Add(this.incrementalBackupCommandTextBox);
-            this.incrementalBackupGroupBox.Location = new System.Drawing.Point(12, 211);
-            this.incrementalBackupGroupBox.Name = "incrementalBackupGroupBox";
-            this.incrementalBackupGroupBox.Size = new System.Drawing.Size(589, 106);
-            this.incrementalBackupGroupBox.TabIndex = 2;
-            this.incrementalBackupGroupBox.TabStop = false;
-            this.incrementalBackupGroupBox.Text = "Inkrementális mentés parancs";
-            // 
-            // incrementalBackupCommandTextBox
-            // 
-            this.incrementalBackupCommandTextBox.Location = new System.Drawing.Point(9, 19);
-            this.incrementalBackupCommandTextBox.Multiline = true;
-            this.incrementalBackupCommandTextBox.Name = "incrementalBackupCommandTextBox";
-            this.incrementalBackupCommandTextBox.Size = new System.Drawing.Size(574, 77);
-            this.incrementalBackupCommandTextBox.TabIndex = 1;
-            this.incrementalBackupCommandTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxIncrementalBackupCommand_Validating);
-            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
@@ -184,10 +162,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 443);
+            this.ClientSize = new System.Drawing.Size(613, 331);
             this.Controls.Add(this.targetPlaceholderLabel);
             this.Controls.Add(this.sourcePlaceholderLabel);
-            this.Controls.Add(this.incrementalBackupGroupBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.restoreGroupBox);
             this.Controls.Add(this.backupGroupBox);
@@ -202,8 +179,6 @@
             this.restoreGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.incrementalBackupGroupBox.ResumeLayout(false);
-            this.incrementalBackupGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -221,8 +196,6 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox incrementalBackupGroupBox;
-        private System.Windows.Forms.TextBox incrementalBackupCommandTextBox;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label sourcePlaceholderLabel;
         private System.Windows.Forms.Label targetPlaceholderLabel;

@@ -33,7 +33,6 @@
             this.saveAsNameTextBox = new System.Windows.Forms.TextBox();
             this.saveAsNameLabel = new System.Windows.Forms.Label();
             this.newBackupSettingsButton = new System.Windows.Forms.Button();
-            this.incrementalCheckBox = new System.Windows.Forms.CheckBox();
             this.startBackupButton = new System.Windows.Forms.Button();
             this.noteTextBox = new System.Windows.Forms.TextBox();
             this.targetLabel = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@
             this.backupGroupBox.Controls.Add(this.saveAsNameTextBox);
             this.backupGroupBox.Controls.Add(this.saveAsNameLabel);
             this.backupGroupBox.Controls.Add(this.newBackupSettingsButton);
-            this.backupGroupBox.Controls.Add(this.incrementalCheckBox);
             this.backupGroupBox.Controls.Add(this.startBackupButton);
             this.backupGroupBox.Controls.Add(this.noteTextBox);
             this.backupGroupBox.Controls.Add(this.targetLabel);
@@ -116,17 +114,6 @@
             this.newBackupSettingsButton.Text = "Új beállítás";
             this.newBackupSettingsButton.UseVisualStyleBackColor = true;
             this.newBackupSettingsButton.Click += new System.EventHandler(this.newBackupSettingsButton_Click);
-            // 
-            // incrementalCheckBox
-            // 
-            this.incrementalCheckBox.AutoSize = true;
-            this.incrementalCheckBox.Location = new System.Drawing.Point(137, 72);
-            this.incrementalCheckBox.Name = "incrementalCheckBox";
-            this.incrementalCheckBox.Size = new System.Drawing.Size(125, 17);
-            this.incrementalCheckBox.TabIndex = 2;
-            this.incrementalCheckBox.Text = "Inkrementális mentés";
-            this.incrementalCheckBox.UseVisualStyleBackColor = true;
-            this.incrementalCheckBox.Click += new System.EventHandler(this.incrementalCheckBox_Click);
             // 
             // startBackupButton
             // 
@@ -226,7 +213,6 @@
             this.cliToolComboBox.Name = "cliToolComboBox";
             this.cliToolComboBox.Size = new System.Drawing.Size(308, 21);
             this.cliToolComboBox.TabIndex = 0;
-            this.cliToolComboBox.SelectedIndexChanged += new System.EventHandler(this.cliToolComboBox_SelectedIndexChanged);
             // 
             // sourceFolderBrowserDialog
             // 
@@ -296,7 +282,6 @@
         private System.Windows.Forms.Button browseTargetButton;
         private System.Windows.Forms.TextBox targetTextBox;
         private System.Windows.Forms.Button startBackupButton;
-        private System.Windows.Forms.CheckBox incrementalCheckBox;
         private System.Windows.Forms.FolderBrowserDialog sourceFolderBrowserDialog;
         private System.Windows.Forms.FolderBrowserDialog targetFolderBrowserDialog;
         private System.Windows.Forms.Button saveBackupSettingsButton;

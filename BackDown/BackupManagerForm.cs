@@ -25,21 +25,6 @@ namespace BackDown
             cliToolComboBox.DisplayMember = "Name";
         }
 
-        private void cliToolComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CliTool cliTool = cliToolComboBox.SelectedItem as CliTool;
-            if (cliTool == null)
-            {
-                incrementalCheckBox.Enabled = false;
-                incrementalCheckBox.Checked = false;
-            }
-            else
-            {
-                incrementalCheckBox.Enabled = cliTool.IncrementalBackupEnabled;
-                incrementalCheckBox.Checked &= cliTool.IncrementalBackupEnabled;
-            }
-        }
-
         private void browseSourceButton_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(sourceTextBox.Text))
@@ -90,7 +75,6 @@ namespace BackDown
             BackupSettings backupSettings = new BackupSettings();
             backupSettings.CliTool = cliToolComboBox.SelectedItem as CliTool;
             backupSettings.Name = saveAsNameTextBox.Text;
-            backupSettings.Incremental = incrementalCheckBox.Checked;
             backupSettings.Source = sourceTextBox.Text;
             backupSettings.Target = targetTextBox.Text;
             return backupSettings;
@@ -196,7 +180,6 @@ namespace BackDown
                 {
                     edit = true;
                     settings.CliTool = backupSettings.CliTool;
-                    settings.Incremental = backupSettings.Incremental;
                     settings.Source = backupSettings.Source;
                     settings.Target = backupSettings.Target;
                     break;
@@ -234,7 +217,6 @@ namespace BackDown
         private void newBackupSettingsButton_Click(object sender, EventArgs e)
         {
             cliToolComboBox.SelectedIndex = -1;
-            incrementalCheckBox.Checked = false;
             sourceTextBox.Text = "";
             targetTextBox.Text = "";
             noteTextBox.Text = "";
@@ -256,17 +238,11 @@ namespace BackDown
             saveAsNameLabel.ForeColor = Color.Green;
         }
 
-        private void incrementalCheckBox_Click(object sender, EventArgs e)
-        {
-            incrementalCheckBox.ForeColor = Color.Green;
-        }
-
         private void ResetLabelColors()
         {
             sourceLabel.ForeColor = SystemColors.ControlText;
             targetLabel.ForeColor = SystemColors.ControlText;
             saveAsNameLabel.ForeColor = SystemColors.ControlText;
-            incrementalCheckBox.ForeColor = SystemColors.ControlText;
             toolLabel.ForeColor = SystemColors.ControlText;
         }
 
@@ -280,7 +256,6 @@ namespace BackDown
             }
             deleteBackupSettingsButton.Enabled = true;
             cliToolComboBox.SelectedItem = settings.CliTool;
-            incrementalCheckBox.Checked = settings.Incremental;
             sourceTextBox.Text = settings.Source;
             targetTextBox.Text = settings.Target;
             saveAsNameTextBox.Text = settings.Name;

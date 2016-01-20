@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BackDown.Properties;
 
@@ -71,7 +64,6 @@ namespace BackDown
             backupsListBox.Items.Clear();
             sourceTextBox.Text = "";
             targetTextBox.Text = "";
-            incrementalCheckBox.Checked = false;
             cliToolNameTextBox.Text = "";
             restoreFolderTextBox.Text = "";
         }
@@ -112,7 +104,6 @@ namespace BackDown
             cliToolNameTextBox.Text = settings.CliToolName;
             sourceTextBox.Text = settings.Source;
             targetTextBox.Text = settings.Target;
-            incrementalCheckBox.Checked = settings.Incremental;
             restoreFolderTextBox.Text = sourceTextBox.Text;
         }
 

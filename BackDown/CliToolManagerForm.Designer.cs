@@ -32,13 +32,12 @@
             this.cliToolsGroupBox = new System.Windows.Forms.GroupBox();
             this.importButton = new System.Windows.Forms.Button();
             this.cliToolsDataGridView = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cliToolsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliToolsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cliToolsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cliToolsBindingSource)).BeginInit();
@@ -76,8 +75,7 @@
             this.cliToolsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cliToolsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cliToolsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn});
+            this.nameDataGridViewTextBoxColumn});
             this.cliToolsDataGridView.DataSource = this.cliToolsBindingSource;
             this.cliToolsDataGridView.Location = new System.Drawing.Point(6, 49);
             this.cliToolsDataGridView.Name = "cliToolsDataGridView";
@@ -87,22 +85,6 @@
             this.cliToolsDataGridView.TabIndex = 4;
             this.cliToolsDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cliToolsDataGridView_RowEnter);
             this.cliToolsDataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.cliToolsDataGridView_RowsRemoved);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 52;
-            // 
-            // incrementalBackupEnabledDataGridViewCheckBoxColumn
-            // 
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.DataPropertyName = "IncrementalBackupEnabled";
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.HeaderText = "Inkrementális";
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.Name = "incrementalBackupEnabledDataGridViewCheckBoxColumn";
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.incrementalBackupEnabledDataGridViewCheckBoxColumn.Width = 75;
             // 
             // cliToolsBindingSource
             // 
@@ -140,6 +122,14 @@
             this.newButton.UseVisualStyleBackColor = true;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 52;
+            // 
             // CliToolManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,9 +156,8 @@
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.DataGridView cliToolsDataGridView;
         private System.Windows.Forms.BindingSource cliToolsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn incrementalBackupEnabledDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button importButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
 }

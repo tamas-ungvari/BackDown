@@ -143,9 +143,7 @@ namespace BackDown
 
         public string GetBackupFolder(BackupSettings settings)
         {
-            string targetFolder = settings.Incremental
-                ? String.Format("{0}\\{1}", settings.Target, settings.Name) :
-                String.Format("{0}\\{1}_{2}", settings.Target, settings.Name, startedAt.ToString("yyyy-MM-dd_HHmmss"));
+            string targetFolder = String.Format("{0}\\{1}_{2}", settings.Target, settings.Name, startedAt.ToString("yyyy-MM-dd_HHmmss"));
             return targetFolder;
         }
 

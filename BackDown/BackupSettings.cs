@@ -19,9 +19,6 @@ namespace BackDown
         [DataMember]
         public string Target { get; set; }
 
-        [DataMember]
-        public bool Incremental { get; set; }
-
         public CliTool CliTool { get; set; }
 
         [DataMember]
