@@ -152,7 +152,10 @@ namespace BackDown
         private void restoreFolderTextBox_Enter(object sender, EventArgs e)
         {
             restoreFolderBrowserDialog.SelectedPath = restoreFolderTextBox.Text;
-            restoreFolderBrowserDialog.ShowDialog(this);
+            if (DialogResult.OK == restoreFolderBrowserDialog.ShowDialog(this))
+            {
+                restoreFolderTextBox.Text = restoreFolderBrowserDialog.SelectedPath;
+            }
         }
     }
 }
