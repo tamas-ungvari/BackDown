@@ -172,6 +172,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CliToolForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Új Parancssori Eszköz";
             this.backupGroupBox.ResumeLayout(false);
             this.backupGroupBox.PerformLayout();

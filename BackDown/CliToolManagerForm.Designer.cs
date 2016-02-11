@@ -32,12 +32,12 @@
             this.cliToolsGroupBox = new System.Windows.Forms.GroupBox();
             this.importButton = new System.Windows.Forms.Button();
             this.cliToolsDataGridView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliToolsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliToolsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cliToolsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cliToolsBindingSource)).BeginInit();
@@ -86,6 +86,14 @@
             this.cliToolsDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cliToolsDataGridView_RowEnter);
             this.cliToolsDataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.cliToolsDataGridView_RowsRemoved);
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 52;
+            // 
             // cliToolsBindingSource
             // 
             this.cliToolsBindingSource.DataSource = typeof(BackDown.CliTool);
@@ -122,14 +130,6 @@
             this.newButton.UseVisualStyleBackColor = true;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Név";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 52;
-            // 
             // CliToolManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,6 +140,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CliToolManagerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parancssori eszközök kezelése";
             this.cliToolsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cliToolsDataGridView)).EndInit();

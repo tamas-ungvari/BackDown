@@ -288,6 +288,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "JournalAndRecoverForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Napló és Helyreállítás";
             this.findBackupsGroupBox.ResumeLayout(false);
             this.backupsGroupBox.ResumeLayout(false);

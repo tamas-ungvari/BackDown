@@ -201,6 +201,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BackupForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mentési folyamat";
             this.Load += new System.EventHandler(this.BackupForm_Load);
             this.ResumeLayout(false);

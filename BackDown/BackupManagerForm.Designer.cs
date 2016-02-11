@@ -47,8 +47,8 @@
             this.sourceFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.targetFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.backupSettingsPicker = new BackDown.BackupSettingsPicker();
             this.deleteBackupSettingsButton = new System.Windows.Forms.Button();
+            this.backupSettingsPicker = new BackDown.BackupSettingsPicker();
             this.backupGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -229,13 +229,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tárolt beállítások";
             // 
-            // backupSettingsPicker
-            // 
-            this.backupSettingsPicker.Location = new System.Drawing.Point(6, 48);
-            this.backupSettingsPicker.Name = "backupSettingsPicker";
-            this.backupSettingsPicker.Size = new System.Drawing.Size(735, 230);
-            this.backupSettingsPicker.TabIndex = 4;
-            // 
             // deleteBackupSettingsButton
             // 
             this.deleteBackupSettingsButton.Enabled = false;
@@ -246,6 +239,13 @@
             this.deleteBackupSettingsButton.Text = "Töröl";
             this.deleteBackupSettingsButton.UseVisualStyleBackColor = true;
             this.deleteBackupSettingsButton.Click += new System.EventHandler(this.deleteBackupSettingsButton_Click);
+            // 
+            // backupSettingsPicker
+            // 
+            this.backupSettingsPicker.Location = new System.Drawing.Point(6, 48);
+            this.backupSettingsPicker.Name = "backupSettingsPicker";
+            this.backupSettingsPicker.Size = new System.Drawing.Size(735, 230);
+            this.backupSettingsPicker.TabIndex = 4;
             // 
             // BackupManagerForm
             // 
@@ -258,6 +258,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BackupManagerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mentések kezelése";
             this.backupGroupBox.ResumeLayout(false);
             this.backupGroupBox.PerformLayout();

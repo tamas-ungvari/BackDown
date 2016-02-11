@@ -70,6 +70,7 @@
             this.Controls.Add(this.nameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NewNameForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Új eszköznév";
             this.ResumeLayout(false);
             this.PerformLayout();

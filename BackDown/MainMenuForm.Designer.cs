@@ -75,6 +75,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainMenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BackDown";
             this.ResumeLayout(false);
 
